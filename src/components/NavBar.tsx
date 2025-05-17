@@ -28,7 +28,7 @@ const NavBar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="/" className="text-2xl md:text-3xl font-serif font-bold text-saree-purple">
+          <a href="/" className="text-2xl md:text-3xl font-serif font-bold text-saree-teal">
             Elegant<span className="text-saree-gold">Sarees</span>
           </a>
 
@@ -43,20 +43,20 @@ const NavBar = () => {
 
           {/* Desktop Right Icons */}
           <div className="hidden md:flex items-center space-x-6">
-            <button className="hover:text-saree-purple transition-colors" aria-label="Search">
+            <button className="hover:text-saree-teal transition-colors" aria-label="Search">
               <Search size={20} />
             </button>
-            <button className="hover:text-saree-purple transition-colors" aria-label="Account">
+            <button className="hover:text-saree-teal transition-colors" aria-label="Account">
               <User size={20} />
             </button>
-            <button className="hover:text-saree-purple transition-colors relative" aria-label="Cart">
+            <button className="hover:text-saree-teal transition-colors relative" aria-label="Cart">
               <ShoppingCart size={20} />
               <span className="absolute -top-2 -right-2 bg-saree-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-gray-800 hover:text-saree-purple" onClick={toggleMobileMenu} aria-label="Menu">
+          <button className="md:hidden text-gray-800 hover:text-saree-teal" onClick={toggleMobileMenu} aria-label="Menu">
             <Menu size={24} />
           </button>
         </div>
@@ -71,13 +71,13 @@ const NavBar = () => {
             <a href="#contact" className="block py-2 font-medium">Contact</a>
             
             <div className="flex items-center space-x-6 pt-2">
-              <button className="hover:text-saree-purple transition-colors" aria-label="Search">
+              <button className="hover:text-saree-teal transition-colors" aria-label="Search">
                 <Search size={20} />
               </button>
-              <button className="hover:text-saree-purple transition-colors" aria-label="Account">
+              <button className="hover:text-saree-teal transition-colors" aria-label="Account">
                 <User size={20} />
               </button>
-              <button className="hover:text-saree-purple transition-colors relative" aria-label="Cart">
+              <button className="hover:text-saree-teal transition-colors relative" aria-label="Cart">
                 <ShoppingCart size={20} />
                 <span className="absolute -top-2 -right-2 bg-saree-orange text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
               </button>

@@ -17,7 +17,7 @@ const CallToAction = () => {
         </p>
         <a
           href="#"
-          className="inline-block bg-saree-purple hover:bg-saree-deep-purple text-white font-medium px-8 py-3 rounded-md transition-colors duration-300"
+          className="inline-block bg-saree-teal hover:bg-saree-deep-teal text-white font-medium px-8 py-3 rounded-md transition-colors duration-300"
         >
           Shop the Collection
         </a>

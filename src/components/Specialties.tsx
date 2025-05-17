@@ -4,17 +4,17 @@ import { ShieldCheck, Truck, ArrowRight, Package } from 'lucide-react';
 const Specialties = () => {
   const specialties = [
     {
-      icon: <ShieldCheck className="w-12 h-12 text-saree-purple" />,
+      icon: <ShieldCheck className="w-12 h-12 text-saree-teal" />,
       title: "Quality Assurance",
       description: "Every saree is handpicked for quality and authenticity, ensuring you receive only the finest craftsmanship."
     },
     {
-      icon: <Truck className="w-12 h-12 text-saree-purple" />,
+      icon: <Truck className="w-12 h-12 text-saree-teal" />,
       title: "Free Shipping",
       description: "Enjoy free shipping on all orders above ₹5000 with secure packaging to ensure your saree arrives in perfect condition."
     },
     {
-      icon: <Package className="w-12 h-12 text-saree-purple" />,
+      icon: <Package className="w-12 h-12 text-saree-teal" />,
       title: "Easy Returns",
       description: "Not satisfied with your purchase? Return within 7 days for a full refund or exchange with our hassle-free policy."
     }
@@ -34,7 +34,7 @@ const Specialties = () => {
               </div>
               <h3 className="text-xl font-serif font-bold mb-3">{specialty.title}</h3>
               <p className="text-gray-600 mb-4">{specialty.description}</p>
-              <a href="#" className="inline-flex items-center text-saree-purple hover:text-saree-deep-purple font-medium underline-animation">
+              <a href="#" className="inline-flex items-center text-saree-teal hover:text-saree-deep-teal font-medium underline-animation">
                 Learn More <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>

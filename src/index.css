@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262 84% 75%;
+    --primary: 199 84% 55%;
     --primary-foreground: 355 100% 100%;
 
     --secondary: 240 4.8% 95.9%;
@@ -23,15 +23,15 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 348 100% 94%;
-    --accent-foreground: 262 84% 60%;
+    --accent: 199 84% 95%;
+    --accent-foreground: 199 84% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 262 84% 75%;
+    --ring: 199 84% 55%;
 
     --radius: 0.5rem;
 
@@ -55,7 +55,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 262 84% 75%;
+    --primary: 199 84% 55%;
     --primary-foreground: 355 100% 100%;
 
     --secondary: 240 3.7% 15.9%;
@@ -72,7 +72,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 262 84% 75%;
+    --ring: 199 84% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -108,7 +108,7 @@
   
   .underline-animation::after {
     content: '';
-    @apply absolute w-full h-0.5 bg-saree-purple bottom-0 left-0 scale-x-0 origin-bottom-right transition-transform duration-300;
+    @apply absolute w-full h-0.5 bg-saree-teal bottom-0 left-0 scale-x-0 origin-bottom-right transition-transform duration-300;
   }
   
   .underline-animation:hover::after {
