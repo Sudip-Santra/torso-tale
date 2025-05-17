@@ -64,9 +64,9 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				saree: {
-					teal: '#0EA5E9',
-					'deep-teal': '#0284C7',
-					'light-teal': '#38BDF8',
+					teal: '#38BDF8',        // Light teal (updated)
+					'deep-teal': '#0EA5E9', // Medium teal
+					'light-teal': '#BAE6FD', // Very light teal (updated)
 					pink: '#FFDEE2',
 					peach: '#FDE1D3',
 					orange: '#F97316',
@@ -110,12 +110,21 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.7s ease-out'
+				'fade-in': 'fade-in 0.7s ease-out',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},

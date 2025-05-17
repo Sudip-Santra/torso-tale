@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 199 84% 55%;
+    --primary: 199 84% 60%;    /* Adjusted for light teal */
     --primary-foreground: 355 100% 100%;
 
     --secondary: 240 4.8% 95.9%;
@@ -116,10 +116,39 @@
   }
   
   .hover-scale {
-    @apply transition-transform duration-200;
+    @apply transition-transform duration-300;
   }
   
   .hover-scale:hover {
-    @apply scale-105;
+    @apply scale-105 shadow-lg;
+  }
+
+  .glossy-card {
+    @apply bg-white bg-opacity-80 backdrop-filter backdrop-blur-md border border-white border-opacity-20 shadow-lg;
+  }
+  
+  .image-hover-zoom img {
+    @apply transition-transform duration-700;
+  }
+  
+  .image-hover-zoom:hover img {
+    @apply scale-110;
+  }
+
+  .btn-teal {
+    @apply bg-saree-teal hover:bg-saree-deep-teal text-white font-medium px-8 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline-teal {
+    @apply bg-transparent hover:bg-saree-teal text-saree-teal hover:text-white border border-saree-teal font-medium px-8 py-3 rounded-md transition-colors duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl font-serif font-bold mb-4 relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply block w-24 h-1 bg-saree-teal mx-auto mt-4;
   }
 }
