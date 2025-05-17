@@ -1,8 +1,10 @@
 
 import { useState, useEffect } from "react";
+import { ChevronRight, ShoppingBag } from "lucide-react";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [animating, setAnimating] = useState(false);
   
   const slides = [
     {
@@ -27,14 +29,21 @@ const Hero = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+      changeSlide((currentSlide + 1) % slides.length);
     }, 5000);
     
     return () => clearInterval(interval);
-  }, [slides.length]);
+  }, [currentSlide, slides.length]);
 
-  const goToSlide = (index: number) => {
+  const changeSlide = (index: number) => {
+    if (animating) return;
+    
+    setAnimating(true);
     setCurrentSlide(index);
+    
+    setTimeout(() => {
+      setAnimating(false);
+    }, 700);
   };
 
   return (
@@ -53,32 +62,46 @@ const Hero = () => {
         >
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="container mx-auto px-4 text-center text-white">
-              <h2 className="text-xl md:text-3xl mb-2 font-light animate-fade-in">{slide.subtitle}</h2>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 animate-fade-in">
-                {slide.title}
-              </h1>
-              <p className="max-w-lg mx-auto text-base md:text-xl mb-8 animate-fade-in">
-                {slide.description}
-              </p>
-              <a
-                href="#collections"
-                className="inline-block bg-saree-purple hover:bg-saree-deep-purple text-white font-medium px-8 py-3 rounded-md transition-colors duration-300 animate-fade-in"
-              >
-                Explore Collection
-              </a>
+              <div className={`transition-all duration-700 delay-300 transform ${
+                currentSlide === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}>
+                <h2 className="text-xl md:text-3xl mb-2 font-light">{slide.subtitle}</h2>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6">
+                  {slide.title}
+                </h1>
+                <p className="max-w-lg mx-auto text-base md:text-xl mb-8">
+                  {slide.description}
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                    href="#collections"
+                    className="group relative inline-flex items-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium px-8 py-3 rounded-md transition-colors duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <span>Explore Collection</span>
+                    <ChevronRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  <a
+                    href="#new-arrivals"
+                    className="group relative inline-flex items-center bg-transparent hover:bg-white/20 text-white border border-white font-medium px-8 py-3 rounded-md transition-colors duration-300"
+                  >
+                    <ShoppingBag className="mr-2 w-5 h-5" />
+                    <span>Shop Now</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       ))}
 
-      {/* Slide Indicators */}
+      {/* Slide Indicators with enhanced styling */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-              currentSlide === index ? "bg-white" : "bg-white/50"
+            onClick={() => changeSlide(index)}
+            className={`w-12 h-1 rounded-full transition-all duration-300 ${
+              currentSlide === index ? "bg-white w-20" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

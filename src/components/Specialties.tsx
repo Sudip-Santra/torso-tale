@@ -1,5 +1,5 @@
 
-import { ShieldCheck, Truck, ArrowRight, Package, Image } from 'lucide-react';
+import { ShieldCheck, Truck, ArrowRight, Package, Star } from 'lucide-react';
 
 const Specialties = () => {
   const specialties = [
@@ -21,10 +21,12 @@ const Specialties = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-saree-light-teal/20">
+    <section className="py-24 bg-gradient-to-b from-white to-saree-light-teal/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Why Choose Us</h2>
+          <span className="inline-block px-4 py-1 bg-saree-light-teal text-saree-deep-teal rounded-full text-sm font-medium mb-4">Our Promises</span>
+          <h2 className="text-4xl font-serif font-bold mb-4">Why Choose Us</h2>
+          <div className="w-24 h-1 bg-saree-deep-teal mx-auto mb-6 rounded-full"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-6">
             We pride ourselves on providing exceptional service and products to our customers
           </p>
@@ -34,11 +36,12 @@ const Specialties = () => {
           {specialties.map((specialty, index) => (
             <div 
               key={index} 
-              className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-saree-light-teal/30 text-center hover-scale"
+              className="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 border border-saree-light-teal/30 text-center hover-scale group"
             >
               <div className="flex justify-center mb-6 relative">
-                {specialty.icon}
-                <span className="absolute -bottom-3 w-12 h-1 bg-saree-light-teal rounded-full"></span>
+                <div className="p-3 rounded-full bg-saree-light-teal/20 group-hover:bg-saree-light-teal/40 transition-colors duration-300">
+                  {specialty.icon}
+                </div>
               </div>
               <h3 className="text-xl font-serif font-bold mb-4 text-gray-800">{specialty.title}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{specialty.description}</p>
@@ -50,8 +53,9 @@ const Specialties = () => {
         </div>
         
         <div className="mt-16 text-center">
-          <a href="#" className="btn-outline-teal inline-flex items-center">
-            View All Features <Image className="w-4 h-4 ml-2" />
+          <a href="#" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-saree-teal text-saree-teal hover:text-white border border-saree-teal rounded-md transition-colors duration-300 overflow-hidden">
+            <span className="absolute inset-0 w-0 bg-saree-teal transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10 flex items-center">View All Features <Star className="w-4 h-4 ml-2" /></span>
           </a>
         </div>
       </div>
