@@ -1,91 +1,187 @@
-
 import { useEffect, useRef } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const Categories = () => {
   const categories = [
     {
       title: "Silk Sarees",
-      image: "https://images.unsplash.com/photo-1610189020454-1d1ebdcc6721?q=80&w=1887&auto=format",
+      image: "/assets/saree4.jpg",
       description: "Luxurious silk sarees for every occasion"
     },
     {
       title: "Cotton Sarees",
-      image: "https://images.unsplash.com/photo-1616112733209-31564103c03f?q=80&w=1887&auto=format",
+      image: "/assets/saree6.jpg",
       description: "Comfort meets elegance in our cotton collection"
     },
     {
       title: "Wedding Collection",
-      image: "https://images.unsplash.com/photo-1609096458733-95b38583ac4e?q=80&w=1935&auto=format",
+      image: "/assets/saree8.jpg",
       description: "Make your special day unforgettable"
     },
     {
       title: "Designer Sarees",
-      image: "https://images.unsplash.com/photo-1610508528977-88c4c694c3d9?q=80&w=1887&auto=format",
+      image: "/assets/saree9.jpg",
       description: "Contemporary designs with traditional roots"
     }
   ];
 
   const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const controls = useAnimation();
   
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100');
-            entry.target.classList.remove('opacity-0', 'translate-y-10');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    if (isInView) {
+      controls.start('visible');
+    }
+  }, [isInView, controls]);
 
-    const categoryElements = document.querySelectorAll('.category-item');
-    categoryElements.forEach((el) => observer.observe(el));
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-    return () => {
-      categoryElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
 
   return (
-    <section ref={sectionRef} id="collections" className="py-20 bg-white">
+    <section 
+      ref={sectionRef} 
+      id="collections" 
+      className="py-24 bg-gradient-to-b from-white to-saree-teal/5"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold mb-4">Our Collections</h2>
-          <div className="w-24 h-1 bg-saree-purple mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.span 
+            className="inline-block text-saree-teal font-medium mb-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            Discover Our Range
+          </motion.span>
+          <motion.h2 
+            className="text-4xl font-sans font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Our Collections
+          </motion.h2>
+          <motion.div 
+            className="w-24 h-1 bg-saree-teal mx-auto mb-6"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 96 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          />
+          <motion.p 
+            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             Explore our curated collections of exquisite sarees, handpicked for their quality, design and craftsmanship
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+        >
           {categories.map((category, index) => (
-            <div 
-              key={index} 
-              className="category-item group relative overflow-hidden rounded-lg shadow-lg transition-all duration-500 opacity-0 translate-y-10"
-              style={{ transitionDelay: `${index * 100}ms` }}
+            <motion.div 
+              key={index}
+              variants={itemVariants}
+              className="flex"
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              <div className="aspect-w-3 aspect-h-4 w-full">
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl md:text-2xl font-serif font-bold mb-2">{category.title}</h3>
-                <p className="text-sm md:text-base opacity-90 mb-4">{category.description}</p>
-                <a
-                  href="#"
-                  className="inline-block bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white text-sm border border-white/30 px-4 py-2 rounded transition-colors duration-300"
-                >
-                  Explore Collection
-                </a>
-              </div>
-            </div>
+              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col w-full">
+                <div className="relative w-full h-[400px] overflow-hidden">
+                  <motion.img
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.6 }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                    <h3 className="text-xl md:text-2xl font-calligraphy font-bold mb-2">{category.title}</h3>
+                    <p className="text-sm md:text-base opacity-90 mb-4">{category.description}</p>
+                    
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30 w-full group"
+                    >
+                      <span className="font-medium">Explore Collection</span>
+                      <motion.span
+                        className="ml-2 inline-block"
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <ArrowRight size={16} />
+                      </motion.span>
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+        
+        {/* Decorative elements */}
+        <motion.div 
+          className="absolute -bottom-10 left-10 w-32 h-32 rounded-full bg-saree-teal/5 hidden lg:block"
+          animate={{ 
+            y: [0, 15, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ 
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        
+        <motion.div 
+          className="absolute top-20 right-10 w-24 h-24 rounded-full bg-saree-gold/5 hidden lg:block"
+          animate={{ 
+            y: [0, -15, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{ 
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
       </div>
     </section>
   );

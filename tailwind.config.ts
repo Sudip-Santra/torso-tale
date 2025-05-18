@@ -1,5 +1,5 @@
-
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -72,6 +72,7 @@ export default {
     				orange: '#F97316',
     				gold: '#D4AF37',
     				cream: '#FFF8E1',
+    				'off-white': '#F8F8F0',
     				gray: '#8E9196'
     			},
     			chart: {
@@ -84,12 +85,24 @@ export default {
     		},
     		fontFamily: {
     			serif: [
-    				'Cormorant Garamond',
-    				'serif'
+    				'Inter',
+    				'sans-serif'
     			],
     			sans: [
-    				'Raleway',
+    				'Inter',
     				'sans-serif'
+    			],
+    			display: [
+    				'Inter',
+    				'sans-serif'
+    			],
+    			handwriting: [
+    				'Dancing Script',
+    				'cursive'
+    			],
+    			calligraphy: [
+    				'Playfair Display',
+    				'serif'
     			]
     		},
     		borderRadius: {
@@ -141,5 +154,5 @@ export default {
     		}
     	}
     },
-	plugins: [require("tailwindcss-animate")],
+	plugins: [animate],
 } satisfies Config;

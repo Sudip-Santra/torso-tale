@@ -1,4 +1,3 @@
-
 import { useRef, useEffect } from 'react';
 import ProductCard from './ProductCard';
 
@@ -9,7 +8,7 @@ const NewArrivals = () => {
       name: "Banarasi Silk Saree with Gold Zari",
       price: 15999,
       originalPrice: 19999,
-      image: "https://images.unsplash.com/photo-1610508511988-7614aa239272?q=80&w=1887&auto=format",
+      image: "/assets/saree10.jpg",
       category: "Silk",
       isNew: true
     },
@@ -18,7 +17,7 @@ const NewArrivals = () => {
       name: "Kanjivaram Pure Silk Saree",
       price: 22500,
       originalPrice: 27999,
-      image: "https://images.unsplash.com/photo-1628595351029-c2bf17511435?q=80&w=1976&auto=format",
+      image: "/assets/saree11.jpg",
       category: "Wedding Collection",
       isNew: true
     },
@@ -27,7 +26,7 @@ const NewArrivals = () => {
       name: "Chanderi Cotton Silk Saree",
       price: 4999,
       originalPrice: 5999,
-      image: "https://images.unsplash.com/photo-1610508515468-5d478afe175e?q=80&w=1887&auto=format",
+      image: "/assets/saree13.jpg",
       category: "Cotton Silk",
       isNew: true
     },
@@ -35,7 +34,7 @@ const NewArrivals = () => {
       id: 4,
       name: "Designer Georgette Printed Saree",
       price: 3299,
-      image: "https://images.unsplash.com/photo-1614868138307-c739bc962d19?q=80&w=1887&auto=format",
+      image: "/assets/saree14.jpg",
       category: "Designer",
       isNew: true
     }
