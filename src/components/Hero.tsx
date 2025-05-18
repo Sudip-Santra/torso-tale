@@ -35,7 +35,7 @@ const Hero = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     
     intervalRef.current = setInterval(() => {
-      changeSlide((currentSlide + 1) % slides.length);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);
   };
 
@@ -44,7 +44,7 @@ const Hero = () => {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [currentSlide, slides.length]);
+  }, []);// Empty dependency array to only run once on mount
 
   const changeSlide = (index: number) => {
     if (animating) return;

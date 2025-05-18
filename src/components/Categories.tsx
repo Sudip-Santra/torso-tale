@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -76,7 +76,7 @@ const Categories = () => {
           transition={{ duration: 0.7 }}
         >
           <motion.span 
-            className="inline-block text-saree-teal font-medium mb-2"
+            className="inline-block px-4 py-1 bg-saree-light-teal text-saree-teal rounded-full text-sm font-medium mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -84,7 +84,7 @@ const Categories = () => {
             Discover Our Range
           </motion.span>
           <motion.h2 
-            className="text-4xl font-sans font-bold mb-4"
+            className="text-4xl font-serif font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -92,13 +92,13 @@ const Categories = () => {
             Our Collections
           </motion.h2>
           <motion.div 
-            className="w-24 h-1 bg-saree-teal mx-auto mb-6"
+            className="w-24 h-1 bg-saree-teal mx-auto mb-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           />
           <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-gray-600 max-w-2xl mx-auto mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -121,7 +121,7 @@ const Categories = () => {
               whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
               <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col w-full">
-                <div className="relative w-full h-[400px] overflow-hidden">
+                <div className="relative w-full h-[500px] overflow-hidden">
                   <motion.img
                     src={category.image}
                     alt={category.title}
@@ -154,6 +154,18 @@ const Categories = () => {
             </motion.div>
           ))}
         </motion.div>
+        
+        <motion.div
+                  className="mt-16 text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.7, delay: 0.8 }}
+                >
+                  <a href="#" className="mt-10 group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#0EA5E9] text-[#0EA5E9] hover:text-white border border-[#0EA5E9] rounded-md transition-colors duration-300 overflow-hidden">
+                    <span className="absolute inset-0 w-0 bg-[#0EA5E9] transition-all duration-300 group-hover:w-full"></span>
+                    <span className="relative z-10 flex items-center font-montserrat">View All Collections <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" /></span>
+                  </a>
+                </motion.div>
         
         {/* Decorative elements */}
         <motion.div 

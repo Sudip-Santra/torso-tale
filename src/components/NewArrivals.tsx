@@ -1,4 +1,6 @@
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import ProductCard from './ProductCard';
 
 const NewArrivals = () => {
@@ -41,59 +43,143 @@ const NewArrivals = () => {
   ];
 
   const sectionRef = useRef<HTMLElement>(null);
-  
+  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const controls = useAnimation();
+
+  // Start animation when section comes into view
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('opacity-100');
-            entry.target.classList.remove('opacity-0', 'translate-y-10');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    if (isInView) {
+      controls.start('visible');
+    }
+  }, [isInView, controls]);
 
-    const productElements = document.querySelectorAll('.product-item');
-    productElements.forEach((el) => observer.observe(el));
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
 
-    return () => {
-      productElements.forEach((el) => observer.unobserve(el));
-    };
-  }, []);
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 12
+      }
+    }
+  };
 
   return (
-    <section ref={sectionRef} id="new-arrivals" className="py-20 bg-gray-50">
+    <section
+      ref={sectionRef}
+      id="new-arrivals"
+      className="py-24 bg-gradient-to-b from-white to-saree-purple/5"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-serif font-bold mb-4">New Arrivals</h2>
-          <div className="w-24 h-1 bg-saree-purple mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Our latest collection of handpicked sarees, fresh from the looms of India's finest artisans
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {products.map((product, index) => (
-            <div 
-              key={product.id} 
-              className="product-item opacity-0 translate-y-10 transition-all duration-500"
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              <ProductCard {...product} />
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a
-            href="#"
-            className="inline-block bg-transparent hover:bg-saree-purple text-saree-purple hover:text-white border border-saree-purple font-medium px-8 py-3 rounded-md transition-colors duration-300"
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.span
+            className="inline-block px-4 py-1 bg-[#38BDF8]/10 text-[#0EA5E9] rounded-full text-sm font-medium mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            View All Collections
+            Fresh From The Loom
+          </motion.span>
+          <motion.h2
+            className="text-4xl font-serif font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            New Arrivals
+          </motion.h2>
+          <motion.div
+            className="w-24 h-1 bg-[#0EA5E9] mx-auto mb-6 rounded-full"
+            initial={{ width: 0 }}
+            animate={isInView ? { width: 96 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          />
+          <motion.p
+            className="text-lg text-gray-600 max-w-2xl mx-auto mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            Our latest collection of handpicked sarees, fresh from the looms of India's finest artisans
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+        >
+          {products.map((product, index) => (
+            <motion.div
+              key={product.id}
+              variants={itemVariants}
+              className="flex h-[500px]"
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            >
+              <div className="h-full w-full flex flex-col justify-end">
+                <ProductCard {...product} />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.8 }}
+        >
+          <a href="#" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#0EA5E9] text-[#0EA5E9] hover:text-white border border-[#0EA5E9] rounded-md transition-colors duration-300 overflow-hidden">
+            <span className="absolute inset-0 w-0 bg-[#0EA5E9] transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10 flex items-center font-montserrat">View All Collections <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" /></span>
           </a>
-        </div>
+        </motion.div>
+
+        {/* Decorative elements */}
+        <motion.div
+          className="absolute -bottom-10 left-10 w-32 h-32 rounded-full bg-saree-purple/5 hidden lg:block"
+          animate={{
+            y: [0, 15, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+
+        <motion.div
+          className="absolute top-20 right-10 w-24 h-24 rounded-full bg-saree-gold/5 hidden lg:block"
+          animate={{
+            y: [0, -15, 0],
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
       </div>
     </section>
   );

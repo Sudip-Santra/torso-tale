@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ShoppingCart, Heart } from 'lucide-react';
 
@@ -17,8 +16,8 @@ const ProductCard = ({ id, name, price, originalPrice, image, category, isNew = 
   const discount = originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : 0;
   
   return (
-    <div className="group relative overflow-hidden rounded-lg transition-all duration-300 hover-scale">
-      <div className="aspect-w-3 aspect-h-4 bg-gray-100 overflow-hidden">
+    <div className="group relative overflow-hidden rounded-lg transition-all duration-300 hover-scale h-full flex flex-col">
+      <div className="flex-grow relative bg-gray-100 overflow-hidden">
         <img 
           src={image} 
           alt={name} 
@@ -36,7 +35,7 @@ const ProductCard = ({ id, name, price, originalPrice, image, category, isNew = 
         )}
       </div>
       
-      <div className="mt-4 px-1">
+      <div className="mt-auto px-1 pt-4">
         <div className="text-xs text-gray-500 mb-1">{category}</div>
         <h3 className="text-base font-medium mb-1 truncate">{name}</h3>
         <div className="flex items-center">
