@@ -1,4 +1,5 @@
 import { Image } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   return (
@@ -31,21 +32,21 @@ const CallToAction = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#"
+            <Link
+              to="/collections"
               className="group relative bg-saree-teal hover:bg-saree-deep-teal text-saree-off-white font-medium px-8 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-lg overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-saree-off-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               <span className="relative z-10">Shop the Collection</span>
-            </a>
+            </Link>
             
-            <a
-              href="#"
+            <Link
+              to="/about"
               className="group relative bg-transparent hover:bg-saree-off-white/20 text-saree-off-white border border-saree-off-white/50 font-medium px-8 py-3 rounded-md transition-all duration-300 overflow-hidden"
             >
               <span className="absolute inset-0 w-0 bg-saree-off-white/10 transition-all duration-300 group-hover:w-full"></span>
               <span className="relative z-10">Learn More</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

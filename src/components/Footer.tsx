@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8">
@@ -41,19 +43,16 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Home</a>
+                <Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">About Us</a>
+                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Collections</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Collections</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">New Arrivals</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Contact Us</a>
+                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -63,19 +62,25 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Silk Sarees</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Cotton Sarees</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen Tissue</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Wedding Collection</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Mulmul</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Designer Sarees</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Raaga Tissue</Link>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">Party Wear</a>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Khadi</Link>
+              </li>
+              <li>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Kantha Stitch</Link>
+              </li>
+              <li>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Handpainted</Link>
               </li>
             </ul>
           </div>

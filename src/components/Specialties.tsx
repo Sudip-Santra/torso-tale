@@ -1,5 +1,5 @@
-
 import { ShieldCheck, Truck, ArrowRight, Package, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Specialties = () => {
   const specialties = [
@@ -45,18 +45,18 @@ const Specialties = () => {
               </div>
               <h3 className="text-xl font-serif font-bold mb-4 text-gray-800">{specialty.title}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">{specialty.description}</p>
-              <a href="#" className="inline-flex items-center text-saree-teal hover:text-saree-deep-teal font-medium underline-animation group">
+              <Link to="/about" className="inline-flex items-center text-saree-teal hover:text-saree-deep-teal font-medium underline-animation group">
                 Learn More <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           ))}
         </div>
         
         <div className="mt-16 text-center">
-          <a href="#" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-saree-teal text-saree-teal hover:text-white border border-saree-teal rounded-md transition-colors duration-300 overflow-hidden">
+          <Link to="/about" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-saree-teal text-saree-teal hover:text-white border border-saree-teal rounded-md transition-colors duration-300 overflow-hidden">
             <span className="absolute inset-0 w-0 bg-saree-teal transition-all duration-300 group-hover:w-full"></span>
-            <span className="relative z-10 flex items-center">View All Features <Star className="w-4 h-4 ml-2" /></span>
-          </a>
+            <span className="relative z-10 flex items-center">Know More <Star className="w-4 h-4 ml-2" /></span>
+          </Link>
         </div>
       </div>
     </section>

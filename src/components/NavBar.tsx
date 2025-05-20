@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ShoppingCart, User, Menu, Search, X } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   NavigationMenu,
@@ -12,12 +12,11 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +33,9 @@ const NavBar = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#collections", label: "Collections" },
-    { href: "#new-arrivals", label: "New Arrivals" },
-    { href: "#about", label: "About Us" },
-    { href: "#contact", label: "Contact" },
+    { href: "/collections", label: "Collections" },
+    { href: "/about", label: "About Us" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -68,57 +66,52 @@ const NavBar = () => {
           <div className="hidden md:flex items-center">
             <nav className="flex space-x-8">
               {navLinks.map((link, index) => (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  className="font-medium tracking-wide relative group text-foreground hover:text-saree-deep-teal transition-colors"
-                  whileHover={{ y: -2 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </motion.a>
+                <motion.div key={index}>
+                  {link.href.startsWith('/') ? (
+                    <Link
+                      to={link.href}
+                      className="font-medium tracking-wide relative group text-foreground hover:text-saree-deep-teal transition-colors"
+                    >
+                      <motion.span
+                        whileHover={{ y: -2 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
+                      >
+                        {link.label}
+                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                      </motion.span>
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="font-medium tracking-wide relative group text-foreground hover:text-saree-deep-teal transition-colors"
+                    >
+                      <motion.span
+                        whileHover={{ y: -2 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        className="inline-block"
+                      >
+                        {link.label}
+                        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                      </motion.span>
+                    </a>
+                  )}
+                </motion.div>
               ))}
             </nav>
           </div>
 
-          {/* Desktop Right Icons */}
-          <div className="hidden md:flex items-center space-x-6">
-            <motion.button 
-              className="hover:text-saree-teal transition-colors relative group"
-              whileHover={{ scale: 1.1 }}
+          {/* Call Now Button */}
+          <div className="hidden md:block">
+            <motion.a 
+              href="tel:+919876543210"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              aria-label="Search"
+              className="flex items-center bg-saree-teal text-white px-4 py-2 rounded-md font-medium"
             >
-              <Search size={20} />
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
-            </motion.button>
-            
-            <motion.button 
-              className="hover:text-saree-teal transition-colors relative group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Account"
-            >
-              <User size={20} />
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
-            </motion.button>
-            
-            <motion.button 
-              className="hover:text-saree-teal transition-colors relative group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="Cart"
-            >
-              <ShoppingCart size={20} />
-              <Badge 
-                variant="outline" 
-                className="absolute -top-2 -right-2 bg-saree-orange text-white border-0 h-5 w-5 p-0 flex items-center justify-center"
-              >
-                {cartCount}
-              </Badge>
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-saree-teal scale-x-0 origin-left transition-transform group-hover:scale-x-100"></span>
-            </motion.button>
+              <Phone size={16} className="mr-2" />
+              Call Now
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -130,7 +123,7 @@ const NavBar = () => {
                 className="md:hidden"
                 aria-label="Menu"
               >
-                <Menu size={24} />
+                <Menu size={50} />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white">
@@ -143,34 +136,46 @@ const NavBar = () => {
                 
                 <nav className="flex flex-col space-y-4">
                   {navLinks.map((link, index) => (
-                    <motion.a
-                      key={index}
-                      href={link.href}
-                      className="py-2 text-lg font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide"
-                      whileHover={{ x: 5 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    >
-                      {link.label}
-                    </motion.a>
+                    <div key={index}>
+                      {link.href.startsWith('/') ? (
+                        <Link
+                          to={link.href}
+                          className="py-2 text-lg font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
+                        >
+                          <motion.span
+                            whileHover={{ x: 5 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            className="inline-block"
+                          >
+                            {link.label}
+                          </motion.span>
+                        </Link>
+                      ) : (
+                        <a
+                          href={link.href}
+                          className="py-2 text-lg font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
+                        >
+                          <motion.span
+                            whileHover={{ x: 5 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            className="inline-block"
+                          >
+                            {link.label}
+                          </motion.span>
+                        </a>
+                      )}
+                    </div>
                   ))}
                 </nav>
                 
-                <div className="mt-auto pt-8 flex items-center space-x-6">
-                  <Button variant="ghost" size="icon" aria-label="Search">
-                    <Search size={20} />
-                  </Button>
-                  <Button variant="ghost" size="icon" aria-label="Account">
-                    <User size={20} />
-                  </Button>
-                  <Button variant="ghost" size="icon" aria-label="Cart" className="relative">
-                    <ShoppingCart size={20} />
-                    <Badge 
-                      variant="outline" 
-                      className="absolute -top-2 -right-2 bg-saree-orange text-white border-0 h-5 w-5 p-0 flex items-center justify-center"
-                    >
-                      {cartCount}
-                    </Badge>
-                  </Button>
+                <div className="mt-auto pt-8">
+                  <a 
+                    href="tel:+919876543210"
+                    className="flex items-center justify-center bg-saree-teal text-white p-3 rounded-md font-medium"
+                  >
+                    <Phone size={16} className="mr-2" />
+                    Call Now
+                  </a>
                 </div>
               </div>
             </SheetContent>

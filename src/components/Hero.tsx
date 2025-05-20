@@ -3,6 +3,7 @@ import { ChevronRight, ShoppingBag } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -173,22 +174,22 @@ const Hero = () => {
                         size="lg"
                         className="bg-saree-teal hover:bg-saree-deep-teal text-saree-off-white font-medium rounded-md shadow-lg hover:shadow-xl group"
                       >
-                        <motion.a
-                          href="#collections"
+                        <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center"
                         >
-                          <span className="font-sans font-semibold tracking-wide">Explore Collection</span>
-                          <motion.span
-                            className="ml-2"
-                            initial={{ x: 0 }}
-                            whileHover={{ x: 5 }}
-                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                          >
-                            <ChevronRight className="w-5 h-5" />
-                          </motion.span>
-                        </motion.a>
+                          <Link to="/collections" className="flex items-center">
+                            <span className="font-sans font-semibold tracking-wide">Explore Collection</span>
+                            <motion.span
+                              className="ml-2"
+                              initial={{ x: 0 }}
+                              whileHover={{ x: 5 }}
+                              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </motion.span>
+                          </Link>
+                        </motion.div>
                       </Button>
                       
                       <Button
@@ -197,15 +198,15 @@ const Hero = () => {
                         size="lg"
                         className="bg-transparent hover:bg-saree-off-white/20 text-saree-off-white border border-saree-off-white font-medium rounded-md group"
                       >
-                        <motion.a
-                          href="#new-arrivals"
+                        <motion.div
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="flex items-center"
                         >
-                          <ShoppingBag className="mr-2 w-5 h-5" />
-                          <span className="font-sans font-semibold tracking-wide">Shop Now</span>
-                        </motion.a>
+                          <Link to="/collections" className="flex items-center">
+                            <ShoppingBag className="mr-2 w-5 h-5" />
+                            <span className="font-sans font-semibold tracking-wide">Shop Now</span>
+                          </Link>
+                        </motion.div>
                       </Button>
                     </motion.div>
                   </motion.div>

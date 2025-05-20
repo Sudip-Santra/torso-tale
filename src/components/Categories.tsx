@@ -4,6 +4,7 @@ import { ArrowRight, Star } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const categories = [
@@ -137,16 +138,19 @@ const Categories = () => {
                       variant="outline" 
                       size="sm"
                       className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30 w-full group"
+                      asChild
                     >
-                      <span className="font-medium">Explore Collection</span>
-                      <motion.span
-                        className="ml-2 inline-block"
-                        initial={{ x: 0 }}
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                      >
-                        <ArrowRight size={16} />
-                      </motion.span>
+                      <Link to="/collections">
+                        <span className="font-medium">Explore Collection</span>
+                        <motion.span
+                          className="ml-2 inline-block"
+                          initial={{ x: 0 }}
+                          whileHover={{ x: 5 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                          <ArrowRight size={16} />
+                        </motion.span>
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -161,10 +165,10 @@ const Categories = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.7, delay: 0.8 }}
                 >
-                  <a href="#" className="mt-10 group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#0EA5E9] text-[#0EA5E9] hover:text-white border border-[#0EA5E9] rounded-md transition-colors duration-300 overflow-hidden">
+                  <Link to="/collections" className="mt-10 group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#0EA5E9] text-[#0EA5E9] hover:text-white border border-[#0EA5E9] rounded-md transition-colors duration-300 overflow-hidden">
                     <span className="absolute inset-0 w-0 bg-[#0EA5E9] transition-all duration-300 group-hover:w-full"></span>
                     <span className="relative z-10 flex items-center font-montserrat">View All Collections <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" /></span>
-                  </a>
+                  </Link>
                 </motion.div>
         
         {/* Decorative elements */}
