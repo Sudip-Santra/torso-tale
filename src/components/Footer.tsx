@@ -8,7 +8,6 @@ const Footer = () => {
           {/* About */}
           <div>
             <h3 className="text-xl font-serif font-bold mb-4 flex items-center">
-              <img src="/Torso_Tale_Logo.png" alt="Torso Tale Logo" className="h-8 mr-2" />
               Torso Tale
             </h3>
             <p className="text-gray-400 mb-6">
