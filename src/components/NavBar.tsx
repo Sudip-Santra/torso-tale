@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Phone } from "lucide-react";
+import { Menu, Phone, Facebook, Instagram, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   NavigationMenu,
@@ -36,6 +36,12 @@ const NavBar = () => {
     { href: "/collections", label: "Collections" },
     { href: "/about", label: "About Us" },
     { href: "/contact", label: "Contact" },
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook size={20} />, href: "https://www.facebook.com/profile.php?id=61568659184578", label: "Facebook" },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/torso_tale?igsh=MWFtY3VpZ2lzbTl6dg==", label: "Instagram" },
+    { icon: <Youtube size={20} />, href: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc", label: "YouTube" },
   ];
 
   return (
@@ -126,21 +132,21 @@ const NavBar = () => {
                 <Menu size={50} />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-4">
               <div className="flex flex-col h-full">
-                <div className="flex items-center mb-8">
+                <div className="flex items-center mb-4">
                   <h2 className="flex items-center">
-                    <img src="/Torso_Tale_Logo.png" alt="Torso Tale Logo" className="h-14 w-auto" />
+                    <img src="/Torso_Tale_Logo.png" alt="Torso Tale Logo" className="h-12 w-auto" />
                   </h2>
                 </div>
                 
-                <nav className="flex flex-col space-y-4">
+                <nav className="flex flex-col space-y-2">
                   {navLinks.map((link, index) => (
                     <div key={index}>
                       {link.href.startsWith('/') ? (
                         <Link
                           to={link.href}
-                          className="py-2 text-lg font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
+                          className="py-1.5 text-base font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
                         >
                           <motion.span
                             whileHover={{ x: 5 }}
@@ -153,7 +159,7 @@ const NavBar = () => {
                       ) : (
                         <a
                           href={link.href}
-                          className="py-2 text-lg font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
+                          className="py-1.5 text-base font-medium hover:text-saree-teal transition-colors border-b border-gray-100 tracking-wide block"
                         >
                           <motion.span
                             whileHover={{ x: 5 }}
@@ -168,7 +174,26 @@ const NavBar = () => {
                   ))}
                 </nav>
                 
-                <div className="mt-auto pt-8">
+                {/* Social Media Links */}
+                <div className="mt-4">
+                  <p className="text-sm text-gray-500 mb-2">Follow Us</p>
+                  <div className="flex space-x-3">
+                    {socialLinks.map((social, index) => (
+                      <a
+                        key={index}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 rounded-full bg-saree-teal/10 hover:bg-saree-teal hover:text-white text-saree-teal transition-colors"
+                        aria-label={social.label}
+                      >
+                        {social.icon}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="mt-auto pt-4">
                   <a 
                     href="tel:+919130653501"
                     className="flex items-center justify-center bg-saree-teal text-white p-3 rounded-md font-medium"
