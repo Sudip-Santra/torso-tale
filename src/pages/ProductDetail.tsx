@@ -11,8 +11,120 @@ import { cn } from "@/lib/utils";
 
 // Dummy product database
 const productDatabase = [
-    {     id: "1",     name: "Handwoven Pure Cotton Saree",     price: 4999,     category: "Linen",     image: "/assets/saree1.jpg"   },  {     id: "2",     name: "Elegant Handcrafted Saree",     price: 6499,     category: "Linen Tissue",     image: "/assets/saree2.jpg"   },  {     id: "3",     name: "Traditional Festive Saree",     price: 5299,     category: "Mulmul",     image: "/assets/saree3.jpg"   },  {     id: "4",     name: "Contemporary Floral Saree",     price: 7999,     category: "Raaga Tissue",     image: "/assets/saree4.jpg"   },  {     id: "5",     name: "Modern Silk Blend Saree",     price: 3999,     category: "Khadi",     image: "/assets/saree6.jpg"   },  {     id: "6",     name: "Classic Pattern Saree",     price: 8499,     category: "Kantha Stitch",     image: "/assets/saree8.jpg"   },  {     id: "7",     name: "Designer Embroidered Saree",     price: 11999,     category: "Handpainted",     image: "/assets/saree9.jpg"   },  {     id: "8",     name: "Lightweight Summer Saree",     price: 4799,     category: "Linen",     image: "/assets/saree10.jpg"   },  {     id: "9",     name: "Vibrant Color Block Saree",     price: 5599,     category: "Linen Tissue",     image: "/assets/saree11.jpg"   },  {     id: "10",     name: "Designer Wedding Saree",     price: 9999,     category: "Mulmul",     image: "/assets/saree13.jpg"   },  {     id: "11",     name: "Premium Handloom Saree",     price: 6299,     category: "Raaga Tissue",     image: "/assets/saree14.jpg"   },  {     id: "12",     name: "Artisanal Collection Saree",     price: 7499,     category: "Khadi",     image: "/assets/saree15.jpg"   },  {     id: "13",     name: "Signature Torso Tale Saree",     price: 12999,     category: "Kantha Stitch",     image: "/assets/saree16.jpg"   },  {     id: "14",     name: "Exclusive Designer Saree",     price: 8999,     category: "Handpainted",     image: "/assets/saree17.jpg"   },  {     id: "15",     name: "Limited Edition Saree",     price: 13999,     category: "Linen",     image: "/assets/saree18.jpg"   },  {     id: "16",     name: "Handwoven Pure Cotton Saree",     price: 5499,     category: "Linen Tissue",     image: "/assets/saree19.jpg"   },
+  {
+    id: "1",
+    name: "Handwoven Pure Cotton Saree",
+    price: 4999,
+    category: "Linen",
+    image: "/assets/saree1.jpg"
+  },
+  {
+    id: "2",
+    name: "Elegant Handcrafted Saree",
+    price: 6499,
+    category: "Linen Tissue",
+    image: "/assets/saree2.jpg"
+  },
+  {
+    id: "3",
+    name: "Traditional Festive Saree",
+    price: 5299,
+    category: "Mulmul",
+    image: "/assets/saree3.jpg"
+  },
+  {
+    id: "4",
+    name: "Contemporary Floral Saree",
+    price: 7999,
+    category: "Raaga Tissue",
+    image: "/assets/saree4.jpg"
+  },
+  {
+    id: "5",
+    name: "Modern Silk Blend Saree",
+    price: 3999,
+    category: "Khadi",
+    image: "/assets/saree6.jpg"
+  },
+  {
+    id: "6",
+    name: "Classic Pattern Saree",
+    price: 8499,
+    category: "Kantha Stitch",
+    image: "/assets/saree8.jpg"
+  },
+  {
+    id: "7",
+    name: "Designer Embroidered Saree",
+    price: 11999,
+    category: "Handpainted",
+    image: "/assets/saree9.jpg"
+  },
+  {
+    id: "8",
+    name: "Lightweight Summer Saree",
+    price: 4799,
+    category: "Linen",
+    image: "/assets/saree10.jpg"
+  },
+  {
+    id: "9",
+    name: "Vibrant Color Block Saree",
+    price: 5599,
+    category: "Linen Tissue",
+    image: "/assets/saree11.jpg"
+  },
+  {
+    id: "10",
+    name: "Designer Wedding Saree",
+    price: 9999,
+    category: "Mulmul",
+    image: "/assets/saree13.jpg"
+  },
+  {
+    id: "11",
+    name: "Premium Handloom Saree",
+    price: 6299,
+    category: "Raaga Tissue",
+    image: "/assets/saree14.jpg"
+  },
+  {
+    id: "12",
+    name: "Artisanal Collection Saree",
+    price: 7499,
+    category: "Khadi",
+    image: "/assets/saree15.jpg"
+  },
+  {
+    id: "13",
+    name: "Signature Torso Tale Saree",
+    price: 12999,
+    category: "Kantha Stitch",
+    image: "/assets/saree16.jpg"
+  },
+  {
+    id: "14",
+    name: "Exclusive Designer Saree",
+    price: 8999,
+    category: "Handpainted",
+    image: "/assets/saree17.jpg"
+  },
+  {
+    id: "15",
+    name: "Limited Edition Saree",
+    price: 13999,
+    category: "Linen",
+    image: "/assets/saree18.jpg"
+  },
+  {
+    id: "16",
+    name: "Handwoven Pure Cotton Saree",
+    price: 5499,
+    category: "Linen Tissue",
+    image: "/assets/saree19.jpg"
+  }
 ];
+
 
 interface ProductDetails {
   "Product Type": string;
@@ -49,11 +161,11 @@ const ProductDetail = () => {
   useEffect(() => {
     // Simulate loading delay
     setLoading(true);
-    
+
     // Find the product based on ID or use a fallback if not found
     const fetchData = () => {
       const foundProduct = productDatabase.find(product => product.id === id);
-      
+
       if (foundProduct) {
         // Generate additional images by cycling through available images
         const additionalImages = [
@@ -62,7 +174,7 @@ const ProductDetail = () => {
           productDatabase[(parseInt(foundProduct.id) + 2) % productDatabase.length].image,
           productDatabase[(parseInt(foundProduct.id) + 3) % productDatabase.length].image,
         ];
-        
+
         setProductData({
           ...foundProduct,
           // Keep these as dummy data for now
@@ -119,13 +231,13 @@ const ProductDetail = () => {
           ]
         });
       }
-      
+
       // Simulate network delay
       setTimeout(() => {
         setLoading(false);
       }, 500);
     };
-    
+
     fetchData();
   }, [id]);
 
@@ -140,15 +252,15 @@ const ProductDetail = () => {
         <NavBar />
         <div className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
           <div className="container mx-auto px-4 py-12">
-            <Button 
-              variant="ghost" 
-              onClick={handleGoBack} 
+            <Button
+              variant="ghost"
+              onClick={handleGoBack}
               className="mb-6 flex items-center text-gray-600 hover:text-saree-teal"
             >
               <ArrowLeft size={18} className="mr-2" />
               Back to Collections
             </Button>
-            
+
             <div className="animate-pulse">
               <div className="h-[500px] bg-gray-200 rounded-xl mb-4"></div>
               <div className="w-1/3 h-8 bg-gray-200 rounded mb-2"></div>
@@ -170,9 +282,9 @@ const ProductDetail = () => {
       <div className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 py-12">
           {/* Back Button */}
-          <Button 
-            variant="ghost" 
-            onClick={handleGoBack} 
+          <Button
+            variant="ghost"
+            onClick={handleGoBack}
             className="mb-6 flex items-center text-gray-600 hover:text-saree-teal"
           >
             <ArrowLeft size={18} className="mr-2" />
@@ -183,18 +295,18 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
             {/* Product Images */}
             <div className="space-y-4">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="bg-white rounded-xl overflow-hidden shadow-xl h-[500px]"
               >
-                <img 
-                  src={productData.images[activeImage]} 
-                  alt={productData.name} 
+                <img
+                  src={productData.images[activeImage]}
+                  alt={productData.name}
                   className="w-full h-full object-cover object-center"
                 />
               </motion.div>
-              
+
               <div className="flex space-x-3 overflow-x-auto pb-2">
                 {productData.images.map((image: string, index: number) => (
                   <button
@@ -210,7 +322,7 @@ const ProductDetail = () => {
                 ))}
               </div>
             </div>
-            
+
             {/* Product Information */}
             <div>
               {/* Product Title and Category */}
@@ -221,25 +333,25 @@ const ProductDetail = () => {
                 <h1 className="text-3xl font-bold text-gray-900">{productData.name}</h1>
                 <p className="text-2xl font-semibold text-saree-deep-teal mt-2">₹{productData.price.toLocaleString()}</p>
               </div>
-              
+
               {/* Call Now Button - Prominent at the top */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 className="my-6"
               >
-                <a 
-                  href="tel:+919130653501" 
+                <a
+                  href="tel:+919130653501"
                   className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
                 >
                   <Phone size={20} className="mr-2" />
                   Call Now to Purchase
                 </a>
               </motion.div>
-              
+
               <Separator className="my-6" />
-              
+
               {/* Description */}
               <div className="mb-6 bg-white p-6 rounded-xl shadow-sm">
                 <h2 className="text-xl font-semibold mb-3 text-gray-800 flex items-center">
@@ -248,7 +360,7 @@ const ProductDetail = () => {
                 </h2>
                 <p className="text-gray-600 leading-relaxed">{productData.description}</p>
               </div>
-              
+
               {/* Key Highlights */}
               <div className="mb-6 bg-saree-teal/5 p-6 rounded-xl shadow-sm">
                 <h2 className="text-xl font-semibold mb-3 text-gray-800 flex items-center">
@@ -268,7 +380,7 @@ const ProductDetail = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Product Details and Wash Care side by side */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Product Details */}
@@ -286,7 +398,7 @@ const ProductDetail = () => {
                 ))}
               </div>
             </div>
-            
+
             {/* Wash Care */}
             <div className="bg-saree-teal/5 p-6 rounded-xl shadow-sm">
               <h2 className="text-xl font-semibold mb-3 text-gray-800 flex items-center">
@@ -303,16 +415,16 @@ const ProductDetail = () => {
               </ul>
             </div>
           </div>
-          
+
           {/* Call Now Again - Prominent at the bottom */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
             className="mt-6"
           >
-            <a 
-              href="tel:+919130653501" 
+            <a
+              href="tel:+919130653501"
               className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
             >
               <Phone size={20} className="mr-2" />
