@@ -6,7 +6,7 @@ const CallToAction = () => {
     <section
       className="py-24 bg-cover bg-center relative"
       style={{
-        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/saree15.jpg')",
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/assets/saree15.jpg')",
       }}
     >
       {/* Decorative overlay with improved gradient */}

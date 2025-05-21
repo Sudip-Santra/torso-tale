@@ -13,19 +13,19 @@ const Hero = () => {
   
   const slides = [
     {
-      image: "/assets/saree1.jpg",
+      image: "/public/assets/saree1.jpg",
       title: "Handcrafted Elegance",
       subtitle: "Premium Silk Sarees",
       description: "Discover our exquisite collection of silk sarees, handcrafted with love and tradition.",
     },
     {
-      image: "/assets/saree2.jpg",
+      image: "/public/assets/saree2.jpg",
       title: "Wedding Collection",
       subtitle: "Bridal Sarees",
       description: "Make your special day even more memorable with our stunning bridal collection.",
     },
     {
-      image: "/assets/saree3.jpg",
+      image: "/public/assets/saree13.jpg",
       title: "Festive Season",
       subtitle: "Celebration Sarees",
       description: "Celebrate in style with our festive collection of vibrant and elegant sarees.",
@@ -55,7 +55,7 @@ const Hero = () => {
     
     setTimeout(() => {
       setAnimating(false);
-    }, 700);
+    }, 800);
 
     // Restart the slideshow timer whenever slide is changed manually
     startSlideshow();
@@ -83,20 +83,24 @@ const Hero = () => {
   return (
     <motion.section 
       className="relative h-screen overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0.4, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
+      animate={{ opacity: 1, backgroundColor: "rgba(255, 255, 255, 0)" }}
+      transition={{ duration: 0.8 }}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         {slides.map((slide, index) => (
           currentSlide === index && (
             <motion.div
               key={index}
               className="absolute inset-0"
-              initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 1.2, ease: "easeOut" }}
+              initial={{ opacity: 0.3, scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+              animate={{ opacity: 0.98, scale: 1, backgroundColor: "rgba(255, 255, 255, 0)" }}
+              exit={{ opacity: 0.5, scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
+              transition={{ 
+                opacity: { duration: 1.2, ease: [0.4, 0, 0.2, 1] },
+                scale: { duration: 1.5, ease: [0.4, 0, 0.2, 1] },
+                backgroundColor: { duration: 1.2, ease: [0.4, 0, 0.2, 1] }
+              }}
             >
               <motion.div
                 className="absolute inset-0 w-full h-full"
@@ -105,47 +109,56 @@ const Hero = () => {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
-                initial={{ scale: 1.1 }}
+                initial={{ scale: 1.05 }}
                 animate={{ 
                   scale: 1,
                   x: parallaxOffset.x,
                   y: parallaxOffset.y
                 }}
                 transition={{ 
-                  scale: { duration: 8, ease: "easeOut" },
-                  x: { duration: 0.5, ease: "easeOut" },
-                  y: { duration: 0.5, ease: "easeOut" }
+                  scale: { duration: 3.5, ease: [0.25, 0.1, 0.25, 1] },
+                  x: { duration: 0.4, ease: "easeOut" },
+                  y: { duration: 0.4, ease: "easeOut" }
                 }}
                 onMouseMove={handleMouseMove}
+              />
+              
+              {/* White fade overlay */}
+              <motion.div
+                className="absolute inset-0 z-10 bg-white pointer-events-none"
+                initial={{ opacity: 0.25 }}
+                animate={{ opacity: 0 }}
+                exit={{ opacity: 0.2 }}
+                transition={{ duration: 1.3, ease: [0.4, 0, 0.2, 1] }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="container mx-auto px-4 text-center text-white">
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0.3, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                   >
                     <motion.h2 
                       className="font-handwriting text-2xl md:text-4xl mb-2 font-medium"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0.3, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
+                      transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     >
                       {slide.subtitle}
                     </motion.h2>
                     
                     <motion.h1 
                       className="font-calligraphy text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
+                      transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                     >
                       {slide.title.split('').map((char, i) => (
                         <motion.span
                           key={i}
-                          initial={{ opacity: 0, y: 20 }}
+                          initial={{ opacity: 0.5, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: 0.7 + i * 0.04 }}
+                          transition={{ duration: 0.8, delay: 0.5 + i * 0.02 }}
                           className="inline-block"
                         >
                           {char === ' ' ? '\u00A0' : char}
@@ -155,18 +168,18 @@ const Hero = () => {
                     
                     <motion.p 
                       className="max-w-lg mx-auto text-base md:text-xl mb-8 font-sans"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
+                      transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                     >
                       {slide.description}
                     </motion.p>
                     
                     <motion.div 
                       className="flex flex-col sm:flex-row items-center justify-center gap-4"
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1 }}
+                      transition={{ duration: 1, delay: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
                     >
                       <Button
                         asChild
