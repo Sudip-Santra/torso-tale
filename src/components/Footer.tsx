@@ -99,13 +99,8 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-gray-800 text-gray-400 text-center text-sm">
+        <div className="mt-12 pt-8 border-t border-white text-gray-400 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} Torso Tale. All rights reserved.</p>
-          <div className="mt-2 space-x-4">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Shipping Policy</a>
-          </div>
         </div>
       </div>
     </footer>
