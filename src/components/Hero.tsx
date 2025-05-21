@@ -13,19 +13,19 @@ const Hero = () => {
   
   const slides = [
     {
-      image: "/public/assets/saree1.jpg",
+      image: "/assets/saree1.jpg",
       title: "Handcrafted Elegance",
       subtitle: "Premium Silk Sarees",
       description: "Discover our exquisite collection of silk sarees, handcrafted with love and tradition.",
     },
     {
-      image: "/public/assets/saree2.jpg",
+      image: "/assets/saree2.jpg",
       title: "Wedding Collection",
       subtitle: "Bridal Sarees",
       description: "Make your special day even more memorable with our stunning bridal collection.",
     },
     {
-      image: "/public/assets/saree13.jpg",
+      image: "/assets/saree13.jpg",
       title: "Festive Season",
       subtitle: "Celebration Sarees",
       description: "Celebrate in style with our festive collection of vibrant and elegant sarees.",
