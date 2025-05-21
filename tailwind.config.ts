@@ -64,9 +64,9 @@ export default {
     				ring: 'hsl(var(--sidebar-ring))'
     			},
     			saree: {
-    				teal: '#38BDF8',
-    				'deep-teal': '#0EA5E9',
-    				'light-teal': '#BAE6FD',
+    				teal: '#096c6c',
+    				'deep-teal': '#075858',
+    				'light-teal': '#0c8080',
     				pink: '#FFDEE2',
     				peach: '#FDE1D3',
     				orange: '#F97316',

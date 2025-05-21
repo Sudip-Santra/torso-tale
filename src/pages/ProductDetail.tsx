@@ -14,12 +14,36 @@ const productDatabase = [
     {     id: "1",     name: "Handwoven Pure Cotton Saree",     price: 4999,     category: "Linen",     image: "/assets/saree1.jpg"   },  {     id: "2",     name: "Elegant Handcrafted Saree",     price: 6499,     category: "Linen Tissue",     image: "/assets/saree2.jpg"   },  {     id: "3",     name: "Traditional Festive Saree",     price: 5299,     category: "Mulmul",     image: "/assets/saree3.jpg"   },  {     id: "4",     name: "Contemporary Floral Saree",     price: 7999,     category: "Raaga Tissue",     image: "/assets/saree4.jpg"   },  {     id: "5",     name: "Modern Silk Blend Saree",     price: 3999,     category: "Khadi",     image: "/assets/saree6.jpg"   },  {     id: "6",     name: "Classic Pattern Saree",     price: 8499,     category: "Kantha Stitch",     image: "/assets/saree8.jpg"   },  {     id: "7",     name: "Designer Embroidered Saree",     price: 11999,     category: "Handpainted",     image: "/assets/saree9.jpg"   },  {     id: "8",     name: "Lightweight Summer Saree",     price: 4799,     category: "Linen",     image: "/assets/saree10.jpg"   },  {     id: "9",     name: "Vibrant Color Block Saree",     price: 5599,     category: "Linen Tissue",     image: "/assets/saree11.jpg"   },  {     id: "10",     name: "Designer Wedding Saree",     price: 9999,     category: "Mulmul",     image: "/assets/saree13.jpg"   },  {     id: "11",     name: "Premium Handloom Saree",     price: 6299,     category: "Raaga Tissue",     image: "/assets/saree14.jpg"   },  {     id: "12",     name: "Artisanal Collection Saree",     price: 7499,     category: "Khadi",     image: "/assets/saree15.jpg"   },  {     id: "13",     name: "Signature Torso Tale Saree",     price: 12999,     category: "Kantha Stitch",     image: "/assets/saree16.jpg"   },  {     id: "14",     name: "Exclusive Designer Saree",     price: 8999,     category: "Handpainted",     image: "/assets/saree17.jpg"   },  {     id: "15",     name: "Limited Edition Saree",     price: 13999,     category: "Linen",     image: "/assets/saree18.jpg"   },  {     id: "16",     name: "Handwoven Pure Cotton Saree",     price: 5499,     category: "Linen Tissue",     image: "/assets/saree19.jpg"   },
 ];
 
+interface ProductDetails {
+  "Product Type": string;
+  "Saree Length": string;
+  "Fabric": string;
+  "Color": string;
+  "Blouse Piece": string;
+  "Weaving Cluster": string;
+  "Craft Technique": string;
+  [key: string]: string;
+}
+
+interface ProductData {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  images: string[];
+  description: string;
+  highlights: string[];
+  details: ProductDetails;
+  washCare: string[];
+}
+
 const ProductDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [activeImage, setActiveImage] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [productData, setProductData] = useState<any>(null);
+  const [productData, setProductData] = useState<ProductData | null>(null);
 
   // Simulate fetching product data based on ID
   useEffect(() => {
@@ -206,7 +230,7 @@ const ProductDetail = () => {
                 className="my-6"
               >
                 <a 
-                  href="tel:+919876543210" 
+                  href="tel:+919130653501" 
                   className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
                 >
                   <Phone size={20} className="mr-2" />
@@ -288,7 +312,7 @@ const ProductDetail = () => {
             className="mt-6"
           >
             <a 
-              href="tel:+919876543210" 
+              href="tel:+919130653501" 
               className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
             >
               <Phone size={20} className="mr-2" />
