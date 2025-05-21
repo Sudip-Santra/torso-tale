@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Phone, Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import { Send, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -208,7 +208,6 @@ const Contact = () => {
               <div>
                 <h2 className="text-2xl font-semibold mb-6 text-gray-800">Contact Information</h2>
                 <p className="text-gray-600 mb-8">
-                  We're available Monday to Saturday, 10:00 AM to 6:00 PM. 
                   Feel free to reach out using any of the contact methods below.
                 </p>
                 
@@ -217,21 +216,17 @@ const Contact = () => {
                     {
                       icon: <Phone size={24} className="text-saree-teal" />,
                       title: "Phone",
-                      content: "+91 98765 43210",
+                      content: "+91 9130653501",
+                      link: "tel:+919130653501",
                       delay: 0,
                     },
                     {
                       icon: <Mail size={24} className="text-saree-teal" />,
                       title: "Email",
-                      content: "contact@sareesutrastudio.com",
+                      content: "torsotale@gmail.com",
+                      link: "mailto:torsotale@gmail.com",
                       delay: 1,
-                    },
-                    {
-                      icon: <MapPin size={24} className="text-saree-teal" />,
-                      title: "Address",
-                      content: "123 Saree Lane, Textile District, Mumbai, India - 400001",
-                      delay: 2,
-                    },
+                    }
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -244,7 +239,13 @@ const Contact = () => {
                       <div className="bg-gray-50 p-3 rounded-full">{item.icon}</div>
                       <div>
                         <h3 className="font-medium text-gray-900">{item.title}</h3>
-                        <p className="text-gray-600">{item.content}</p>
+                        {item.link ? (
+                          <a href={item.link} className="text-gray-600 hover:text-saree-teal transition-colors">
+                            {item.content}
+                          </a>
+                        ) : (
+                          <p className="text-gray-600">{item.content}</p>
+                        )}
                       </div>
                     </motion.div>
                   ))}
@@ -256,9 +257,21 @@ const Contact = () => {
                 <h3 className="text-xl font-semibold mb-4 text-gray-800">Connect With Us</h3>
                 <div className="flex space-x-4">
                   {[
-                    { icon: <Instagram size={24} />, color: "bg-gradient-to-r from-purple-500 to-pink-500", link: "#" },
-                    { icon: <Facebook size={24} />, color: "bg-blue-600", link: "#" },
-                    { icon: <Youtube size={24} />, color: "bg-red-600", link: "#" },
+                    { 
+                      icon: <Instagram size={24} />, 
+                      color: "bg-gradient-to-r from-purple-500 to-pink-500", 
+                      link: "https://www.instagram.com/torso_tale?igsh=MWFtY3VpZ2lzbTl6dg==" 
+                    },
+                    { 
+                      icon: <Facebook size={24} />, 
+                      color: "bg-blue-600", 
+                      link: "https://www.facebook.com/profile.php?id=61568659184578" 
+                    },
+                    { 
+                      icon: <Youtube size={24} />, 
+                      color: "bg-red-600", 
+                      link: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc" 
+                    },
                   ].map((social, index) => (
                     <motion.a
                       key={index}

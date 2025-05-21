@@ -104,7 +104,7 @@ const NavBar = () => {
           {/* Call Now Button */}
           <div className="hidden md:block">
             <motion.a 
-              href="tel:+919876543210"
+              href="tel:+919130653501"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="flex items-center bg-saree-teal text-white px-4 py-2 rounded-md font-medium"
@@ -170,7 +170,7 @@ const NavBar = () => {
                 
                 <div className="mt-auto pt-8">
                   <a 
-                    href="tel:+919876543210"
+                    href="tel:+919130653501"
                     className="flex items-center justify-center bg-saree-teal text-white p-3 rounded-md font-medium"
                   >
                     <Phone size={16} className="mr-2" />
