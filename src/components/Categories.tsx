@@ -33,7 +33,7 @@ const Categories = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
   const controls = useAnimation();
-  
+
   useEffect(() => {
     if (isInView) {
       controls.start('visible');
@@ -52,8 +52,8 @@ const Categories = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -64,19 +64,19 @@ const Categories = () => {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="collections" 
+    <section
+      ref={sectionRef}
+      id="collections"
       className="py-24 bg-gradient-to-b from-white to-saree-teal/5"
     >
       <div className="container mx-auto px-4">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <motion.span 
+          <motion.span
             className="inline-block px-4 py-1 bg-saree-light-teal text-white rounded-full text-sm font-medium mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -84,7 +84,7 @@ const Categories = () => {
           >
             Discover Our Range
           </motion.span>
-          <motion.h2 
+          <motion.h2
             className="text-4xl font-serif font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -92,30 +92,30 @@ const Categories = () => {
           >
             Our Collections
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="w-24 h-1 bg-saree-teal mx-auto mb-6 rounded-full"
             initial={{ width: 0 }}
             animate={isInView ? { width: 96 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
           />
-          <motion.p 
+          <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto mt-6"
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Explore our curated collections of exquisite sarees, handpicked for their quality, design and craftsmanship
+            Explore our especially designed bunch of premium handwoven sarees crafted for women in all kind of Torsos.
           </motion.p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
         >
           {categories.map((category, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               variants={itemVariants}
               className="flex"
@@ -133,9 +133,9 @@ const Categories = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
                     <h3 className="text-xl md:text-2xl font-calligraphy font-bold mb-2">{category.title}</h3>
                     <p className="text-sm md:text-base opacity-90 mb-4">{category.description}</p>
-                    
-                    <Button 
-                      variant="outline" 
+
+                    <Button
+                      variant="outline"
                       size="sm"
                       className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30 w-full group"
                       asChild
@@ -158,35 +158,35 @@ const Categories = () => {
             </motion.div>
           ))}
         </motion.div>
-        
+
         <div className="mt-16 text-center">
           <Link to="/collections" className="mt-10 group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#096c6c] text-[#096c6c] hover:text-white border border-[#096c6c] rounded-md transition-colors duration-300 overflow-hidden">
             <span className="absolute inset-0 w-0 bg-[#096c6c] transition-all duration-300 group-hover:w-full"></span>
             <span className="relative z-10 flex items-center font-montserrat">View All Collections <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" /></span>
           </Link>
         </div>
-        
+
         {/* Decorative elements */}
-        <motion.div 
+        <motion.div
           className="absolute -bottom-10 left-10 w-32 h-32 rounded-full bg-saree-teal/5 hidden lg:block"
-          animate={{ 
+          animate={{
             y: [0, 15, 0],
             scale: [1, 1.1, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 6,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         />
-        
-        <motion.div 
+
+        <motion.div
           className="absolute top-20 right-10 w-24 h-24 rounded-full bg-saree-gold/5 hidden lg:block"
-          animate={{ 
+          animate={{
             y: [0, -15, 0],
             scale: [1, 1.05, 1],
           }}
-          transition={{ 
+          transition={{
             duration: 5,
             repeat: Infinity,
             ease: "easeInOut",

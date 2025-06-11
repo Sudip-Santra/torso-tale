@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, Phone, Facebook, Instagram, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
+import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
@@ -51,22 +51,28 @@ const NavBar = () => {
       transition={{ duration: 0.5 }}
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled 
-          ? "bg-white shadow-md py-2" 
+        isScrolled
+          ? "bg-white shadow-md py-2"
           : "bg-white shadow-sm py-4"
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <motion.a 
-            href="/" 
+          <motion.a
+            href="/"
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <img src="/Torso_Tale_Logo.png" alt="Torso Tale Logo" className="h-10 w-auto" />
+            <motion.img
+              src="/Torso_Tale_Logo.png"
+              alt="Torso Tale Logo"
+              className="h-10 w-auto ml-4"
+              initial={{ scale: 1.3 }} 
+            />
           </motion.a>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center">
@@ -109,7 +115,7 @@ const NavBar = () => {
 
           {/* Call Now Button */}
           <div className="hidden md:block">
-            <motion.a 
+            <motion.a
               href="tel:+919130653501"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -123,8 +129,8 @@ const NavBar = () => {
           {/* Mobile Menu Button */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="icon"
                 className="md:hidden"
                 aria-label="Menu"
@@ -139,7 +145,7 @@ const NavBar = () => {
                     <img src="/Torso_Tale_Logo.png" alt="Torso Tale Logo" className="h-12 w-auto" />
                   </h2>
                 </div>
-                
+
                 <nav className="flex flex-col space-y-2">
                   {navLinks.map((link, index) => (
                     <div key={index}>
@@ -173,7 +179,7 @@ const NavBar = () => {
                     </div>
                   ))}
                 </nav>
-                
+
                 {/* Social Media Links */}
                 <div className="mt-4">
                   <p className="text-sm text-gray-500 mb-2">Follow Us</p>
@@ -192,9 +198,9 @@ const NavBar = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="mt-auto pt-4">
-                  <a 
+                  <a
                     href="tel:+919130653501"
                     className="flex items-center justify-center bg-saree-teal text-white p-3 rounded-md font-medium"
                   >

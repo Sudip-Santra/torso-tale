@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 // Types
-type SareeCategory = 
-  | "Linen" 
-  | "Linen Tissue" 
-  | "Mulmul" 
-  | "Raaga Tissue" 
-  | "Khadi" 
-  | "Kantha Stitch" 
+type SareeCategory =
+  | "Linen"
+  | "Linen Tissue"
+  | "Mulmul"
+  | "Raaga Tissue"
+  | "Khadi"
+  | "Kantha Stitch"
   | "Handpainted"
   | "All";
 
@@ -65,18 +65,18 @@ const Collections = () => {
   useEffect(() => {
     // Simulate loading
     setIsLoading(true);
-    
+
     // Categories
     const categories: SareeCategory[] = [
-      "Linen", 
-      "Linen Tissue", 
-      "Mulmul", 
-      "Raaga Tissue", 
-      "Khadi", 
-      "Kantha Stitch", 
+      "Linen",
+      "Linen Tissue",
+      "Mulmul",
+      "Raaga Tissue",
+      "Khadi",
+      "Kantha Stitch",
       "Handpainted"
     ];
-    
+
     // Names
     const sareeNames = [
       "Handwoven Pure Cotton Saree",
@@ -112,45 +112,77 @@ const Collections = () => {
 
     // Occasion keywords
     const occasionKeywords = ["wedding", "festival", "party", "casual", "office", "daily wear", "celebration"];
-    
+
     // Generate sarees with random categories from available images
     const generatedSarees: Saree[] = [
-      { id: 1, name: sareeNames[0], price: 4999, category: categories[0], image: "/assets/saree1.jpg", isNew: true, 
-        keywords: [...categoryKeywords[categories[0]], "red", "traditional", "border", colorKeywords[0], occasionKeywords[Math.floor(Math.random() * occasionKeywords.length)]] },
-      { id: 2, name: sareeNames[1], price: 6499, category: categories[1], image: "/assets/saree2.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[1]], "pink", "gold", "wedding", colorKeywords[4], occasionKeywords[0]] },
-      { id: 3, name: sareeNames[2], price: 5299, category: categories[2], image: "/assets/saree3.jpg",
-        keywords: [...categoryKeywords[categories[2]], "orange", "festive", colorKeywords[6], occasionKeywords[1]] },
-      { id: 4, name: sareeNames[3], price: 7999, category: categories[3], image: "/assets/saree4.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[3]], "floral", "blue", "pattern", colorKeywords[1], occasionKeywords[2]] },
-      { id: 5, name: sareeNames[4], price: 3999, category: categories[4], image: "/assets/saree6.jpg",
-        keywords: [...categoryKeywords[categories[4]], "green", "eco-friendly", colorKeywords[2], occasionKeywords[3]] },
-      { id: 6, name: sareeNames[5], price: 8499, category: categories[5], image: "/assets/saree8.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[5]], "traditional", "maroon", colorKeywords[9], occasionKeywords[0]] },
-      { id: 7, name: sareeNames[6], price: 11999, category: categories[6], image: "/assets/saree9.jpg",
-        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", colorKeywords[5], occasionKeywords[2]] },
-      { id: 8, name: sareeNames[7], price: 4799, category: categories[0], image: "/assets/saree10.jpg",
-        keywords: [...categoryKeywords[categories[0]], "summer", "yellow", "lightweight", colorKeywords[3], occasionKeywords[3]] },
-      { id: 9, name: sareeNames[8], price: 5599, category: categories[1], image: "/assets/saree11.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[1]], "vibrant", "colorful", "party", "red", colorKeywords[0], occasionKeywords[2]] },
-      { id: 10, name: sareeNames[9], price: 9999, category: categories[2], image: "/assets/saree13.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[2]], "wedding", "bridal", "red", "gold", colorKeywords[0], occasionKeywords[0]] },
-      { id: 11, name: sareeNames[10], price: 6299, category: categories[3], image: "/assets/saree14.jpg",
-        keywords: [...categoryKeywords[categories[3]], "premium", "blue", "handloom", colorKeywords[1], occasionKeywords[1]] },
-      { id: 12, name: sareeNames[11], price: 7499, category: categories[4], image: "/assets/saree15.jpg",
-        keywords: [...categoryKeywords[categories[4]], "artisanal", "green", "sustainable", colorKeywords[2], occasionKeywords[4]] },
-      { id: 13, name: sareeNames[12], price: 12999, category: categories[5], image: "/assets/saree16.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[5]], "signature", "limited", "exclusive", "pink", colorKeywords[4], occasionKeywords[0]] },
-      { id: 14, name: sareeNames[13], price: 8999, category: categories[6], image: "/assets/saree17.jpg",
-        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", "artistic", colorKeywords[5], occasionKeywords[2]] },
-      { id: 15, name: sareeNames[14], price: 13999, category: categories[0], image: "/assets/saree18.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[0]], "limited", "edition", "premium", "teal", colorKeywords[7], occasionKeywords[1]] },
-      { id: 16, name: sareeNames[0], price: 5499, category: categories[1], image: "/assets/saree19.jpg",
-        keywords: [...categoryKeywords[categories[1]], "handwoven", "cotton", "blue", colorKeywords[1], occasionKeywords[3]] },
+      {
+        id: 1, name: sareeNames[0], price: 4999, category: categories[0], image: "/assets/saree1.jpg", isNew: true,
+        keywords: [...categoryKeywords[categories[0]], "red", "traditional", "border", colorKeywords[0], occasionKeywords[Math.floor(Math.random() * occasionKeywords.length)]]
+      },
+      {
+        id: 2, name: sareeNames[1], price: 6499, category: categories[1], image: "/assets/saree2.jpg", isBestseller: true,
+        keywords: [...categoryKeywords[categories[1]], "pink", "gold", "wedding", colorKeywords[4], occasionKeywords[0]]
+      },
+      {
+        id: 3, name: sareeNames[2], price: 5299, category: categories[2], image: "/assets/saree3.jpg",
+        keywords: [...categoryKeywords[categories[2]], "orange", "festive", colorKeywords[6], occasionKeywords[1]]
+      },
+      {
+        id: 4, name: sareeNames[3], price: 7999, category: categories[3], image: "/assets/saree4.jpg", isNew: true,
+        keywords: [...categoryKeywords[categories[3]], "floral", "blue", "pattern", colorKeywords[1], occasionKeywords[2]]
+      },
+      {
+        id: 5, name: sareeNames[4], price: 3999, category: categories[4], image: "/assets/saree6.jpg",
+        keywords: [...categoryKeywords[categories[4]], "green", "eco-friendly", colorKeywords[2], occasionKeywords[3]]
+      },
+      {
+        id: 6, name: sareeNames[5], price: 8499, category: categories[5], image: "/assets/saree8.jpg", isBestseller: true,
+        keywords: [...categoryKeywords[categories[5]], "traditional", "maroon", colorKeywords[9], occasionKeywords[0]]
+      },
+      {
+        id: 7, name: sareeNames[6], price: 11999, category: categories[6], image: "/assets/saree9.jpg",
+        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", colorKeywords[5], occasionKeywords[2]]
+      },
+      {
+        id: 8, name: sareeNames[7], price: 4799, category: categories[0], image: "/assets/saree10.jpg",
+        keywords: [...categoryKeywords[categories[0]], "summer", "yellow", "lightweight", colorKeywords[3], occasionKeywords[3]]
+      },
+      {
+        id: 9, name: sareeNames[8], price: 5599, category: categories[1], image: "/assets/saree11.jpg", isNew: true,
+        keywords: [...categoryKeywords[categories[1]], "vibrant", "colorful", "party", "red", colorKeywords[0], occasionKeywords[2]]
+      },
+      {
+        id: 10, name: sareeNames[9], price: 9999, category: categories[2], image: "/assets/saree13.jpg", isBestseller: true,
+        keywords: [...categoryKeywords[categories[2]], "wedding", "bridal", "red", "gold", colorKeywords[0], occasionKeywords[0]]
+      },
+      {
+        id: 11, name: sareeNames[10], price: 6299, category: categories[3], image: "/assets/saree14.jpg",
+        keywords: [...categoryKeywords[categories[3]], "premium", "blue", "handloom", colorKeywords[1], occasionKeywords[1]]
+      },
+      {
+        id: 12, name: sareeNames[11], price: 7499, category: categories[4], image: "/assets/saree15.jpg",
+        keywords: [...categoryKeywords[categories[4]], "artisanal", "green", "sustainable", colorKeywords[2], occasionKeywords[4]]
+      },
+      {
+        id: 13, name: sareeNames[12], price: 12999, category: categories[5], image: "/assets/saree16.jpg", isNew: true,
+        keywords: [...categoryKeywords[categories[5]], "signature", "limited", "exclusive", "pink", colorKeywords[4], occasionKeywords[0]]
+      },
+      {
+        id: 14, name: sareeNames[13], price: 8999, category: categories[6], image: "/assets/saree17.jpg",
+        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", "artistic", colorKeywords[5], occasionKeywords[2]]
+      },
+      {
+        id: 15, name: sareeNames[14], price: 13999, category: categories[0], image: "/assets/saree18.jpg", isBestseller: true,
+        keywords: [...categoryKeywords[categories[0]], "limited", "edition", "premium", "teal", colorKeywords[7], occasionKeywords[1]]
+      },
+      {
+        id: 16, name: sareeNames[0], price: 5499, category: categories[1], image: "/assets/saree19.jpg",
+        keywords: [...categoryKeywords[categories[1]], "handwoven", "cotton", "blue", colorKeywords[1], occasionKeywords[3]]
+      },
     ];
 
     setSarees(generatedSarees);
-    
+
     // Simulate network delay
     setTimeout(() => {
       setIsLoading(false);
@@ -160,20 +192,20 @@ const Collections = () => {
   // Filter sarees based on selected category, price range, and search query
   const filteredSarees = sarees.filter((saree) => {
     const matchesCategory = selectedCategory === "All" || saree.category === selectedCategory;
-    
+
     // Enhanced search - check name, category, and keywords
     const query = searchQuery.toLowerCase();
-    const matchesSearch = 
+    const matchesSearch =
       saree.name.toLowerCase().includes(query) ||  // Check product name
       saree.category.toLowerCase().includes(query) ||  // Check category
       saree.keywords.some(keyword => keyword.toLowerCase().includes(query)) ||  // Check keywords
       saree.price.toString().includes(query);  // Check price
-    
+
     // Check if saree price is within selected price range
-    const matchesPriceRange = !selectedPriceRange || 
-      (saree.price >= selectedPriceRange.min && 
+    const matchesPriceRange = !selectedPriceRange ||
+      (saree.price >= selectedPriceRange.min &&
         (selectedPriceRange.max === null || saree.price <= selectedPriceRange.max));
-    
+
     return matchesCategory && matchesSearch && matchesPriceRange;
   }).sort((a, b) => {
     // Sort based on selected sort option
@@ -232,7 +264,7 @@ const Collections = () => {
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-saree-teal"></span>
             </div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-              Explore our handpicked collection of premium handwoven sarees crafted for the modern woman.
+              Explore our especially designed bunch of premium handwoven sarees crafted for women in all kind of Torsos.
             </p>
           </motion.div>
 
@@ -240,7 +272,7 @@ const Collections = () => {
           <div className="flex justify-between items-center mb-2 md:hidden">
             <div className="relative w-full max-w-xs">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-              <Input 
+              <Input
                 type="text"
                 placeholder="Search sarees..."
                 value={searchQuery}
@@ -248,8 +280,8 @@ const Collections = () => {
                 className="pl-10 border-gray-300 focus:border-saree-teal transition-colors"
               />
             </div>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="icon"
               onClick={() => setShowFilters(!showFilters)}
               className="ml-3 border-gray-300"
@@ -274,7 +306,7 @@ const Collections = () => {
                 <h3 className="text-lg font-medium mb-3 text-gray-800">Search</h3>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
-                  <Input 
+                  <Input
                     type="text"
                     placeholder="Search sarees..."
                     value={searchQuery}
@@ -294,7 +326,7 @@ const Collections = () => {
                         onClick={() => setSelectedCategory(category as SareeCategory)}
                         className={cn(
                           "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                          selectedCategory === category 
+                          selectedCategory === category
                             ? "bg-saree-teal/10 text-saree-deep-teal"
                             : "text-gray-600 hover:bg-gray-100"
                         )}
@@ -303,7 +335,7 @@ const Collections = () => {
                         {selectedCategory === category && (
                           <span className="float-right">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </span>
                         )}
@@ -315,22 +347,22 @@ const Collections = () => {
 
               {/* Categories - Mobile */}
               <div className="md:hidden">
-                <button 
+                <button
                   onClick={() => toggleSection('categories')}
                   className="flex justify-between items-center w-full px-3 py-2 bg-white rounded-md shadow-sm border border-gray-200"
                 >
                   <span className="font-medium text-gray-800">Categories</span>
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 16 16" 
-                    fill="none" 
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
                     className={`transition-transform duration-200 ${expandedSection === 'categories' ? 'rotate-180' : ''}`}
                   >
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                
+
                 {expandedSection === 'categories' && (
                   <ul className="mt-1 space-y-1 bg-white p-3 rounded-md border border-gray-200 shadow-sm">
                     {["All", "Linen", "Linen Tissue", "Mulmul", "Raaga Tissue", "Khadi", "Kantha Stitch", "Handpainted"].map((category) => (
@@ -339,7 +371,7 @@ const Collections = () => {
                           onClick={() => setSelectedCategory(category as SareeCategory)}
                           className={cn(
                             "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                            selectedCategory === category 
+                            selectedCategory === category
                               ? "bg-saree-teal/10 text-saree-deep-teal"
                               : "text-gray-600 hover:bg-gray-100"
                           )}
@@ -348,7 +380,7 @@ const Collections = () => {
                           {selectedCategory === category && (
                             <span className="float-right">
                               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                               </svg>
                             </span>
                           )}
@@ -368,7 +400,7 @@ const Collections = () => {
                       onClick={() => setSelectedPriceRange(null)}
                       className={cn(
                         "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                        selectedPriceRange === null 
+                        selectedPriceRange === null
                           ? "bg-saree-teal/10 text-saree-deep-teal"
                           : "text-gray-600 hover:bg-gray-100"
                       )}
@@ -377,7 +409,7 @@ const Collections = () => {
                       {selectedPriceRange === null && (
                         <span className="float-right">
                           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
                         </span>
                       )}
@@ -389,7 +421,7 @@ const Collections = () => {
                         onClick={() => setSelectedPriceRange(range)}
                         className={cn(
                           "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                          selectedPriceRange === range 
+                          selectedPriceRange === range
                             ? "bg-saree-teal/10 text-saree-deep-teal"
                             : "text-gray-600 hover:bg-gray-100"
                         )}
@@ -398,7 +430,7 @@ const Collections = () => {
                         {selectedPriceRange === range && (
                           <span className="float-right">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </span>
                         )}
@@ -410,22 +442,22 @@ const Collections = () => {
 
               {/* Price Range - Mobile */}
               <div className="md:hidden">
-                <button 
+                <button
                   onClick={() => toggleSection('price-range')}
                   className="flex justify-between items-center w-full px-3 py-2 bg-white rounded-md shadow-sm border border-gray-200"
                 >
                   <span className="font-medium text-gray-800">Price Range</span>
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 16 16" 
-                    fill="none" 
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
                     className={`transition-transform duration-200 ${expandedSection === 'price-range' ? 'rotate-180' : ''}`}
                   >
-                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
-                
+
                 {expandedSection === 'price-range' && (
                   <ul className="mt-1 space-y-1 bg-white p-3 rounded-md border border-gray-200 shadow-sm">
                     <li>
@@ -433,7 +465,7 @@ const Collections = () => {
                         onClick={() => setSelectedPriceRange(null)}
                         className={cn(
                           "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                          selectedPriceRange === null 
+                          selectedPriceRange === null
                             ? "bg-saree-teal/10 text-saree-deep-teal"
                             : "text-gray-600 hover:bg-gray-100"
                         )}
@@ -442,7 +474,7 @@ const Collections = () => {
                         {selectedPriceRange === null && (
                           <span className="float-right">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
                           </span>
                         )}
@@ -454,7 +486,7 @@ const Collections = () => {
                           onClick={() => setSelectedPriceRange(range)}
                           className={cn(
                             "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                            selectedPriceRange === range 
+                            selectedPriceRange === range
                               ? "bg-saree-teal/10 text-saree-deep-teal"
                               : "text-gray-600 hover:bg-gray-100"
                           )}
@@ -463,7 +495,7 @@ const Collections = () => {
                           {selectedPriceRange === range && (
                             <span className="float-right">
                               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                               </svg>
                             </span>
                           )}
@@ -480,8 +512,8 @@ const Collections = () => {
               {isLoading ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                   {[...Array(9)].map((_, index) => (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="bg-gray-100 animate-pulse rounded-xl overflow-hidden"
                       style={{ height: '400px' }}
                     />
@@ -495,19 +527,19 @@ const Collections = () => {
                       Showing <span className="font-medium">{filteredSarees.length}</span> results
                     </p>
                     <div className="hidden md:block relative">
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         className="text-gray-500"
                         onClick={() => setShowSortOptions(!showSortOptions)}
                       >
                         Sort by: <span className="font-medium ml-1 text-gray-900">
-                          {sortBy === "featured" ? "Featured" : 
-                           sortBy === "price-asc" ? "Price: Low to High" : 
-                           "Price: High to Low"}
+                          {sortBy === "featured" ? "Featured" :
+                            sortBy === "price-asc" ? "Price: Low to High" :
+                              "Price: High to Low"}
                         </span>
                       </Button>
-                      
+
                       {showSortOptions && (
                         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
                           <ul className="py-1">
@@ -548,7 +580,7 @@ const Collections = () => {
                         </div>
                       )}
                     </div>
-                    
+
                     {/* Mobile Sort Button */}
                     <div className="md:hidden">
                       <Button
@@ -559,7 +591,7 @@ const Collections = () => {
                       >
                         Sort
                       </Button>
-                      
+
                       {showSortOptions && (
                         <div className="absolute right-4 mt-2 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
                           <ul className="py-1">
@@ -609,7 +641,7 @@ const Collections = () => {
                       <p className="text-gray-600">Try adjusting your search or filters to find what you're looking for.</p>
                     </div>
                   ) : (
-                    <motion.div 
+                    <motion.div
                       variants={containerVariants}
                       initial="hidden"
                       animate="visible"
@@ -626,12 +658,12 @@ const Collections = () => {
                             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                               <div className="relative h-80 overflow-hidden">
                                 {/* Product Image */}
-                                <img 
-                                  src={saree.image} 
-                                  alt={saree.name} 
+                                <img
+                                  src={saree.image}
+                                  alt={saree.name}
                                   className="w-full h-full object-cover object-center transition-transform duration-500"
                                 />
-                                
+
                                 {/* Badges */}
                                 <div className="absolute top-3 left-3 flex flex-col gap-2">
                                   {saree.isNew && (
@@ -646,7 +678,7 @@ const Collections = () => {
                                   )}
                                 </div>
                               </div>
-                              
+
                               <div className="p-4">
                                 <div className="flex items-center justify-between mb-1">
                                   <h3 className="font-medium text-gray-900 truncate flex-1">{saree.name}</h3>
@@ -656,7 +688,7 @@ const Collections = () => {
                                 </div>
                                 <p className="text-saree-deep-teal font-semibold mb-3">₹{saree.price.toLocaleString()}</p>
                                 <Link to={`/product/${saree.id}`}>
-                                  <Button 
+                                  <Button
                                     className="w-full bg-saree-teal hover:bg-saree-deep-teal text-white"
                                     size="sm"
                                   >
