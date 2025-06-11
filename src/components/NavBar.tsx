@@ -134,9 +134,9 @@ const NavBar = () => {
                   className="hamburger-menu flex flex-col justify-between w-5 h-4 bg-transparent border-none cursor-pointer p-0 mr-2" 
                   aria-label="Menu"
                 >
-                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
-                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
-                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
+                  <span className="h-0.5 w-full bg-gray-600 rounded-lg transition-all duration-300"></span>
+                  <span className="h-0.5 w-full bg-gray-600 rounded-lg transition-all duration-300"></span>
+                  <span className="h-0.5 w-full bg-gray-600 rounded-lg transition-all duration-300"></span>
                 </button>
               </div>
             </SheetTrigger>

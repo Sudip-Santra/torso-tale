@@ -20,6 +20,16 @@ const About = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900">About Us</h1>
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-saree-teal"></span>
             </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              className="mt-6 mb-4"
+            >
+              <span className="inline-block bg-gradient-to-r from-saree-teal to-saree-deep-teal text-transparent bg-clip-text text-2xl md:text-3xl font-serif italic">
+                Torso Tale - Where Threads Come Alive
+              </span>
+            </motion.div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
               Discover the story of Torso Tale - where tradition meets modernity in the art of saree weaving.
             </p>
@@ -295,7 +305,8 @@ const About = () => {
             className="bg-gradient-to-r from-saree-teal to-saree-deep-teal rounded-2xl shadow-lg overflow-hidden mt-12"
           >
             <div className="p-10 text-center text-white">
-              <h3 className="text-2xl font-bold mb-4">Experience the Torso Tale Difference</h3>
+              <h3 className="text-2xl font-bold mb-2">Torso Tale - Where Threads Come Alive</h3>
+              <div className="w-24 h-1 bg-white/50 mx-auto mb-4"></div>
               <p className="max-w-2xl mx-auto mb-6">
                 Our commitment is to make sarees comfortable and accessible to embrace every torso (shape),
                 while honoring the rich tradition and artistry behind each handcrafted piece.
