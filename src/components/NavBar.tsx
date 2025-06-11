@@ -34,7 +34,7 @@ const NavBar = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/collections", label: "Collections" },
-    { href: "/about", label: "About Us" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -129,7 +129,7 @@ const NavBar = () => {
                 className="md:hidden"
                 aria-label="Menu"
               >
-                <Menu size={50} />
+                <Menu size={80} />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-4">

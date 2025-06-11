@@ -34,6 +34,18 @@ const Hero = () => {
       title: "Festive Season",
       subtitle: "Celebration Sarees",
       description: "Celebrate in style with our festive collection of vibrant and elegant sarees.",
+    },
+    {
+      image: "/assets/saree4.jpg",
+      title: "Contemporary Designs",
+      subtitle: "Modern Elegance",
+      description: "Blend tradition with contemporary style in our modern designer saree collection.",
+    },
+    {
+      image: "/assets/saree19.jpg",
+      title: "Exclusive Collection",
+      subtitle: "Limited Edition Pieces",
+      description: "Explore our limited edition sarees crafted for those who appreciate rare beauty.",
     }
   ];
 

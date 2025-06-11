@@ -1,54 +1,10 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Phone, Mail, Instagram, Facebook, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Phone, Mail, Instagram, Facebook, Youtube, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useToast } from "@/components/ui/use-toast";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-      variant: "default",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
-    setIsSubmitting(false);
-  };
-
   const contactVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -78,215 +34,109 @@ const Contact = () => {
             </div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Have questions about our sarees or need assistance with your order? 
-              We're here to help and would love to hear from you.
+              We're here to help and would love to hear from you directly.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-xl shadow-xl p-8"
-            >
-              <h2 className="text-2xl font-semibold mb-6 text-gray-800">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Full Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                      className="border-gray-300 focus:border-saree-teal transition-colors"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your-email@example.com"
-                      required
-                      className="border-gray-300 focus:border-saree-teal transition-colors"
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium">
-                      Phone Number
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Your phone number"
-                      className="border-gray-300 focus:border-saree-teal transition-colors"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm font-medium">
-                      Subject
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="How can we help?"
-                      required
-                      className="border-gray-300 focus:border-saree-teal transition-colors"
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Your Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Please tell us about your inquiry..."
-                    required
-                    rows={5}
-                    className="border-gray-300 focus:border-saree-teal resize-none transition-colors"
-                  />
-                </div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-2"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        Send Message
-                        <Send size={16} className="ml-2" />
-                      </span>
-                    )}
-                  </Button>
-                </motion.div>
-              </form>
-            </motion.div>
-            
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-8"
-            >
-              <div>
-                <h2 className="text-2xl font-semibold mb-6 text-gray-800">Contact Information</h2>
-                <p className="text-gray-600 mb-8">
-                  Feel free to reach out using any of the contact methods below.
-                </p>
-                
-                <div className="space-y-6">
-                  {[
-                    {
-                      icon: <Phone size={24} className="text-saree-teal" />,
-                      title: "Phone",
-                      content: "+91 9130653501",
-                      link: "tel:+919130653501",
-                      delay: 0,
-                    },
-                    {
-                      icon: <Mail size={24} className="text-saree-teal" />,
-                      title: "Email",
-                      content: "torsotale@gmail.com",
-                      link: "mailto:torsotale@gmail.com",
-                      delay: 1,
-                    }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      custom={item.delay}
-                      initial="hidden"
-                      animate="visible"
-                      variants={contactVariants}
-                      className="flex items-start space-x-4"
-                    >
-                      <div className="bg-gray-50 p-3 rounded-full">{item.icon}</div>
-                      <div>
-                        <h3 className="font-medium text-gray-900">{item.title}</h3>
-                        {item.link ? (
-                          <a href={item.link} className="text-gray-600 hover:text-saree-teal transition-colors">
-                            {item.content}
-                          </a>
-                        ) : (
-                          <p className="text-gray-600">{item.content}</p>
-                        )}
+          <div className="max-w-4xl mx-auto">
+            {/* Contact Information Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-8">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5">
+                        <Phone size={32} className="text-saree-teal" />
                       </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Social Media */}
-              <div className="pt-6 border-t border-gray-200">
-                <h3 className="text-xl font-semibold mb-4 text-gray-800">Connect With Us</h3>
-                <div className="flex space-x-4">
-                  {[
-                    { 
-                      icon: <Instagram size={24} />, 
-                      color: "bg-gradient-to-r from-purple-500 to-pink-500", 
-                      link: "https://www.instagram.com/torso_tale?igsh=MWFtY3VpZ2lzbTl6dg==" 
-                    },
-                    { 
-                      icon: <Facebook size={24} />, 
-                      color: "bg-blue-600", 
-                      link: "https://www.facebook.com/profile.php?id=61568659184578" 
-                    },
-                    { 
-                      icon: <Youtube size={24} />, 
-                      color: "bg-red-600", 
-                      link: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc" 
-                    },
-                  ].map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${social.color} text-white p-3 rounded-full hover:opacity-90 transition-opacity`}
-                      whileHover={{ y: -5, scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {social.icon}
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
+                      <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+                      <p className="text-gray-500 mb-4">Let’s talk sarees, styling, or anything you need—just a ring away!</p>
+                      <a 
+                        href="tel:+919130653501" 
+                        className="text-xl font-medium text-saree-teal hover:underline"
+                      >
+                        +91 9130653501
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-8">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5">
+                        <Mail size={32} className="text-saree-teal" />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">Email Us</h3>
+                      <p className="text-gray-500 mb-4">Drop us a message anytime—your perfect drape is just an email away!</p>
+                      <a 
+                        href="mailto:torsotale@gmail.com" 
+                        className="text-xl font-medium text-saree-teal hover:underline"
+                      >
+                        torsotale@gmail.com
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+            
+            {/* Social Media */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="mt-12"
+            >
+              <Card className="shadow-lg">
+                <CardContent className="p-8">
+                  <h3 className="text-xl font-semibold mb-6 text-center">Connect With Us</h3>
+                  <div className="flex justify-center space-x-6">
+                    {[
+                      { 
+                        icon: <Instagram size={28} />, 
+                        color: "bg-gradient-to-r from-purple-500 to-pink-500", 
+                        link: "https://www.instagram.com/torso_tale?igsh=MWFtY3VpZ2lzbTl6dg==",
+                        name: "Instagram"
+                      },
+                      { 
+                        icon: <Facebook size={28} />, 
+                        color: "bg-blue-600", 
+                        link: "https://www.facebook.com/profile.php?id=61568659184578",
+                        name: "Facebook"
+                      },
+                      { 
+                        icon: <Youtube size={28} />, 
+                        color: "bg-red-600", 
+                        link: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc",
+                        name: "YouTube"
+                      },
+                    ].map((social, index) => (
+                      <motion.a
+                        key={index}
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${social.color} text-white p-4 rounded-full hover:opacity-90 transition-opacity flex flex-col items-center`}
+                        whileHover={{ y: -5, scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        aria-label={`Visit our ${social.name} page`}
+                      >
+                        {social.icon}
+                      </motion.a>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             </motion.div>
           </div>
         </div>
