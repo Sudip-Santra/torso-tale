@@ -86,7 +86,7 @@ const Specialties = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            Why Choose TT?
+            Why Choose Torso Tale?
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-saree-deep-teal mx-auto mb-6 rounded-full"

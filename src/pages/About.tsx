@@ -98,7 +98,7 @@ const About = () => {
                 <h3 className="text-xl font-bold mb-3">Time Travel</h3>
                 <p className="leading-relaxed">
                   Let us try time travel! Let's move to the streets of older India with women
-                  wearing only saris. During that period, a sari held significant cultural, social and
+                  wearing only sarees. During that period, a saree held significant cultural, social and
                   symbolic meaning.
                 </p>
               </div>
@@ -119,8 +119,8 @@ const About = () => {
               </div>
               <div className="md:w-1/2 p-6">
                 <p className="text-gray-600 leading-relaxed">
-                  The way a woman draped a sari showing the flawless beauty
-                  of the six yards of fabric. The seamless wrap of a sari represents the infinite loop
+                  The way a woman draped a saree showing the flawless beauty
+                  of the six yards of fabric. The seamless wrap of a saree represents the infinite loop
                   of life, and the wholeness within it.
                 </p>
               </div>
@@ -134,11 +134,11 @@ const About = () => {
             >
               <div className="p-8 text-center">
                 <p className="text-gray-700 leading-relaxed italic max-w-3xl mx-auto">
-                  "A sari is a wrap of shield as well as of comfort and reassurance. It is so Graceful and yet so powerful. 
-                  The pallu of a sari can wipe off all pain with its pure kindness and its strong identity."
+                  "A saree is a wrap of shield as well as of comfort and reassurance. It is so Graceful and yet so powerful. 
+                  The pallu of a saree can wipe off all pain with its pure kindness and its strong identity."
                 </p>
                 <p className="mt-4 text-gray-600">
-                  These tale of saris and women wearing it, has given birth to the "Torso Tale".
+                  These tale of sarees and women wearing it, has given birth to the "Torso Tale".
                 </p>
               </div>
             </motion.div>
@@ -170,7 +170,7 @@ const About = () => {
                   The name "Torso Tale" actually is the story of every type of women inclusive of all
                   shapes, having different intellect, emotions, interests, etc. We are here to
                   encourage You - Women. The "Torso", meaning "the main part of the body" is
-                  described in the "Tale" meaning the "story" of the sari portraying every curves of
+                  described in the "Tale" meaning the "story" of the saree portraying every curves of
                   the female anatomy.
                 </p>
               </div>
@@ -195,7 +195,7 @@ const About = () => {
                 </div>
                 <p className="text-gray-800 font-medium">
                   Our mission is to create comfort in style. Our vision is to create a world where
-                  women in saris are living the norm.
+                  women in sarees are living the norm.
                 </p>
               </div>
             </motion.div>
@@ -209,7 +209,7 @@ const About = () => {
               <div className="p-8 flex flex-col md:flex-row items-center">
                 <div className="md:w-1/2 mb-6 md:mb-0 md:pr-8">
                   <p className="text-gray-700 leading-relaxed text-lg">
-                    The poise any woman can carry in a sari is irreplaceable. So, join us on this journey to tell the tale of sari in female torso.
+                    The poise any woman can carry in a saree is irreplaceable. So, join us on this journey to tell the tale of saree in female torso.
                   </p>
                 </div>
                 <div className="md:w-1/2 grid grid-cols-2 gap-3">
@@ -249,13 +249,13 @@ const About = () => {
             {[
               {
                 title: "Finest Materials",
-                description: "We design and manufacture the saris with the finest varieties of cotton, mul, linen, khadi, etc.",
+                description: "We design and manufacture the sarees with the finest varieties of cotton, mulmul, linen, khadi, etc.",
                 icon: "🧵",
                 delay: 0.1,
               },
               {
                 title: "For Every Woman",
-                description: "We manufacture the saris that suits all women in best quality fiber and designs that are traditional, minimalistic and yet can create a modern look.",
+                description: "We manufacture the sarees that suits all women in best quality fiber and designs that are traditional, minimalistic and yet can create a modern look.",
                 icon: "👗",
                 delay: 0.2,
               },
