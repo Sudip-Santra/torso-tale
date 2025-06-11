@@ -15,37 +15,37 @@ const Hero = () => {
   const [dragStart, setDragStart] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  
+
   const slides = [
     {
       image: "/assets/saree1.jpg",
       title: "Handcrafted Elegance",
-      subtitle: "Premium Silk Sarees",
-      description: "Discover our exquisite collection of silk sarees, handcrafted with love and tradition.",
+      subtitle: "Linen Sarees",
+      description: "LINEN threads weave tales of old,<br/>Handloom's tender touch, stories unfold.",
     },
     {
       image: "/assets/saree2.jpg",
       title: "Wedding Collection",
-      subtitle: "Bridal Sarees",
-      description: "Make your special day even more memorable with our stunning bridal collection.",
+      subtitle: "Jamdani Sarees",
+      description: "Weaving magic in every thread,<br/>JAMDANI's splendor,in every fold ahead.",
     },
     {
       image: "/assets/saree13.jpg",
       title: "Festive Season",
-      subtitle: "Celebration Sarees",
-      description: "Celebrate in style with our festive collection of vibrant and elegant sarees.",
+      subtitle: "Parijat Sarees",
+      description: "Mul's soft whisper, PARIJAT's gentle art,<br/>just the saree but touches the heart.",
     },
     {
       image: "/assets/saree4.jpg",
       title: "Contemporary Designs",
-      subtitle: "Modern Elegance",
-      description: "Blend tradition with contemporary style in our modern designer saree collection.",
+      subtitle: "Raaga Tissue Sarees",
+      description: "Tissue soft, RAAGA's calm hue,<br/>A saree's elegance, for me and you.",
     },
     {
       image: "/assets/saree19.jpg",
       title: "Exclusive Collection",
-      subtitle: "Limited Edition Pieces",
-      description: "Explore our limited edition sarees crafted for those who appreciate rare beauty.",
+      subtitle: "Resham Kota Sarees",
+      description: "Royal glow on RESHAM KOTA's grid,<br/>Elegance woven, in every thread and beed.",
     }
   ];
 
@@ -54,7 +54,7 @@ const Hero = () => {
 
   const startSlideshow = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
-    
+
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);
@@ -69,10 +69,10 @@ const Hero = () => {
 
   const changeSlide = (index: number) => {
     if (animating) return;
-    
+
     setAnimating(true);
     setCurrentSlide(index);
-    
+
     setTimeout(() => {
       setAnimating(false);
     }, 800);
@@ -93,7 +93,7 @@ const Hero = () => {
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
     setTouchEnd(e.targetTouches[0].clientX);
-    
+
     // Pause slideshow during touch interaction
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
@@ -104,21 +104,21 @@ const Hero = () => {
 
   const handleTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isLeftSwipe) {
       goToNextSlide();
     } else if (isRightSwipe) {
       goToPrevSlide();
     }
-    
+
     // Reset values
     setTouchStart(0);
     setTouchEnd(0);
-    
+
     // Restart slideshow
     startSlideshow();
   };
@@ -127,27 +127,27 @@ const Hero = () => {
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     setDragStart(e.clientX);
-    
+
     // Pause slideshow during drag interaction
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
   const handleMouseUp = (e: React.MouseEvent) => {
     if (!isDragging) return;
-    
+
     const distance = dragStart - e.clientX;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
-    
+
     if (isLeftSwipe) {
       goToNextSlide();
     } else if (isRightSwipe) {
       goToPrevSlide();
     }
-    
+
     // Reset dragging state
     setIsDragging(false);
-    
+
     // Restart slideshow
     startSlideshow();
   };
@@ -163,11 +163,11 @@ const Hero = () => {
   const calculateParallaxOffset = (mouseX: number, mouseY: number) => {
     const centerX = window.innerWidth / 2;
     const centerY = window.innerHeight / 2;
-    
+
     // Calculate the offset from center (normalized between -1 and 1)
     const offsetX = (mouseX - centerX) / centerX;
     const offsetY = (mouseY - centerY) / centerY;
-    
+
     // Scale down the effect
     return { x: offsetX * 15, y: offsetY * 15 };
   };
@@ -179,7 +179,7 @@ const Hero = () => {
   };
 
   return (
-    <motion.section 
+    <motion.section
       ref={heroRef}
       className="relative h-screen overflow-hidden cursor-grab active:cursor-grabbing"
       initial={{ opacity: 0.4, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
@@ -201,7 +201,7 @@ const Hero = () => {
               initial={{ opacity: 0.3, scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
               animate={{ opacity: 0.98, scale: 1, backgroundColor: "rgba(255, 255, 255, 0)" }}
               exit={{ opacity: 0.5, scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.15)" }}
-              transition={{ 
+              transition={{
                 opacity: { duration: 1.2, ease: [0.4, 0, 0.2, 1] },
                 scale: { duration: 1.5, ease: [0.4, 0, 0.2, 1] },
                 backgroundColor: { duration: 1.2, ease: [0.4, 0, 0.2, 1] }
@@ -215,19 +215,19 @@ const Hero = () => {
                   backgroundPosition: "center",
                 }}
                 initial={{ scale: 1.05 }}
-                animate={{ 
+                animate={{
                   scale: 1,
                   x: parallaxOffset.x,
                   y: parallaxOffset.y
                 }}
-                transition={{ 
+                transition={{
                   scale: { duration: 3.5, ease: [0.25, 0.1, 0.25, 1] },
                   x: { duration: 0.4, ease: "easeOut" },
                   y: { duration: 0.4, ease: "easeOut" }
                 }}
                 onMouseMove={handleMouseMove}
               />
-              
+
               {/* White fade overlay */}
               <motion.div
                 className="absolute inset-0 z-10 bg-white pointer-events-none"
@@ -243,7 +243,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    <motion.h2 
+                    <motion.h2
                       className="font-handwriting text-2xl md:text-4xl mb-2 font-medium"
                       initial={{ opacity: 0.3, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -251,8 +251,8 @@ const Hero = () => {
                     >
                       {slide.subtitle}
                     </motion.h2>
-                    
-                    <motion.h1 
+
+                    <motion.h1
                       className="font-calligraphy text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
                       initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -270,17 +270,17 @@ const Hero = () => {
                         </motion.span>
                       ))}
                     </motion.h1>
-                    
-                    <motion.p 
+
+                    <motion.p
                       className="max-w-lg mx-auto text-base md:text-xl mb-8 font-sans"
                       initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                    >
-                      {slide.description}
-                    </motion.p>
-                    
-                    <motion.div 
+                      dangerouslySetInnerHTML={{ __html: slide.description }}
+                    />
+
+
+                    <motion.div
                       className="flex flex-col sm:flex-row items-center justify-center gap-4"
                       initial={{ opacity: 0.4, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -309,7 +309,7 @@ const Hero = () => {
                           </Link>
                         </motion.div>
                       </Button>
-                      
+
                       <Button
                         asChild
                         variant="outline"
@@ -343,8 +343,8 @@ const Hero = () => {
             onClick={() => changeSlide(index)}
             className={cn(
               "h-1 rounded-full transition-all duration-300",
-              currentSlide === index 
-                ? "bg-white w-20" 
+              currentSlide === index
+                ? "bg-white w-20"
                 : "bg-white/50 w-12 hover:bg-white/70"
             )}
             whileHover={{ scale: 1.1 }}
@@ -353,30 +353,30 @@ const Hero = () => {
           />
         ))}
       </div>
-      
+
       {/* Decorative elements */}
-      <motion.div 
+      <motion.div
         className="absolute top-20 left-10 w-16 h-16 border-2 border-white/30 rounded-full"
-        animate={{ 
+        animate={{
           y: [0, 15, 0],
           opacity: [0.3, 0.5, 0.3],
           scale: [1, 1.1, 1]
         }}
-        transition={{ 
+        transition={{
           duration: 4,
           repeat: Infinity,
           ease: "easeInOut"
         }}
       />
-      
-      <motion.div 
+
+      <motion.div
         className="absolute bottom-40 right-20 w-8 h-8 border border-white/20 rounded-full"
-        animate={{ 
+        animate={{
           y: [0, -10, 0],
           opacity: [0.2, 0.4, 0.2],
           scale: [1, 1.2, 1]
         }}
-        transition={{ 
+        transition={{
           duration: 3,
           repeat: Infinity,
           ease: "easeInOut",
@@ -386,28 +386,28 @@ const Hero = () => {
 
       {/* Visual swipe indicator */}
       <div className="absolute top-1/2 left-4 transform -translate-y-1/2 hidden md:block">
-        <motion.div 
+        <motion.div
           className="text-white/40 text-3xl font-thin"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.5, 0] }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity, 
-            repeatDelay: 3 
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 3
           }}
         >
           ‹
         </motion.div>
       </div>
       <div className="absolute top-1/2 right-4 transform -translate-y-1/2 hidden md:block">
-        <motion.div 
+        <motion.div
           className="text-white/40 text-3xl font-thin"
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.5, 0] }}
-          transition={{ 
-            duration: 2, 
-            repeat: Infinity, 
-            repeatDelay: 3 
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatDelay: 3
           }}
         >
           ›
