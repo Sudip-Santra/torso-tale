@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Phone, Facebook, Instagram, Youtube } from "lucide-react";
+import { Phone, Facebook, Instagram, Youtube } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   NavigationMenu,
@@ -129,14 +129,16 @@ const NavBar = () => {
           {/* Mobile Menu Button */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="md:hidden"
-                aria-label="Menu"
-              >
-                <Menu size={80} />
-              </Button>
+              <div className="md:hidden flex items-center">
+                <button 
+                  className="hamburger-menu flex flex-col justify-between w-5 h-4 bg-transparent border-none cursor-pointer p-0 mr-2" 
+                  aria-label="Menu"
+                >
+                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
+                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
+                  <span className="h-0.5 w-full bg-gray-500 rounded-lg transition-all duration-300"></span>
+                </button>
+              </div>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white p-4">
               <div className="flex flex-col h-full">
