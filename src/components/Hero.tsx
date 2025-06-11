@@ -9,7 +9,12 @@ const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animating, setAnimating] = useState(false);
   const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   
   const slides = [
     {
@@ -31,6 +36,9 @@ const Hero = () => {
       description: "Celebrate in style with our festive collection of vibrant and elegant sarees.",
     }
   ];
+
+  // Minimum swipe distance to trigger slide change (in pixels)
+  const minSwipeDistance = 50;
 
   const startSlideshow = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -61,6 +69,84 @@ const Hero = () => {
     startSlideshow();
   };
 
+  const goToNextSlide = () => {
+    changeSlide((currentSlide + 1) % slides.length);
+  };
+
+  const goToPrevSlide = () => {
+    changeSlide((currentSlide - 1 + slides.length) % slides.length);
+  };
+
+  // Touch event handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setTouchEnd(e.targetTouches[0].clientX);
+    
+    // Pause slideshow during touch interaction
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      goToNextSlide();
+    } else if (isRightSwipe) {
+      goToPrevSlide();
+    }
+    
+    // Reset values
+    setTouchStart(0);
+    setTouchEnd(0);
+    
+    // Restart slideshow
+    startSlideshow();
+  };
+
+  // Mouse drag event handlers
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setDragStart(e.clientX);
+    
+    // Pause slideshow during drag interaction
+    if (intervalRef.current) clearInterval(intervalRef.current);
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    
+    const distance = dragStart - e.clientX;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      goToNextSlide();
+    } else if (isRightSwipe) {
+      goToPrevSlide();
+    }
+    
+    // Reset dragging state
+    setIsDragging(false);
+    
+    // Restart slideshow
+    startSlideshow();
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      setIsDragging(false);
+      startSlideshow();
+    }
+  };
+
   // Parallax effect for background images
   const calculateParallaxOffset = (mouseX: number, mouseY: number) => {
     const centerX = window.innerWidth / 2;
@@ -82,10 +168,17 @@ const Hero = () => {
 
   return (
     <motion.section 
-      className="relative h-screen overflow-hidden"
+      ref={heroRef}
+      className="relative h-screen overflow-hidden cursor-grab active:cursor-grabbing"
       initial={{ opacity: 0.4, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
       animate={{ opacity: 1, backgroundColor: "rgba(255, 255, 255, 0)" }}
       transition={{ duration: 0.8 }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseLeave}
     >
       <AnimatePresence mode="sync">
         {slides.map((slide, index) => (
@@ -278,6 +371,36 @@ const Hero = () => {
           delay: 1
         }}
       />
+
+      {/* Visual swipe indicator */}
+      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 hidden md:block">
+        <motion.div 
+          className="text-white/40 text-3xl font-thin"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.5, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            repeatDelay: 3 
+          }}
+        >
+          ‹
+        </motion.div>
+      </div>
+      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 hidden md:block">
+        <motion.div 
+          className="text-white/40 text-3xl font-thin"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.5, 0] }}
+          transition={{ 
+            duration: 2, 
+            repeat: Infinity, 
+            repeatDelay: 3 
+          }}
+        >
+          ›
+        </motion.div>
+      </div>
     </motion.section>
   );
 };
