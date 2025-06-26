@@ -16,35 +16,35 @@ const productDatabase = [
     name: "Handwoven Pure Cotton Saree",
     price: 4999,
     category: "Linen",
-    image: "/assets/saree1.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg"
   },
   {
     id: "2",
     name: "Elegant Handcrafted Saree",
     price: 6499,
     category: "Linen Tissue",
-    image: "/assets/saree2.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
   },
   {
     id: "3",
     name: "Traditional Festive Saree",
     price: 5299,
     category: "Mulmul",
-    image: "/assets/saree3.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg"
   },
   {
     id: "4",
     name: "Contemporary Floral Saree",
     price: 7999,
     category: "Raaga Tissue",
-    image: "/assets/saree4.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(4).jpg"
   },
   {
     id: "5",
     name: "Modern Silk Blend Saree",
     price: 3999,
     category: "Khadi",
-    image: "/assets/saree6.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(4).jpg"
   },
   {
     id: "6",
@@ -121,7 +121,7 @@ const productDatabase = [
     name: "Handwoven Pure Cotton Saree",
     price: 5499,
     category: "Linen Tissue",
-    image: "/assets/saree19.jpg"
+    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg"
   }
 ];
 
@@ -167,13 +167,32 @@ const ProductDetail = () => {
       const foundProduct = productDatabase.find(product => product.id === id);
 
       if (foundProduct) {
-        // Generate additional images by cycling through available images
-        const additionalImages = [
-          foundProduct.image,
-          productDatabase[(parseInt(foundProduct.id) + 1) % productDatabase.length].image,
-          productDatabase[(parseInt(foundProduct.id) + 2) % productDatabase.length].image,
-          productDatabase[(parseInt(foundProduct.id) + 3) % productDatabase.length].image,
-        ];
+        // Generate additional images - use specific images for product ID "1"
+        let additionalImages;
+        if (foundProduct.id === "1") {
+          // Use all 4 images from assets/tt/ folder for product ID "1"
+          additionalImages = [
+            "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
+            "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg",
+            "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
+            "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
+          ];
+        } else if (foundProduct.id === "2") {
+          // Use specific green images for product ID "2"
+          additionalImages = [
+            "/assets/tt/Handpainted Khadi_green1.jpg", // Update these paths with actual green image paths
+            "/assets/tt/Handpainted Khadi_green2.jpg",
+            "/assets/tt/Handpainted Khadi_green3.jpg",
+          ];
+        } else {
+          // For other products, cycle through available images
+          additionalImages = [
+            foundProduct.image,
+            productDatabase[(parseInt(foundProduct.id) + 1) % productDatabase.length].image,
+            productDatabase[(parseInt(foundProduct.id) + 2) % productDatabase.length].image,
+            productDatabase[(parseInt(foundProduct.id) + 3) % productDatabase.length].image,
+          ];
+        }
 
         setProductData({
           ...foundProduct,
