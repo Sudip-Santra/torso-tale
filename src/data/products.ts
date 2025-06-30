@@ -96,7 +96,7 @@ const colors = [
 const specificMulmulSarees: Product[] = [
   {
     id: "101",
-    name: "Shefali (Parijat Mul - Blue)",
+    name: "Shefali",
     price: 1450,
     category: "Mulmul",
     images: [
@@ -131,7 +131,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "102",
-    name: "Shefali (Parijat Mul - Red)",
+    name: "Shefali",
     price: 1450,
     category: "Mulmul",
     images: [
@@ -166,7 +166,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "103",
-    name: "Shefali (Parijat Mul - Light Pink)",
+    name: "Shefali",
     price: 1450,
     category: "Mulmul",
     images: [
@@ -201,7 +201,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "104",
-    name: "Shefali (Parijat Mul - Green)",
+    name: "Shefali",
     price: 1450,
     category: "Mulmul",
     images: [
@@ -236,7 +236,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "105",
-    name: "Mul Melody (Mulmul 1700 - Navy Blue)",
+    name: "Mul Melody",
     price: 1699,
     category: "Mulmul",
     images: [
@@ -271,7 +271,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "106",
-    name: "Mul Melody (Mul1700 - Lavender)",
+    name: "Mul Melody",
     price: 1699,
     category: "Mulmul",
     images: [
@@ -306,7 +306,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "107",
-    name: "Ocean Breeze (Mul2300 - Sea Green)",
+    name: "Ocean Breeze",
     price: 2299,
     category: "Mulmul",
     images: [
@@ -341,7 +341,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "108",
-    name: "Ocean Breeze (Mul2300 - Teal)",
+    name: "Ocean Breeze",
     price: 2299,
     category: "Mulmul",
     images: [
@@ -376,7 +376,7 @@ const specificMulmulSarees: Product[] = [
   },
   {
     id: "109",
-    name: "Floral Frost (Mul big design - Offwhite)",
+    name: "Floral Frost",
     price: 3199,
     category: "Mulmul",
     images: [
@@ -415,7 +415,7 @@ const specificMulmulSarees: Product[] = [
 const specificLinenSarees: Product[] = [
   {
     id: "201",
-    name: "Asymmetry (Karat Linen - Blue)",
+    name: "Asymmetry",
     price: 2250,
     category: "Linen",
     images: [
@@ -450,7 +450,7 @@ const specificLinenSarees: Product[] = [
 
   {
     id: "203",
-    name: "The Prism (Barfi Linen - Purple)",
+    name: "The Prism",
     price: 3399,
     category: "Linen",
     images: [
@@ -484,7 +484,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "204",
-    name: "The Prism (Barfi Linen - Pink)",
+    name: "The Prism",
     price: 3399,
     category: "Linen",
     images: [
@@ -518,7 +518,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "205",
-    name: "Sutram (Plain Linen - Beetroot)",
+    name: "Sutram",
     price: 2050,
     category: "Linen",
     images: [
@@ -552,7 +552,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "206",
-    name: "Sutram (Plain Linen - Green)",
+    name: "Sutram",
     price: 2050,
     category: "Linen",
     images: [
@@ -586,7 +586,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "207",
-    name: "Sutram (Plain Linen - Light Blue)",
+    name: "Sutram",
     price: 2050,
     category: "Linen",
     images: [
@@ -620,7 +620,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "208",
-    name: "Firefly (Sequin Linen - Blue)",
+    name: "Firefly",
     price: 2499,
     category: "Linen",
     images: [
@@ -654,7 +654,7 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "209",
-    name: "Firefly (Sequin Linen - Brown)",
+    name: "Firefly",
     price: 2499,
     category: "Linen",
     images: [
@@ -726,7 +726,7 @@ const specificLinenSarees: Product[] = [
 const specificKhadiSarees: Product[] = [
   {
     id: "301",
-    name: "Khadi Kinara (Khadi contrast Pallu - Red & Yellow)",
+    name: "Khadi Kinara",
     price: 1299,
     category: "Khadi",
     images: [
@@ -757,7 +757,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "302",
-    name: "Aadi Khadi (Plain Khadi - Beetroot)",
+    name: "Aadi Khadi",
     price: 1299,
     category: "Khadi",
     images: [
@@ -788,7 +788,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "303",
-    name: "Aadi Khadi (Plain Khadi - Bluish Yellow)",
+    name: "Aadi Khadi",
     price: 1299,
     category: "Khadi",
     images: [
@@ -819,7 +819,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "304",
-    name: "Aadi Khadi (Plain Khadi - Light Green)",
+    name: "Aadi Khadi",
     price: 1299,
     category: "Khadi",
     images: [
@@ -850,7 +850,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "305",
-    name: "Aadi Khadi (Plain Khadi - Pink)",
+    name: "Aadi Khadi",
     price: 1299,
     category: "Khadi",
     images: [
@@ -881,7 +881,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "306",
-    name: "Aadi Khadi (Plain Khadi - Teal Green)",
+    name: "Aadi Khadi",
     price: 1299,
     category: "Khadi",
     images: [
@@ -912,7 +912,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "307",
-    name: "Khadi Katha (Zilmil Khadi - Blue)",
+    name: "Khadi Katha",
     price: 999,
     category: "Khadi",
     images: [
@@ -943,7 +943,7 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "308",
-    name: "Khadi Katha (Zilmil Khadi - Green)",
+    name: "Khadi Katha",
     price: 999,
     category: "Khadi",
     images: [
@@ -1102,7 +1102,7 @@ const specificKhadiSarees: Product[] = [
 const specificKanthaStitchSarees: Product[] = [
   {
     id: "313",
-    name: "Rekh Rachana (Khadi Kantha - Aboli)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1135,7 +1135,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "314",
-    name: "Rekh Rachana (Khadi Kantha - Dark Blue)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1168,7 +1168,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "315",
-    name: "Rekh Rachana (Khadi Kantha - Deep Maroon)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1201,7 +1201,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "316",
-    name: "Rekh Rachana (Khadi Kantha - Light Saffron)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1234,7 +1234,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "317",
-    name: "Rekh Rachana (Khadi Kantha - Maroon)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1267,7 +1267,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "318",
-    name: "Rekh Rachana (Khadi Kantha - Peach)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1300,7 +1300,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "319",
-    name: "Rekh Rachana (Khadi Kantha - Red)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1333,7 +1333,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "320",
-    name: "Rekh Rachana (Khadi Kantha - White)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1366,7 +1366,7 @@ const specificKanthaStitchSarees: Product[] = [
   },
   {
     id: "321",
-    name: "Rekh Rachana (Khadi Kantha - Sky Blue)",
+    name: "Rekh Rachana",
     price: 2199,
     category: "Kantha Stitch",
     images: [
@@ -1403,7 +1403,7 @@ const specificKanthaStitchSarees: Product[] = [
 const specificHandpaintedSarees: Product[] = [
   {
     id: "401",
-    name: "Cosmic Petals (Handpainted khadi - Blue Dual)",
+    name: "Cosmic Petals",
     price: 1399,
     category: "Handpainted",
     images: [
@@ -1435,7 +1435,7 @@ const specificHandpaintedSarees: Product[] = [
   },
   {
     id: "402",
-    name: "Cosmic Petals (Handpainted khadi - Bluish Purple)",
+    name: "Cosmic Petals",
     price: 1399,
     category: "Handpainted",
     images: [
@@ -1467,7 +1467,7 @@ const specificHandpaintedSarees: Product[] = [
   },
   {
     id: "403",
-    name: "Cosmic Petals (Handpainted Khadi - Dark Marine Teal)",
+    name: "Cosmic Petals",
     price: 1399,
     category: "Handpainted",
     images: [
@@ -1499,7 +1499,7 @@ const specificHandpaintedSarees: Product[] = [
   },
   {
     id: "404",
-    name: "Cosmic Petals (Handpainted Khadi - Purple)",
+    name: "Cosmic Petals",
     price: 1399,
     category: "Handpainted",
     images: [
@@ -1535,7 +1535,7 @@ const specificHandpaintedSarees: Product[] = [
 const specificTissueSarees: Product[] = [
   {
     id: "501",
-    name: "Moonlight (Tissue - Sky Blue)",
+    name: "Moonlight",
     price: 1799,
     category: "Tissue",
     images: [
@@ -1568,7 +1568,7 @@ const specificTissueSarees: Product[] = [
   },
   {
     id: "502",
-    name: "Moonlight (Tissue - Golden)",
+    name: "Moonlight",
     price: 1799,
     category: "Tissue",
     images: [
@@ -1601,7 +1601,7 @@ const specificTissueSarees: Product[] = [
   },
   {
     id: "503",
-    name: "Moonlight (Tissue with Border)",
+    name: "Moonlight",
     price: 1799,
     category: "Tissue",
     images: [
@@ -1634,7 +1634,7 @@ const specificTissueSarees: Product[] = [
   },
   {
     id: "504",
-    name: "Tissue Luxe (Linen Tissue - Greenish)",
+    name: "Tissue Luxe",
     price: 2499,
     category: "Tissue",
     images: [
@@ -1668,7 +1668,7 @@ const specificTissueSarees: Product[] = [
   },
   {
     id: "505",
-    name: "Tissue Luxe (Linen Tissue - Peach)",
+    name: "Tissue Luxe",
     price: 2499,
     category: "Tissue",
     images: [
@@ -1706,7 +1706,7 @@ const specificTissueSarees: Product[] = [
 const specificJamdaniSarees: Product[] = [
   {
     id: "601",
-    name: "Phooldaan (Jamdani)",
+    name: "Phooldaan",
     price: 1999,
     category: "Jamdani",
     images: [
@@ -1743,7 +1743,7 @@ const specificJamdaniSarees: Product[] = [
   },
   {
     id: "602",
-    name: "Linen Lust (Linen Jamdani - Purple)",
+    name: "Linen Lust",
     price: 3599,
     category: "Jamdani",
     images: [
