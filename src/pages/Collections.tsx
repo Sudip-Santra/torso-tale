@@ -22,14 +22,14 @@ const Collections = () => {
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [showSortOptions, setShowSortOptions] = useState(false);
 
-  // Price ranges
+  // Price ranges - Updated to match actual product prices
   const priceRanges: PriceRange[] = [
-    { min: 0, max: 4999, label: "Under ₹5000" },
-    { min: 5000, max: 6999, label: "₹5000 - ₹6999" },
-    { min: 7000, max: 8999, label: "₹7000 - ₹8999" },
-    { min: 9000, max: 10999, label: "₹9000 - ₹10999" },
-    { min: 11000, max: 12999, label: "₹11000 - ₹12999" },
-    { min: 13000, max: null, label: "₹13000 & above" }
+    { min: 999, max: 1499, label: "₹999 - ₹1499" },
+    { min: 1500, max: 1999, label: "₹1500 - ₹1999" },
+    { min: 2000, max: 2499, label: "₹2000 - ₹2499" },
+    { min: 2500, max: 2999, label: "₹2500 - ₹2999" },
+    { min: 3000, max: 3499, label: "₹3000 - ₹3499" },
+    { min: 3500, max: null, label: "₹3500 & above" }
   ];
 
   useEffect(() => {
