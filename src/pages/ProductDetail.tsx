@@ -8,247 +8,29 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-
-// Dummy product database
-const productDatabase = [
-  {
-    id: "1",
-    name: "Handwoven Pure Cotton Saree",
-    price: 4999,
-    category: "Linen",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg"
-  },
-  {
-    id: "2",
-    name: "Elegant Handcrafted Saree",
-    price: 6499,
-    category: "Linen Tissue",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
-  },
-  {
-    id: "3",
-    name: "Traditional Festive Saree",
-    price: 5299,
-    category: "Mulmul",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg"
-  },
-  {
-    id: "4",
-    name: "Contemporary Floral Saree",
-    price: 7999,
-    category: "Raaga Tissue",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(4).jpg"
-  },
-  {
-    id: "5",
-    name: "Modern Silk Blend Saree",
-    price: 3999,
-    category: "Khadi",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(4).jpg"
-  },
-  {
-    id: "6",
-    name: "Classic Pattern Saree",
-    price: 8499,
-    category: "Kantha Stitch",
-    image: "/assets/saree8.jpg"
-  },
-  {
-    id: "7",
-    name: "Designer Embroidered Saree",
-    price: 11999,
-    category: "Handpainted",
-    image: "/assets/saree9.jpg"
-  },
-  {
-    id: "8",
-    name: "Lightweight Summer Saree",
-    price: 4799,
-    category: "Linen",
-    image: "/assets/saree10.jpg"
-  },
-  {
-    id: "9",
-    name: "Vibrant Color Block Saree",
-    price: 5599,
-    category: "Linen Tissue",
-    image: "/assets/saree11.jpg"
-  },
-  {
-    id: "10",
-    name: "Designer Wedding Saree",
-    price: 9999,
-    category: "Mulmul",
-    image: "/assets/saree13.jpg"
-  },
-  {
-    id: "11",
-    name: "Premium Handloom Saree",
-    price: 6299,
-    category: "Raaga Tissue",
-    image: "/assets/saree14.jpg"
-  },
-  {
-    id: "12",
-    name: "Artisanal Collection Saree",
-    price: 7499,
-    category: "Khadi",
-    image: "/assets/saree15.jpg"
-  },
-  {
-    id: "13",
-    name: "Signature Torso Tale Saree",
-    price: 12999,
-    category: "Kantha Stitch",
-    image: "/assets/saree16.jpg"
-  },
-  {
-    id: "14",
-    name: "Exclusive Designer Saree",
-    price: 8999,
-    category: "Handpainted",
-    image: "/assets/saree17.jpg"
-  },
-  {
-    id: "15",
-    name: "Limited Edition Saree",
-    price: 13999,
-    category: "Linen",
-    image: "/assets/saree18.jpg"
-  },
-  {
-    id: "16",
-    name: "Handwoven Pure Cotton Saree",
-    price: 5499,
-    category: "Linen Tissue",
-    image: "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg"
-  }
-];
-
-
-interface ProductDetails {
-  "Product Type": string;
-  "Saree Length": string;
-  "Fabric": string;
-  "Color": string;
-  "Blouse Piece": string;
-  "Weaving Cluster": string;
-  "Craft Technique": string;
-  [key: string]: string;
-}
-
-interface ProductData {
-  id: string;
-  name: string;
-  price: number;
-  category: string;
-  image: string;
-  images: string[];
-  description: string;
-  highlights: string[];
-  details: ProductDetails;
-  washCare: string[];
-}
+import products, { Product, ProductDetails } from "@/data/products";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [activeImage, setActiveImage] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [productData, setProductData] = useState<ProductData | null>(null);
+  const [productData, setProductData] = useState<Product | null>(null);
 
-  // Simulate fetching product data based on ID
+  // Fetch product data based on ID
   useEffect(() => {
     // Simulate loading delay
     setLoading(true);
 
-    // Find the product based on ID or use a fallback if not found
     const fetchData = () => {
-      const foundProduct = productDatabase.find(product => product.id === id);
-
+      // Find the product based on ID or use a fallback if not found
+      const foundProduct = products.find(product => product.id === id);
+      
       if (foundProduct) {
-        // Generate additional images - use specific images for product ID "1"
-        let additionalImages;
-        if (foundProduct.id === "1") {
-          // Use all 4 images from assets/tt/ folder for product ID "1"
-          additionalImages = [
-            "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-            "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg",
-            "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-            "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
-          ];
-        } else if (foundProduct.id === "2") {
-          // Use specific green images for product ID "2"
-          additionalImages = [
-            "/assets/tt/Handpainted Khadi_green1.jpg", // Update these paths with actual green image paths
-            "/assets/tt/Handpainted Khadi_green2.jpg",
-            "/assets/tt/Handpainted Khadi_green3.jpg",
-          ];
-        } else {
-          // For other products, cycle through available images
-          additionalImages = [
-            foundProduct.image,
-            productDatabase[(parseInt(foundProduct.id) + 1) % productDatabase.length].image,
-            productDatabase[(parseInt(foundProduct.id) + 2) % productDatabase.length].image,
-            productDatabase[(parseInt(foundProduct.id) + 3) % productDatabase.length].image,
-          ];
-        }
-
-        setProductData({
-          ...foundProduct,
-          // Keep these as dummy data for now
-          images: additionalImages,
-          description: "Experience the softness and elegance of pure saree. Handwoven with precision and care, this saree boasts intricate designs and patterns that reflect the rich heritage of India's textile tradition. The fabric is renowned for its lightweight, breathable, and comfortable texture, making it perfect for everyday wear or special occasions. These sarees are perfect for hot and humid climate.",
-          highlights: [
-            "Comfort: Crafted from handwoven cotton, ensuring breathability and lightness.",
-            "Traditional Craftsmanship: Features handloom design all over and pallu, showcasing India's weaving artistry."
-          ],
-          details: {
-            "Product Type": "Saree",
-            "Saree Length": "6.5 meters | Width: 47 inches",
-            "Fabric": `Pure ${foundProduct.category}`,
-            "Color": ["Navy Blue", "Maroon", "Forest Green", "Deep Purple", "Crimson"][Math.floor(Math.random() * 5)],
-            "Blouse Piece": Math.random() > 0.5 ? "Yes" : "No",
-            "Weaving Cluster": ["West Bengal", "Tamil Nadu", "Odisha", "Gujarat", "Rajasthan"][Math.floor(Math.random() * 5)],
-            "Craft Technique": "Handloom"
-          },
-          washCare: [
-            "Dry clean /Light hand wash only",
-            "Avoid steam ironing",
-            "Use extremely low heat for ironing"
-          ]
-        });
+        setProductData(foundProduct);
       } else {
         // Fallback to first product if ID not found
-        const fallbackProduct = productDatabase[0];
-        setProductData({
-          ...fallbackProduct,
-          images: [
-            fallbackProduct.image,
-            productDatabase[1].image,
-            productDatabase[2].image,
-            productDatabase[3].image,
-          ],
-          description: "Experience the softness and elegance of pure saree. Handwoven with precision and care, this saree boasts intricate designs and patterns that reflect the rich heritage of India's textile tradition.",
-          highlights: [
-            "Comfort: Crafted from handwoven cotton, ensuring breathability and lightness.",
-            "Traditional Craftsmanship: Features handloom design all over and pallu, showcasing India's weaving artistry."
-          ],
-          details: {
-            "Product Type": "Saree",
-            "Saree Length": "6.5 meters | Width: 47 inches",
-            "Fabric": "Pure Cotton",
-            "Color": "Navy Blue",
-            "Blouse Piece": "No",
-            "Weaving Cluster": "West Bengal",
-            "Craft Technique": "Handloom"
-          },
-          washCare: [
-            "Dry clean /Light hand wash only",
-            "Avoid steam ironing",
-            "Use extremely low heat for ironing"
-          ]
-        });
+        setProductData(products[0]);
       }
 
       // Simulate network delay

@@ -8,45 +8,16 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-
-// Types
-type SareeCategory =
-  | "Linen"
-  | "Linen Tissue"
-  | "Mulmul"
-  | "Raaga Tissue"
-  | "Khadi"
-  | "Kantha Stitch"
-  | "Handpainted"
-  | "All";
-
-type PriceRange = {
-  min: number;
-  max: number | null;
-  label: string;
-};
-
-type SortOption = "featured" | "price-asc" | "price-desc";
-
-interface Saree {
-  id: number;
-  name: string;
-  price: number;
-  category: SareeCategory;
-  image: string;
-  isNew?: boolean;
-  isBestseller?: boolean;
-  keywords: string[];
-}
+import products from "@/data/products";
+import { ProductCategory, PriceRange, SortOption } from "@/types/product";
 
 const Collections = () => {
   // State
-  const [selectedCategory, setSelectedCategory] = useState<SareeCategory>("All");
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>("All");
   const [selectedPriceRange, setSelectedPriceRange] = useState<PriceRange | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [sarees, setSarees] = useState<Saree[]>([]);
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [showSortOptions, setShowSortOptions] = useState(false);
@@ -61,136 +32,16 @@ const Collections = () => {
     { min: 13000, max: null, label: "₹13000 & above" }
   ];
 
-  // Generate sarees data using images from assets folder
   useEffect(() => {
-    // Simulate loading
+    // Simulate loading delay
     setIsLoading(true);
-
-    // Categories
-    const categories: SareeCategory[] = [
-      "Linen",
-      "Linen Tissue",
-      "Mulmul",
-      "Raaga Tissue",
-      "Khadi",
-      "Kantha Stitch",
-      "Handpainted"
-    ];
-
-    // Names
-    const sareeNames = [
-      "Handwoven Pure Cotton Saree",
-      "Elegant Handcrafted Saree",
-      "Traditional Festive Saree",
-      "Contemporary Floral Saree",
-      "Modern Silk Blend Saree",
-      "Classic Pattern Saree",
-      "Designer Embroidered Saree",
-      "Lightweight Summer Saree",
-      "Vibrant Color Block Saree",
-      "Designer Wedding Saree",
-      "Premium Handloom Saree",
-      "Artisanal Collection Saree",
-      "Signature Torso Tale Saree",
-      "Exclusive Designer Saree",
-      "Limited Edition Saree"
-    ];
-
-    // Keywords for each category
-    const categoryKeywords = {
-      "Linen": ["linen", "breathable", "light", "summer", "casual", "office", "daily wear"],
-      "Linen Tissue": ["linen", "tissue", "zari", "festive", "party", "light", "elegant"],
-      "Mulmul": ["mulmul", "cotton", "soft", "light", "breathable", "summer", "casual"],
-      "Raaga Tissue": ["raaga", "tissue", "silk blend", "festive", "party", "dressy", "celebration"],
-      "Khadi": ["khadi", "handloom", "natural", "organic", "traditional", "sustainable", "eco-friendly"],
-      "Kantha Stitch": ["kantha", "embroidery", "handcrafted", "artisanal", "unique", "folk", "traditional"],
-      "Handpainted": ["handpainted", "artistic", "unique", "artisanal", "statement", "exclusive", "art"]
-    };
-
-    // Color keywords
-    const colorKeywords = ["red", "blue", "green", "yellow", "pink", "purple", "orange", "teal", "maroon", "navy"];
-
-    // Occasion keywords
-    const occasionKeywords = ["wedding", "festival", "party", "casual", "office", "daily wear", "celebration"];
-
-    // Generate sarees with random categories from available images
-    const generatedSarees: Saree[] = [
-      {
-        id: 1, name: sareeNames[0], price: 4999, category: categories[0], image: "/assets/saree1.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[0]], "red", "traditional", "border", colorKeywords[0], occasionKeywords[Math.floor(Math.random() * occasionKeywords.length)]]
-      },
-      {
-        id: 2, name: sareeNames[1], price: 6499, category: categories[1], image: "/assets/saree2.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[1]], "pink", "gold", "wedding", colorKeywords[4], occasionKeywords[0]]
-      },
-      {
-        id: 3, name: sareeNames[2], price: 5299, category: categories[2], image: "/assets/saree3.jpg",
-        keywords: [...categoryKeywords[categories[2]], "orange", "festive", colorKeywords[6], occasionKeywords[1]]
-      },
-      {
-        id: 4, name: sareeNames[3], price: 7999, category: categories[3], image: "/assets/saree4.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[3]], "floral", "blue", "pattern", colorKeywords[1], occasionKeywords[2]]
-      },
-      {
-        id: 5, name: sareeNames[4], price: 3999, category: categories[4], image: "/assets/saree6.jpg",
-        keywords: [...categoryKeywords[categories[4]], "green", "eco-friendly", colorKeywords[2], occasionKeywords[3]]
-      },
-      {
-        id: 6, name: sareeNames[5], price: 8499, category: categories[5], image: "/assets/saree8.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[5]], "traditional", "maroon", colorKeywords[9], occasionKeywords[0]]
-      },
-      {
-        id: 7, name: sareeNames[6], price: 11999, category: categories[6], image: "/assets/saree9.jpg",
-        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", colorKeywords[5], occasionKeywords[2]]
-      },
-      {
-        id: 8, name: sareeNames[7], price: 4799, category: categories[0], image: "/assets/saree10.jpg",
-        keywords: [...categoryKeywords[categories[0]], "summer", "yellow", "lightweight", colorKeywords[3], occasionKeywords[3]]
-      },
-      {
-        id: 9, name: sareeNames[8], price: 5599, category: categories[1], image: "/assets/saree11.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[1]], "vibrant", "colorful", "party", "red", colorKeywords[0], occasionKeywords[2]]
-      },
-      {
-        id: 10, name: sareeNames[9], price: 9999, category: categories[2], image: "/assets/saree13.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[2]], "wedding", "bridal", "red", "gold", colorKeywords[0], occasionKeywords[0]]
-      },
-      {
-        id: 11, name: sareeNames[10], price: 6299, category: categories[3], image: "/assets/saree14.jpg",
-        keywords: [...categoryKeywords[categories[3]], "premium", "blue", "handloom", colorKeywords[1], occasionKeywords[1]]
-      },
-      {
-        id: 12, name: sareeNames[11], price: 7499, category: categories[4], image: "/assets/saree15.jpg",
-        keywords: [...categoryKeywords[categories[4]], "artisanal", "green", "sustainable", colorKeywords[2], occasionKeywords[4]]
-      },
-      {
-        id: 13, name: sareeNames[12], price: 12999, category: categories[5], image: "/assets/saree16.jpg", isNew: true,
-        keywords: [...categoryKeywords[categories[5]], "signature", "limited", "exclusive", "pink", colorKeywords[4], occasionKeywords[0]]
-      },
-      {
-        id: 14, name: sareeNames[13], price: 8999, category: categories[6], image: "/assets/saree17.jpg",
-        keywords: [...categoryKeywords[categories[6]], "designer", "exclusive", "purple", "artistic", colorKeywords[5], occasionKeywords[2]]
-      },
-      {
-        id: 15, name: sareeNames[14], price: 13999, category: categories[0], image: "/assets/saree18.jpg", isBestseller: true,
-        keywords: [...categoryKeywords[categories[0]], "limited", "edition", "premium", "teal", colorKeywords[7], occasionKeywords[1]]
-      },
-      {
-        id: 16, name: sareeNames[0], price: 5499, category: categories[1], image: "/assets/saree19.jpg",
-        keywords: [...categoryKeywords[categories[1]], "handwoven", "cotton", "blue", colorKeywords[1], occasionKeywords[3]]
-      },
-    ];
-
-    setSarees(generatedSarees);
-
-    // Simulate network delay
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
   }, []);
 
   // Filter sarees based on selected category, price range, and search query
-  const filteredSarees = sarees.filter((saree) => {
+  const filteredSarees = products.filter((saree) => {
     const matchesCategory = selectedCategory === "All" || saree.category === selectedCategory;
 
     // Enhanced search - check name, category, and keywords
@@ -320,10 +171,10 @@ const Collections = () => {
               <div className="hidden md:block">
                 <h3 className="text-lg font-medium mb-3 text-gray-800">Categories</h3>
                 <ul className="space-y-2">
-                  {["All", "Linen", "Linen Tissue", "Mulmul", "Raaga Tissue", "Khadi", "Kantha Stitch", "Handpainted"].map((category) => (
+                  {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted", "Jamdani"].map((category) => (
                     <li key={category}>
                       <button
-                        onClick={() => setSelectedCategory(category as SareeCategory)}
+                        onClick={() => setSelectedCategory(category as ProductCategory)}
                         className={cn(
                           "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
                           selectedCategory === category
@@ -365,10 +216,10 @@ const Collections = () => {
 
                 {expandedSection === 'categories' && (
                   <ul className="mt-1 space-y-1 bg-white p-3 rounded-md border border-gray-200 shadow-sm">
-                    {["All", "Linen", "Linen Tissue", "Mulmul", "Raaga Tissue", "Khadi", "Kantha Stitch", "Handpainted"].map((category) => (
+                    {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted", "Jamdani"].map((category) => (
                       <li key={category}>
                         <button
-                          onClick={() => setSelectedCategory(category as SareeCategory)}
+                          onClick={() => setSelectedCategory(category as ProductCategory)}
                           className={cn(
                             "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
                             selectedCategory === category
@@ -659,7 +510,7 @@ const Collections = () => {
                               <div className="relative h-80 overflow-hidden">
                                 {/* Product Image */}
                                 <img
-                                  src={saree.image}
+                                  src={saree.images[0]} 
                                   alt={saree.name}
                                   className="w-full h-full object-cover object-center transition-transform duration-500"
                                 />

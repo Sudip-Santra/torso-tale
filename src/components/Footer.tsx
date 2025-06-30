@@ -59,13 +59,10 @@ const Footer = () => {
                 <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen Tissue</Link>
-              </li>
-              <li>
                 <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Mulmul</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Raaga Tissue</Link>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Tissue</Link>
               </li>
               <li>
                 <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Khadi</Link>
@@ -75,6 +72,9 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Handpainted</Link>
+              </li>
+              <li>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Jamdani</Link>
               </li>
             </ul>
           </div>
