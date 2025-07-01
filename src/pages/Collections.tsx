@@ -516,7 +516,7 @@ const Collections = () => {
                                 />
 
                                 {/* Badges */}
-                                <div className="absolute top-3 left-3 flex flex-col gap-2">
+                                {/* <div className="absolute top-3 left-3 flex flex-col gap-2">
                                   {saree.isNew && (
                                     <Badge className="bg-saree-teal text-white border-0 px-2.5 py-1 text-xs font-medium">
                                       New
@@ -527,7 +527,7 @@ const Collections = () => {
                                       Bestseller
                                     </Badge>
                                   )}
-                                </div>
+                                </div> */}
                               </div>
 
                               <div className="p-4">

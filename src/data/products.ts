@@ -100,9 +100,10 @@ const specificMulmulSarees: Product[] = [
     price: 1450,
     category: "Mulmul",
     images: [
-      "/assets/saree1.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree3.jpg"
+      "/assets/collections/Parijat_Mul_blue3.webp",
+      "/assets/collections/Parijat_Mul_blue1.webp",
+      "/assets/collections/Parijat_Mul_blue2.webp",
+      "/assets/collections/Parijat_Mul_blue4.webp"
     ],
     description: "This saree is just butter that you can wear with Prajkatas all over.",
     highlights: [
@@ -135,9 +136,10 @@ const specificMulmulSarees: Product[] = [
     price: 1450,
     category: "Mulmul",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree6.jpg",
-      "/assets/saree8.jpg"
+      "/assets/collections/Parijat_Mul_red5.webp",
+      "/assets/collections/Parijat_Mul_red2.webp",
+      "/assets/collections/Parijat_Mul_red4.webp",
+      "/assets/collections/Parijat_Mul_red3(1).webp",
     ],
     description: "These sarees are just butter that you can wear with Prajkatas all over.",
     highlights: [
@@ -170,9 +172,10 @@ const specificMulmulSarees: Product[] = [
     price: 1450,
     category: "Mulmul",
     images: [
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg",
-      "/assets/saree11.jpg"
+      "/assets/collections/Parijat_Mul_light_pink4.webp",
+      "/assets/collections/Parijat_Mul_light_pink3.webp",
+      "/assets/collections/Parijat_Mul_light_pink1.webp",
+      "/assets/collections/Parijat_Mul_light_pink2.webp",
     ],
     description: "These sarees are just butter that you can wear with Prajkatas all over.",
     highlights: [
@@ -205,9 +208,10 @@ const specificMulmulSarees: Product[] = [
     price: 1450,
     category: "Mulmul",
     images: [
-      "/assets/saree13.jpg",
-      "/assets/saree14.jpg",
-      "/assets/saree15.jpg"
+      "/assets/collections/Parijat_Mul_green4.webp",
+      "/assets/collections/Parijat_Mul_green1.webp",
+      "/assets/collections/Parijat_Mul_green3.webp",
+      "/assets/collections/Parijat_Mul_green2.webp",
     ],
     description: "These sarees are just butter that you can wear with Prajkatas all over.",
     highlights: [
@@ -275,9 +279,10 @@ const specificMulmulSarees: Product[] = [
     price: 1699,
     category: "Mulmul",
     images: [
-      "/assets/saree19.jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
+      "/assets/collections/Mulmul1700_Violet2.webp",
+      "/assets/collections/Mulmul1700_Violet1.webp",
+      "/assets/collections/Mulmul1700_Violet3.webp",
+      "/assets/collections/Mulmul1700_Violet4.webp",
     ],
     description: "These sarees are perfect for hot and humid climates.",
     highlights: [
@@ -310,9 +315,10 @@ const specificMulmulSarees: Product[] = [
     price: 2299,
     category: "Mulmul",
     images: [
-      "/assets/tt/Handpainted Khadi_green1.jpg",
-      "/assets/tt/Handpainted Khadi_green2.jpg",
-      "/assets/tt/Handpainted Khadi_green3.jpg"
+      "/assets/collections/Mulmul2300_sea_green2.webp",
+      "/assets/collections/Mulmul2300_sea_green1.webp",
+      "/assets/collections/Mulmul2300_sea_green3.webp",
+      "/assets/collections/Mulmul2300_sea_green4.webp",
     ],
     description: "These sarees are perfect for hot and humid climates.",
     highlights: [
@@ -345,9 +351,10 @@ const specificMulmulSarees: Product[] = [
     price: 2299,
     category: "Mulmul",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
-      "/assets/saree2.jpg"
+      "/assets/collections/Mulmul2300_teal5.webp",
+      "/assets/collections/Mulmul2300_teal4.webp",
+      "/assets/collections/Mulmul2300_teal3.webp",
+      "/assets/collections/Mulmul2300_teal2.webp",
     ],
     description: "These sarees are perfect for hot and humid climates.",
     highlights: [
@@ -380,9 +387,10 @@ const specificMulmulSarees: Product[] = [
     price: 3199,
     category: "Mulmul",
     images: [
-      "/assets/saree3.jpg",
-      "/assets/saree18.jpg",
-      "/assets/saree19.jpg"
+      "/assets/collections/Mul_big_design_offwhite5.webp",
+      "/assets/collections/Mul_big_design_offwhite4.webp",
+      "/assets/collections/Mul_big_design_offwhite3.webp",
+      "/assets/collections/Mul_big_design_offwhite1.webp",
     ],
     description: "This saree is a perfect example of pure and calming beauty of handwoven designs and its emerging colours.",
     highlights: [
@@ -488,9 +496,10 @@ const specificLinenSarees: Product[] = [
     price: 3399,
     category: "Linen",
     images: [
-      "/assets/saree13.jpg",
-      "/assets/saree14.jpg",
-      "/assets/saree15.jpg"
+      "/assets/collections/Barfi_Linen_pink4.webp",
+      "/assets/collections/Barfi_Linen_pink2.webp",
+      "/assets/collections/Barfi_Linen_pink1.webp",
+      "/assets/collections/Barfi_Linen_pink3.webp",
     ],
     description: "This saree showcases the finest linen fabric, and tends to have a clean fall.",
     highlights: [
@@ -522,9 +531,9 @@ const specificLinenSarees: Product[] = [
     price: 2050,
     category: "Linen",
     images: [
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg",
-      "/assets/saree18.jpg"
+      "/assets/collections/Plain_Linen_Beetroot2.webp",
+      "/assets/collections/Plain_Linen_Beetroot1.webp",
+      "/assets/collections/Plain_Linen_Beetroot4.webp",
     ],
     description: "This single colour saree proves that \"Less is more\" in the finest linen fabric.",
     highlights: [
@@ -556,9 +565,10 @@ const specificLinenSarees: Product[] = [
     price: 2050,
     category: "Linen",
     images: [
-      "/assets/saree19.jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
+      "/assets/collections/Plain_Linen__green2.webp",
+      "/assets/collections/Plain_Linen__green4.webp",
+      "/assets/collections/Plain_Linen__green3.webp",
+      "/assets/collections/Plain_Linen__green1.webp",
     ],
     description: "This single colour saree proves that \"Less is more\" in the finest linen fabric.",
     highlights: [
@@ -590,9 +600,9 @@ const specificLinenSarees: Product[] = [
     price: 2050,
     category: "Linen",
     images: [
-      "/assets/tt/Handpainted Khadi_green1.jpg",
-      "/assets/tt/Handpainted Khadi_green2.jpg",
-      "/assets/tt/Handpainted Khadi_green3.jpg"
+      "/assets/collections/Plain_Linen_pastel3.webp",
+      "/assets/collections/Plain_Linen_pastel1.webp",
+      "/assets/collections/Plain_Linen_pastel2.webp",
     ],
     description: "This single colour saree proves that \"Less is more\" in the finest linen fabric.",
     highlights: [
@@ -624,9 +634,10 @@ const specificLinenSarees: Product[] = [
     price: 2499,
     category: "Linen",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
-      "/assets/saree2.jpg"
+      "/assets/collections/Sequin_linen_blue2.webp",
+      "/assets/collections/Sequin_linen_blue1.webp",
+      "/assets/collections/Sequin_linen_blue3.webp",
+      "/assets/collections/Sequin_linen_blue4.webp",
     ],
     description: "This saree has sequins woven through the linen threads which twinkle while you wear.",
     highlights: [
@@ -658,9 +669,9 @@ const specificLinenSarees: Product[] = [
     price: 2499,
     category: "Linen",
     images: [
-      "/assets/saree3.jpg",
-      "/assets/saree18.jpg",
-      "/assets/saree19.jpg"
+      "/assets/collections/Sequin_linen_brown3.webp",
+      "/assets/collections/Sequin_linen_brown1.webp",
+      "/assets/collections/Sequin_linen_brown2.webp",
     ],
     description: "This saree has sequins woven through the linen threads which twinkle while you wear.",
     highlights: [
@@ -688,13 +699,13 @@ const specificLinenSarees: Product[] = [
   },
   {
     id: "210",
-    name: "Bloom Soon (Tulip Linen - Black)",
+    name: "Bloom Soon",
     price: 3499,
     category: "Linen",
     images: [
-      "/assets/saree8.jpg",
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg"
+      "/assets/collections/Tulip_Linen_Black2.webp",
+      "/assets/collections/Tulip_Linen_Black1.webp",
+      "/assets/collections/Tulip_Linen_Black3.webp"
     ],
     description: "This saree showcases handwoven Tulips all over, and Linen's natural grace.",
     highlights: [
