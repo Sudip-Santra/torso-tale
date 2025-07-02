@@ -18,34 +18,28 @@ const Hero = () => {
 
   const slides = [
     {
-      image: "/assets/slider/Jamdani_slider.jpg",
-      title: "Handcrafted Elegance",
+      image: "/assets/slider/linen_Slider_image.jpg",
+      title: "Classy Gatherings",
       subtitle: "Linen Sarees",
       description: "LINEN threads weave tales of old,<br/>Handloom's tender touch, stories unfold.",
     },
     {
-      image: "/assets/slider/Landscape_three_models.jpg",
-      title: "Wedding Collection",
+      image: "/assets/slider/Kantha_Slider.jpg",
+      title: "Woven Narratives",
+      subtitle: "Kantha Sarees",
+      description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha thatnever fail.",
+    },
+    {
+      image: "/assets/slider/Jamdani_slider.jpg",
+      title: "Jamdani Blooming",
       subtitle: "Jamdani Sarees",
       description: "Weaving magic in every thread,<br/>JAMDANI's splendor,in every fold ahead.",
     },
     {
-      image: "/assets/slider/linen_Slider_image.jpg",
-      title: "Festive Season",
-      subtitle: "Parijat Sarees",
-      description: "Mul's soft whisper, PARIJAT's gentle art,<br/>just the saree but touches the heart.",
-    },
-    {
       image: "/assets/slider/Parijat_mul_home_page.png",
-      title: "Contemporary Designs",
-      subtitle: "Raaga Tissue Sarees",
-      description: "Tissue soft, RAAGA's calm hue,<br/>A saree's elegance, for me and you.",
-    },
-    {
-      image: "/assets/slider/Kantha_Slider.jpg",
-      title: "Exclusive Collection",
-      subtitle: "Resham Kota Sarees",
-      description: "Royal glow on RESHAM KOTA's grid,<br/>Elegance woven, in every thread and beed.",
+      title: "Summer Edits",
+      subtitle: "Mulmul Sarees",
+      description: "Gentle as moonlight, Light as air,<br/>MULMULs drape you beyond compare. ",
     }
   ];
 

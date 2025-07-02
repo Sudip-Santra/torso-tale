@@ -741,9 +741,10 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree1.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree3.jpg"
+      "/assets/collections/Khadi_contrast_Pallu_red_n_yellow2.webp",
+      "/assets/collections/Khadi_contrast_Pallu_red_n_yellow1.webp",
+      "/assets/collections/Khadi_contrast_Pallu_red_n_yellow3.webp",
+      "/assets/collections/Khadi_contrast_Pallu_red_n_yellow4.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -772,9 +773,9 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree6.jpg",
-      "/assets/saree8.jpg"
+      "/assets/collections/Plain_Khadi_Beetroot3.webp",
+      "/assets/collections/Plain_Khadi_Beetroot1.webp",
+      "/assets/collections/Plain_Khadi_Beetroot2.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -803,9 +804,10 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg",
-      "/assets/saree11.jpg"
+      "/assets/collections/Plain_khadi_bluish_yellow3.webp",
+      "/assets/collections/Plain_khadi_bluish_yellow1.webp",
+      "/assets/collections/Plain_khadi_bluish_yellow2.webp",
+      "/assets/collections/Plain_khadi_bluish_yellow4.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -834,9 +836,9 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree13.jpg",
-      "/assets/saree14.jpg",
-      "/assets/saree15.jpg"
+      "/assets/collections/Plain_khadi_light_green1.webp",
+      "/assets/collections/Plain_khadi_light_green1(1).webp",
+      "/assets/collections/Plain_khadi_light_green4.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -865,9 +867,10 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg",
-      "/assets/saree18.jpg"
+      "/assets/Plain_Khadi_pink4.webp",
+      "/assets/Plain_Khadi_pink3.webp",
+      "/assets/Plain_Khadi_pink1.webp",
+      "/assets/Plain_Khadi_pink2.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -896,9 +899,9 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/saree19.jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
+      "/assets/collections/Plain_khadi_teal_green2.webp",
+      "/assets/collections/Plain_khadi_teal_green1.webp",
+      "/assets/collections/Plain_khadi_teal_green4.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -927,9 +930,10 @@ const specificKhadiSarees: Product[] = [
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/tt/Handpainted Khadi_green1.jpg",
-      "/assets/tt/Handpainted Khadi_green2.jpg",
-      "/assets/tt/Handpainted Khadi_green3.jpg"
+      "/assets/collections/Zilmil_khadi_blue3.webp",
+      "/assets/collections/Zilmil_khadi_blue3(1).webp",
+      "/assets/collections/Zilmil_khadi_blue2.webp",
+      "/assets/collections/Zilmil_khadi_blue4.webp",
     ],
     description: "This is a piece with little sprinkles of weave in between that makes the saree sparkle with the beauty of a night sky.",
     highlights: [
@@ -958,9 +962,10 @@ const specificKhadiSarees: Product[] = [
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
-      "/assets/saree2.jpg"
+      "/assets/collections/Zilmil_khadi_green3.webp",
+      "/assets/collections/Zilmil_khadi_green1.webp",
+      "/assets/collections/Zilmil_khadi_green2.webp",
+      "/assets/collections/Zilmil_khadi_green4.webp",
     ],
     description: "This is a piece with little sprinkles of weave in between that makes the saree sparkle with the beauty of a night sky.",
     highlights: [
@@ -985,13 +990,14 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "309",
-    name: "Khadi Katha (Zilmil Khadi - Purple)",
+    name: "Khadi Katha",
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/saree3.jpg",
-      "/assets/saree18.jpg",
-      "/assets/saree19.jpg"
+      "/assets/collections/Zilmil_khadi_purple3.webp",
+      "/assets/collections/Zilmil_khadi_purple1.webp",
+      "/assets/collections/Zilmil_khadi_purple2.webp",
+      "/assets/collections/Zilmil_khadi_purple3(1).webp",
     ],
     description: "This is a piece with little sprinkles of weave in between that makes the saree sparkle with the beauty of a night sky.",
     highlights: [
@@ -1016,13 +1022,14 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "310",
-    name: "Khadi Kalaa (Stripe Khadi - Pink)",
+    name: "Khadi Kalaa",
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/saree8.jpg",
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg"
+      "/assets/collections/Striped_Khadi_pink3.webp",
+      "/assets/collections/Striped_Khadi_pink4.webp",
+      "/assets/collections/Striped_Khadi_pink1.webp",
+      "/assets/collections/Striped_Khadi_pink2.webp",
     ],
     description: "Stripes on Khadi creates a visual interest and slims down creating a classic and timeless look.",
     highlights: [
@@ -1047,13 +1054,15 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "311",
-    name: "Khadi Kalaa (Stripe Khadi - Violet)",
+    name: "Khadi Kalaa",
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/saree6.jpg",
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg"
+      "/assets/collections/Striped_Khadi_violet5.webp",
+      "/assets/collections/Striped_Khadi_violet4.webp",
+      "/assets/collections/Striped_Khadi_violet3.webp",
+      "/assets/collections/Striped_Khadi_violet2.webp",
+      "/assets/collections/Striped_Khadi_violet1.webp",
     ],
     description: "Stripes on Khadi creates a visual interest and slims down creating a classic and timeless look.",
     highlights: [
@@ -1078,13 +1087,13 @@ const specificKhadiSarees: Product[] = [
   },
   {
     id: "312",
-    name: "Khadi Kalaa (Stripe Khadi - Red)",
+    name: "Khadi Kalaa",
     price: 999,
     category: "Khadi",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree14.jpg",
-      "/assets/saree15.jpg"
+      "/assets/collections/Striped_Khadi_red3.webp",
+      "/assets/collections/Striped_Khadi_red1.webp",
+      "/assets/collections/Striped_Khadi_red2.webp",
     ],
     description: "Stripes on Khadi creates a visual interest and slims down creating a classic and timeless look.",
     highlights: [
@@ -1117,9 +1126,9 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree1.jpg",
-      "/assets/saree3.jpg",
-      "/assets/saree11.jpg"
+      "/assets/collections/Khadi_kantha_Aboli5.webp",
+      "/assets/collections/Khadi_kantha_Aboli1.webp",
+      "/assets/collections/Khadi_kantha_Aboli3.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1150,9 +1159,11 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree9.jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg"
+      "/assets/collections/Khadi_kantha_darkblue3.webp",
+      "/assets/collections/Khadi_kantha_darkblue1.webp",
+      "/assets/collections/Khadi_kantha_darkblue2.webp",
+      "/assets/collections/Khadi_kantha_darkblue4.webp",
+      "/assets/collections/Khadi_kantha_darkblue5.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1183,9 +1194,10 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree19.jpg",
-      "/assets/saree8.jpg",
-      "/assets/saree13.jpg"
+      "/assets/collections/Khadi_kantha_Deep_maroon3.webp",
+      "/assets/collections/Khadi_kantha_Deep_maroon1.webp",
+      "/assets/collections/Khadi_kantha_Deep_maroon2.webp",
+      "/assets/collections/Khadi_kantha_Deep_maroon4.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1216,9 +1228,10 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/tt/Handpainted Khadi_green1.jpg",
-      "/assets/tt/Handpainted Khadi_green2.jpg",
-      "/assets/tt/Handpainted Khadi_green3.jpg"
+      "/assets/collections/Khadi_kantha_light_saffron2.webp",
+      "/assets/collections/Khadi_kantha_light_saffron5.webp",
+      "/assets/collections/Khadi_kantha_light_saffron1.webp",
+      "/assets/collections/Khadi_kantha_light_saffron3.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1249,9 +1262,10 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree10.jpg",
-      "/assets/saree14.jpg"
+      "/assets/Khadi_kantha_maroon2.webp",
+      "/assets/Khadi_kantha_maroon1.webp",
+      "/assets/Khadi_kantha_maroon4.webp",
+      "/assets/Khadi_kantha_maroon3.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1282,9 +1296,11 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree15.jpg",
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg"
+      "/assets/collections/Khadi_kantha_peach5.webp",
+      "/assets/collections/Khadi_kantha_peach1.webp",
+      "/assets/collections/Khadi_kantha_peach2.webp",
+      "/assets/collections/Khadi_kantha_peach3.webp",
+      "/assets/collections/Khadi_kantha_peach4.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1315,9 +1331,11 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree18.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree6.jpg"
+      "/assets/collections/Khadi_kantha_red3.webp",
+      "/assets/collections/Khadi_kantha_red1.webp",
+      "/assets/collections/Khadi_kantha_red4.webp",
+      "/assets/collections/Khadi_kantha_red2.webp",
+      "/assets/collections/Khadi_kantha_red5.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1348,9 +1366,11 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg",
-      "/assets/saree19.jpg"
+      "/assets/collections/Khadi_kantha_white3.webp",
+      "/assets/collections/Khadi_kantha_white2.webp",
+      "/assets/collections/Khadi_kantha_white1.webp",
+      "/assets/collections/Khadi_kantha_white4.webp",
+      "/assets/collections/Khadi_kantha_white5.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1381,9 +1401,11 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/saree8.jpg",
-      "/assets/saree13.jpg",
-      "/assets/saree3.jpg"
+      "/assets/collections/Khadi_kantha_skyblue4.webp",
+      "/assets/collections/Khadi_kantha_skyblue1.webp",
+      "/assets/collections/Khadi_kantha_skyblue3.webp",
+      "/assets/collections/Khadi_kantha_skyblue5.webp",
+      "/assets/collections/Khadi_kantha_skyblue2.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1418,9 +1440,9 @@ const specificHandpaintedSarees: Product[] = [
     price: 1399,
     category: "Handpainted",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(1).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg"
+      "/assets/collections/Handpainted_khadi_bluedual1.webp",
+      "/assets/collections/Handpainted_khadi_bluedual2.webp",
+      "/assets/collections/Handpainted_khadi_bluedual3.webp",
     ],
     description: "The Petals evoke a sense of cosmic wonder, just like the sunflowers following the Sun. This motif on Khadi is the correct expression of resilience and adoring nature-inspired pieces.",
     highlights: [
@@ -1450,9 +1472,10 @@ const specificHandpaintedSarees: Product[] = [
     price: 1399,
     category: "Handpainted",
     images: [
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(2).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(3).jpg",
-      "/assets/tt/Handpainted_khadi_bluishpurple1_(5).jpg"
+      "/assets/collections/Handpainted_khadi_bluishpurple4.webp",
+      "/assetscollections/Handpainted_khadi_bluishpurple1.webp",
+      "/assets/collections/Handpainted_khadi_bluishpurple2.webp",
+      "/assets/collections/Handpainted_khadi_bluishpurple3.webp",
     ],
     description: "The Petals evoke a sense of cosmic wonder, just like the sunflowers following the Sun. This motif on Khadi is the correct expression of resilience and adoring nature-inspired pieces.",
     highlights: [
@@ -1482,9 +1505,9 @@ const specificHandpaintedSarees: Product[] = [
     price: 1399,
     category: "Handpainted",
     images: [
-      "/assets/tt/Handpainted Khadi_green1.jpg",
-      "/assets/tt/Handpainted Khadi_green2.jpg",
-      "/assets/tt/Handpainted Khadi_green3.jpg"
+      "/assets/collections/Handpainted_Khadi_green3.webp",
+      "/assets/collections/Handpainted_Khadi_green1.webp",
+      "/assets/collections/Handpainted_Khadi_green2.webp",
     ],
     description: "The Petals evoke a sense of cosmic wonder, just like the sunflowers following the Sun. This motif on Khadi is the correct expression of resilience and adoring nature-inspired pieces.",
     highlights: [
@@ -1514,9 +1537,11 @@ const specificHandpaintedSarees: Product[] = [
     price: 1399,
     category: "Handpainted",
     images: [
-      "/assets/saree3.jpg",
-      "/assets/saree18.jpg",
-      "/assets/saree19.jpg"
+      "/assets/collections/Handpainted_Khadi_purple4.webp",
+      "/assets/collections/Handpainted_Khadi_purple3.webp",
+      "/assets/collections/Handpainted_Khadi_purple1.webp",
+      "/assets/collections/Handpainted_Khadi_purple2.webp",
+      "/assets/collections/Handpainted_Khadi_purple5.webp",
     ],
     description: "The Petals evoke a sense of cosmic wonder, just like the sunflowers following the Sun. This motif on Khadi is the correct expression of resilience and adoring nature-inspired pieces.",
     highlights: [
@@ -1583,9 +1608,10 @@ const specificTissueSarees: Product[] = [
     price: 1799,
     category: "Tissue",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree6.jpg",
-      "/assets/saree8.jpg"
+      "/assets/collections/Raaga_tissue_golden3.webp",
+      "/assets/collections/Raaga_tissue_golden1.webp",
+      "/assets/collections/Raaga_tissue_golden2.webp",
+      "/assets/collections/Raaga_tissue_golden4.webp",
     ],
     description: "These sarees have the perfect sheen for modest occasions in hot and humid climates.",
     highlights: [
@@ -1616,9 +1642,9 @@ const specificTissueSarees: Product[] = [
     price: 1799,
     category: "Tissue",
     images: [
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg",
-      "/assets/saree11.jpg"
+      "/assets/collections/Raga_tissue_withBorder4.webp",
+      "/assets/collections/Raga_tissue_withBorder1.webp",
+      "/assets/collections/Raga_tissue_withBorder2.webp",
     ],
     description: "These sarees have the perfect sheen for modest occasions in hot and humid climates.",
     highlights: [
@@ -1649,9 +1675,11 @@ const specificTissueSarees: Product[] = [
     price: 2499,
     category: "Tissue",
     images: [
-      "/assets/saree13.jpg",
-      "/assets/saree14.jpg",
-      "/assets/saree15.jpg"
+      "/assets/collections/Linen_tissue_greenish4.webp",
+      "/assets/collections/Linen_tissue_greenish2.webp",
+      "/assets/collections/Linen_tissue_greenish1.webp",
+      "/assets/collections/Linen_tissue_greenish3.webp",
+      "/assets/collections/Linen_tissue_greenish5.webp",
     ],
     description: "Our Tissue Luxe Saree is a true example of creating a luxury of having the strongest fibre with the perfect sheen to wear as a daily wear or for a party.",
     highlights: [
@@ -1683,9 +1711,11 @@ const specificTissueSarees: Product[] = [
     price: 2499,
     category: "Tissue",
     images: [
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg",
-      "/assets/saree18.jpg"
+      "/assets/collections/Linen_tissue_peach4.webp",
+      "/assets/collections/Linen_tissue_peach3.webp",
+      "/assets/collections/Linen_tissue_peach1.webp",
+      "/assets/collections/Linen_tissue_peach2.webp",
+      "/assets/collections/Linen_tissue_peach5.webp",
     ],
     description: "Our Tissue Luxe Saree is a true example of creating a luxury of having the strongest fibre with the perfect sheen to wear as a daily wear or for a party.",
     highlights: [
@@ -1758,9 +1788,10 @@ const specificJamdaniSarees: Product[] = [
     price: 3599,
     category: "Jamdani",
     images: [
-      "/assets/saree4.jpg",
-      "/assets/saree6.jpg",
-      "/assets/saree8.jpg"
+      "/assets/collections/Linen_Jamdani_Purple4.webp",
+      "/assets/collections/Linen_Jamdani_Purple2.webp",
+      "/assets/collections/Linen_Jamdani_Purple1.webp",
+      "/assets/collections/Linen_Jamdani_Purple3.webp",
     ],
     description: "This saree showcases the finest linen fabric, and tends to have a clean fall.",
     highlights: [
