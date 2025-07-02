@@ -9,24 +9,24 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   const categories = [
     {
-      title: "Silk Sarees",
+      title: "Mulmul Sarees",
       image: "/assets/saree4.jpg",
-      description: "Luxurious silk sarees for every occasion"
+      description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart."
     },
     {
-      title: "Cotton Sarees",
+      title: "Linen Sarees",
       image: "/assets/saree6.jpg",
-      description: "Comfort meets elegance in our cotton collection"
+      description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old."
     },
     {
-      title: "Wedding Collection",
+      title: "Resham Kota Sarees",
       image: "/assets/saree8.jpg",
-      description: "Make your special day unforgettable"
+      description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and beed."
     },
     {
-      title: "Designer Sarees",
+      title: "Raaga Tissue Sarees",
       image: "/assets/saree9.jpg",
-      description: "Contemporary designs with traditional roots"
+      description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you."
     }
   ];
 

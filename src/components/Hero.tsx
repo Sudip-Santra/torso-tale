@@ -18,25 +18,25 @@ const Hero = () => {
 
   const slides = [
     {
-      image: "/assets/slider/linen_Slider_image.jpg",
+      image: "/assets/slider/linen_slider_pic.webp",
       title: "Classy Gatherings",
       subtitle: "Linen Sarees",
       description: "LINEN threads weave tales of old,<br/>Handloom's tender touch, stories unfold.",
     },
     {
-      image: "/assets/slider/Kantha_Slider.jpg",
+      image: "/assets/slider/Kantha_Maroon_model1.webp",
       title: "Woven Narratives",
       subtitle: "Kantha Sarees",
       description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha thatnever fail.",
     },
     {
-      image: "/assets/slider/Jamdani_slider.jpg",
+      image: "/assets/slider/Jamdani_slider_result.webp",
       title: "Jamdani Blooming",
       subtitle: "Jamdani Sarees",
       description: "Weaving magic in every thread,<br/>JAMDANI's splendor,in every fold ahead.",
     },
     {
-      image: "/assets/slider/Parijat_mul_home_page.png",
+      image: "/assets/slider/Mulmul.webp",
       title: "Summer Edits",
       subtitle: "Mulmul Sarees",
       description: "Gentle as moonlight, Light as air,<br/>MULMULs drape you beyond compare. ",
