@@ -28,6 +28,13 @@ const Collections = () => {
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [showSortOptions, setShowSortOptions] = useState(false);
 
+  // Function to save scroll position before navigating to product detail
+  const saveScrollPosition = () => {
+    const scrollPosition = window.scrollY;
+    console.log("Saving scroll position:", scrollPosition);
+    sessionStorage.setItem('collectionsScrollPosition', scrollPosition.toString());
+  };
+
   // Price ranges - Updated to match actual product prices
   const priceRanges: PriceRange[] = [
     { min: 999, max: 1499, label: "₹999 - ₹1499" },
@@ -38,6 +45,37 @@ const Collections = () => {
     { min: 3500, max: null, label: "₹3500 & above" }
   ];
 
+  // This effect runs once on mount to handle scroll restoration
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem('collectionsScrollPosition');
+    
+    if (savedPosition) {
+      console.log("Found saved scroll position:", savedPosition);
+      
+      // Need to wait for the content to render before scrolling
+      const restoreScroll = () => {
+        console.log("Attempting to restore scroll to:", savedPosition);
+        window.scrollTo({
+          top: parseInt(savedPosition),
+          behavior: "auto"
+        });
+        // Clear the saved position after using it
+        sessionStorage.removeItem('collectionsScrollPosition');
+      };
+      
+      // First attempt - after a short delay
+      const timeoutId = setTimeout(restoreScroll, 200);
+      
+      // Second attempt - after products have likely loaded
+      const backupTimeoutId = setTimeout(restoreScroll, 1000);
+      
+      return () => {
+        clearTimeout(timeoutId);
+        clearTimeout(backupTimeoutId);
+      };
+    }
+  }, []); // Empty dependency array means this runs once on mount
+  
   useEffect(() => {
     // Simulate loading delay
     setIsLoading(true);
@@ -46,13 +84,26 @@ const Collections = () => {
     const categoryParam = searchParams.get('category') as ProductCategory | null;
     if (categoryParam) {
       setSelectedCategory(categoryParam);
+      // When changing categories, always scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else if (!sessionStorage.getItem('collectionsScrollPosition')) {
+      // If no saved scroll position and no category change, default to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    
-    // Scroll to top when category changes or page loads
-    window.scrollTo({ top: 0, behavior: "smooth" });
     
     setTimeout(() => {
       setIsLoading(false);
+      
+      // One final attempt to restore scroll position after content is loaded
+      const savedPosition = sessionStorage.getItem('collectionsScrollPosition');
+      if (savedPosition) {
+        console.log("Final attempt to restore scroll position:", savedPosition);
+        window.scrollTo({
+          top: parseInt(savedPosition),
+          behavior: "auto"
+        });
+        sessionStorage.removeItem('collectionsScrollPosition');
+      }
     }, 800);
   }, [searchParams]);
 
@@ -525,6 +576,7 @@ const Collections = () => {
                             <Link 
                               to={`/product/${saree.id}`}
                               className="block h-full"
+                              onClick={saveScrollPosition}
                             >
                               <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full cursor-pointer">
                                 <div className="relative h-80 overflow-hidden">

@@ -62,11 +62,14 @@ const ProductDetail = () => {
   const isFeaturedProduct = featuredProducts.some(product => product.id === id);
 
   const handleGoBack = () => {
-    if (isFeaturedProduct) {
-      // If coming from featured products on home page, navigate to home
+    // Check if we came from collections page - if so, we want to preserve scroll position
+    const fromCollections = document.referrer.includes('/collections');
+    
+    if (isFeaturedProduct && !fromCollections) {
+      // If coming from featured products on home page, navigate to collections
       navigate('/collections');
     } else {
-      // Otherwise go back to previous page (likely collections)
+      // Go back using browser history which will preserve our scroll position in sessionStorage
       navigate(-1);
     }
   };
