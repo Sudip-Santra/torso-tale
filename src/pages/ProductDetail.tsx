@@ -17,6 +17,11 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState<Product | null>(null);
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Fetch product data based on ID
   useEffect(() => {
     // Simulate loading delay
