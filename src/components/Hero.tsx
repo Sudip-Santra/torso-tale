@@ -24,7 +24,7 @@ const Hero = () => {
       description: "LINEN threads weave tales of old,<br/>Handloom's tender touch, stories unfold.",
     },
     {
-      image: "/assets/slider/Kantha_Maroon_model1.webp",
+      image: "/assets/slider/Kantha_Maroon_model2_result.webp",
       title: "Woven Narratives",
       subtitle: "Kantha Sarees",
       description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha thatnever fail.",
@@ -346,66 +346,6 @@ const Hero = () => {
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Decorative elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-16 h-16 border-2 border-white/30 rounded-full"
-        animate={{
-          y: [0, 15, 0],
-          opacity: [0.3, 0.5, 0.3],
-          scale: [1, 1.1, 1]
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-
-      <motion.div
-        className="absolute bottom-40 right-20 w-8 h-8 border border-white/20 rounded-full"
-        animate={{
-          y: [0, -10, 0],
-          opacity: [0.2, 0.4, 0.2],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
-      />
-
-      {/* Visual swipe indicator */}
-      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 hidden md:block">
-        <motion.div
-          className="text-white/40 text-3xl font-thin"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.5, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatDelay: 3
-          }}
-        >
-          ‹
-        </motion.div>
-      </div>
-      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 hidden md:block">
-        <motion.div
-          className="text-white/40 text-3xl font-thin"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: [0, 0.5, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatDelay: 3
-          }}
-        >
-          ›
-        </motion.div>
       </div>
     </motion.section>
   );

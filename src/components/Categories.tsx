@@ -179,20 +179,6 @@ const Categories = () => {
             ease: "easeInOut"
           }}
         />
-
-        <motion.div
-          className="absolute top-20 right-10 w-24 h-24 rounded-full bg-saree-gold/5 hidden lg:block"
-          animate={{
-            y: [0, -15, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-        />
       </div>
     </section>
   );
