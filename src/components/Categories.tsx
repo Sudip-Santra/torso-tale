@@ -10,22 +10,22 @@ const Categories = () => {
   const categories = [
     {
       title: "Mulmul Sarees",
-      image: "/assets/saree4.jpg",
+      image: "/assets/homepage-collection/Mulmul1700_navyblue2.webp",
       description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart."
     },
     {
       title: "Linen Sarees",
-      image: "/assets/saree6.jpg",
+      image: "/assets/homepage-collection/Barfi_linen_purple2.webp",
       description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old."
     },
     {
       title: "Resham Kota Sarees",
-      image: "/assets/saree8.jpg",
+      image: "/assets/homepage-collection/Resham_Kota1.webp",
       description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and beed."
     },
     {
       title: "Raaga Tissue Sarees",
-      image: "/assets/saree9.jpg",
+      image: "/assets/homepage-collection/raaga_tissue_skyblue2.webp",
       description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you."
     }
   ];
