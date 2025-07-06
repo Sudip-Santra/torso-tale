@@ -11,7 +11,7 @@ const Footer = () => {
               Torso Tale
             </h3>
             <p className="text-gray-400 mb-6">
-              Celebrating the rich heritage of Indian craftsmanship through our exclusive collection of handpicked sarees.
+              Celebrating the diverse curves and stories of every woman's body, adorned in the favourites of all from Torso Tale.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/profile.php?id=61568659184578" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">

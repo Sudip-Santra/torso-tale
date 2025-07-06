@@ -29,7 +29,7 @@ const Contact = () => {
             className="text-center mb-16"
           >
             <div className="relative inline-block mb-4">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Get in Touch</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900">Let's Get in Touch</h1>
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-saree-teal"></span>
             </div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
