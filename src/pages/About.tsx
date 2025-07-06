@@ -40,24 +40,28 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
           >
             {/* Image on Left */}
             <div className="order-1">
-              <img
-                src="/images/origin-saree.jpg" // Replace with actual image path
-                alt="Traditional saree weaving"
-                className="w-full h-auto rounded-lg shadow-lg object-cover"
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src="assets/about/Parijat_mul_home_page_result.webp" // Replace with actual image path
+                  alt="Women in sarees"
+                  className="w-full h-auto object-cover rounded-lg shadow-lg max-h-96 mt-8" // Ensure width matches container, height adjusts
+                />
+              </div>
             </div>
             {/* Content on Right */}
-            <div className="order-2">
-              <div className="relative inline-block mb-4">
-                <h2 className="text-3xl font-bold text-gray-900">Our Origin</h2>
+            <div className="order-2 flex items-center">
+              <div className="w-full">
+                <div className="relative inline-block mb-4">
+                  <h2 className="text-3xl font-bold text-gray-900">Our Origin</h2>
+                </div>
+                <p className="text-gray-600 text-lg text-justify">
+                  Let us try time travel! Let’s move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to “Torso Tale.”
+                </p>
               </div>
-              <p className="text-gray-600 text-lg text-justify">
-                Let us try time travel! Let’s move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to “Torso Tale.”
-              </p>
             </div>
           </motion.div>
 
@@ -66,24 +70,28 @@ const About = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch"
           >
             {/* Content on Left */}
-            <div className="order-2 md:order-1">
-              <div className="relative inline-block mb-4">
-                <h2 className="text-3xl font-bold text-gray-900">Our Mission and Vision</h2>
+            <div className="order-2 md:order-1 flex items-center">
+              <div className="w-full">
+                <div className="relative inline-block mb-4">
+                  <h2 className="text-3xl font-bold text-gray-900">Our Mission and Vision</h2>
+                </div>
+                <p className="text-gray-600 text-lg text-justify">
+                  The name “Torso Tale” is the story of every woman, inclusive of all shapes, intellects, emotions, and interests. We are here to encourage you—women. The “Torso,” meaning “the main part of the body,” is described in the “Tale,” the story of the sari portraying every curve of the female anatomy. Our mission is to create comfort in style. Our vision is to create a world where women in saris are the norm. The poise any woman can carry in a sari is irreplaceable. So, join us on this journey to tell the tale of the sari on the female torso.
+                </p>
               </div>
-              <p className="text-gray-600 text-lg text-justify">
-                The name “Torso Tale” is the story of every woman, inclusive of all shapes, intellects, emotions, and interests. We are here to encourage you—women. The “Torso,” meaning “the main part of the body,” is described in the “Tale,” the story of the sari portraying every curve of the female anatomy. Our mission is to create comfort in style. Our vision is to create a world where women in saris are the norm. The poise any woman can carry in a sari is irreplaceable. So, join us on this journey to tell the tale of the sari on the female torso.
-              </p>
             </div>
             {/* Image on Right */}
             <div className="order-1 md:order-2">
-              <img
-                src="/images/mission-saree.jpg" // Replace with actual image path
-                alt="Women in sarees"
-                className="w-full h-auto rounded-lg shadow-lg object-cover"
-              />
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src="assets/about/landscape_3_models_result.webp" // Replace with actual image path
+                  alt="Women in sarees"
+                  className="w-full h-auto object-cover rounded-lg shadow-lg max-h-96 mt-8" // Ensure width matches container, height adjusts
+                />
+              </div>
             </div>
           </motion.div>
 
