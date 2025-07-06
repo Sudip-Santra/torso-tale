@@ -6,7 +6,6 @@ export interface ProductDetails {
   "Fabric": string;
   "Color": string;
   "Blouse Piece": string;
-  "Weaving Cluster": string;
   "Craft Technique": string;
   [key: string]: string;
 }
@@ -117,7 +116,6 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Royal Blue",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -153,7 +151,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Red",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -189,7 +187,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Flamingo Pink",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -225,7 +223,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Cadmium Green",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -260,7 +258,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Navy Blue",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -296,7 +294,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Lavender",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -332,7 +330,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Light Sea Green",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -368,7 +366,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Teal",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -404,7 +402,7 @@ const specificMulmulSarees: Product[] = [
       "Fabric": "Pure Mul Cotton",
       "Color": "Champagne Ivory",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -443,7 +441,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Linen",
       "Color": "Ocean Blue with Pink & Orange Jamdani border",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -478,7 +476,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Tacao Purple",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -513,7 +511,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Magenta Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -547,7 +545,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Beetroot Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -582,7 +580,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "British Racing Green",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -616,7 +614,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Baby Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -651,7 +649,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Navy Teal",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -685,7 +683,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Brown",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -719,7 +717,7 @@ const specificLinenSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Black",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -757,7 +755,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Body - Mustard, Pallu - Crimson Red",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -788,7 +786,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Magenta Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -820,7 +818,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Old Gold Dual Shade",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -851,7 +849,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Tea Green",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -883,7 +881,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Taffy Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -914,7 +912,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Aquamarine Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -946,7 +944,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Royal Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -978,7 +976,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Marine Teal",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1010,7 +1008,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Palatinate Purple",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1042,7 +1040,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Magenta Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1075,7 +1073,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Lavender",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1106,7 +1104,7 @@ const specificKhadiSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Deep Maroon",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1142,7 +1140,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Apricot",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1177,7 +1175,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Royal Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1211,7 +1209,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Maroon",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1245,7 +1243,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Buttercup yellow (Dual shade of Yellow + Pink)",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1279,7 +1277,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Maroon",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1314,7 +1312,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Light Coral",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1349,7 +1347,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Red",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1384,7 +1382,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "White",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1419,7 +1417,7 @@ const specificKanthaStitchSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Sky Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1456,7 +1454,7 @@ const specificHandpaintedSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Dual shade of Teal + Pink",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1489,7 +1487,7 @@ const specificHandpaintedSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Slate Blue (Dual shade of Blue+Pink)",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1521,7 +1519,7 @@ const specificHandpaintedSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Dark Marine Teal",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1555,7 +1553,7 @@ const specificHandpaintedSarees: Product[] = [
       "Fabric": "Khadi",
       "Color": "Purple Violet (Dual Shade)",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1590,7 +1588,7 @@ const specificTissueSarees: Product[] = [
       "Fabric": "Cotton Tissue",
       "Color": "Sky Blue",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1624,7 +1622,7 @@ const specificTissueSarees: Product[] = [
       "Fabric": "Cotton Tissue",
       "Color": "Shiny Golden",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1657,7 +1655,7 @@ const specificTissueSarees: Product[] = [
       "Fabric": "Cotton Tissue",
       "Color": "Dual shades of Lavender with prominent Gold tissue",
       "Blouse Piece": "No",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1693,7 +1691,7 @@ const specificTissueSarees: Product[] = [
       "Fabric": "Cotton Tissue",
       "Color": "Tiffany Blue (Dual Shade of teal and gold)",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1729,7 +1727,7 @@ const specificTissueSarees: Product[] = [
       "Fabric": "Cotton Tissue",
       "Color": "Peach",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1768,7 +1766,7 @@ const specificJamdaniSarees: Product[] = [
       "Fabric": "Cotton Jamdani",
       "Color": "Hot Pink and Indigo Blue",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
@@ -1805,7 +1803,7 @@ const specificJamdaniSarees: Product[] = [
       "Fabric": "Pure Linen with Zari border",
       "Color": "Eminence Purple",
       "Blouse Piece": "Yes, unstitched",
-      "Weaving Cluster": "West Bengal",
+      
       "Craft Technique": "Handloom"
     },
     washCare: [
