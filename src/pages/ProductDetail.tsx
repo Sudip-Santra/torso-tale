@@ -129,8 +129,14 @@ const ProductDetail = () => {
                 <img
                   src={productData.images[activeImage]}
                   alt={productData.name}
-                  className={`w-full h-full object-cover ${isFeaturedProduct ? 'md:object-[center_-100px] object-center' : 'object-center'
+                  className={`w-full h-full object-cover ${id === 'linen-featured-002'
+                      ? 'object-center md:object-[center_-280px]' // Mobile: centered | Desktop: shift up
+                      : isFeaturedProduct
+                        ? 'object-center md:object-[center_-100px]' // Mobile: centered | Desktop: shift up
+                        : 'object-center'
                     }`}
+
+
                 />
               </motion.div>
 
