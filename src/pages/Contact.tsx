@@ -3,6 +3,8 @@ import { Phone, Mail, Instagram, Facebook, Youtube, MapPin, Clock } from "lucide
 import { Card, CardContent } from "@/components/ui/card";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const Contact = () => {
   const contactVariants = {
@@ -40,7 +42,7 @@ const Contact = () => {
 
           <div className="max-w-4xl mx-auto">
             {/* Contact Information Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -49,11 +51,11 @@ const Contact = () => {
                 <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-8">
                     <div className="flex flex-col items-center text-center">
-                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5">
-                        <Phone size={32} className="text-saree-teal" />
+                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5 w-20 h-20 flex items-center justify-center">
+                        <Phone size={28} className="text-saree-teal" />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-                      <p className="text-gray-500 mb-4">Let’s talk sarees, styling, or anything you need—just a ring away!</p>
+                      <p className="text-gray-500 mb-4">Let's talk sarees, styling, or anything you need—just a ring away!</p>
                       <a 
                         href="tel:+919130653501" 
                         className="text-xl font-medium text-saree-teal hover:underline"
@@ -73,8 +75,38 @@ const Contact = () => {
                 <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardContent className="p-8">
                     <div className="flex flex-col items-center text-center">
-                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5">
-                        <Mail size={32} className="text-saree-teal" />
+                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5 w-20 h-20 flex items-center justify-center">
+                        <FontAwesomeIcon 
+                          icon={faWhatsapp} 
+                          size="2x" 
+                          className="text-saree-teal" 
+                        />
+                      </div>
+                      <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
+                      <p className="text-gray-500 mb-4">Chat with us directly on WhatsApp for quick responses to your queries!</p>
+                      <a 
+                        href="https://wa.me/919130653501" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-xl font-medium text-saree-teal hover:underline"
+                      >
+                        Send Message
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
+                <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <CardContent className="p-8">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="bg-saree-teal/10 p-4 rounded-full mb-5 w-20 h-20 flex items-center justify-center">
+                        <Mail size={28} className="text-saree-teal" />
                       </div>
                       <h3 className="text-xl font-semibold mb-2">Email Us</h3>
                       <p className="text-gray-500 mb-4">Drop us a message anytime—your perfect drape is just an email away!</p>
@@ -115,6 +147,12 @@ const Contact = () => {
                         name: "Facebook"
                       },
                       { 
+                        icon: <FontAwesomeIcon icon={faWhatsapp} style={{ height: 28, width: 28 }} />, 
+                        color: "bg-saree-teal", 
+                        link: "https://wa.me/919130653501",
+                        name: "WhatsApp"
+                      },
+                      { 
                         icon: <Youtube size={28} />, 
                         color: "bg-red-600", 
                         link: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc",
@@ -146,4 +184,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;
