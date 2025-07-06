@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import products, { Product, ProductDetails } from "@/data/products";
+import { featuredProducts } from "@/data/featuredProducts";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
@@ -33,9 +34,14 @@ const ProductDetail = () => {
     setLoading(true);
 
     const fetchData = () => {
-      // Find the product based on ID or use a fallback if not found
-      const foundProduct = products.find(product => product.id === id);
-      
+      // First check in featured products (from home page)
+      let foundProduct = featuredProducts.find(product => product.id === id);
+
+      // If not found in featured products, check in regular products collection
+      if (!foundProduct) {
+        foundProduct = products.find(product => product.id === id);
+      }
+
       if (foundProduct) {
         setProductData(foundProduct);
       } else {
@@ -52,8 +58,17 @@ const ProductDetail = () => {
     fetchData();
   }, [id]);
 
+  // Check if this is a featured product from home page
+  const isFeaturedProduct = featuredProducts.some(product => product.id === id);
+
   const handleGoBack = () => {
-    navigate(-1);
+    if (isFeaturedProduct) {
+      // If coming from featured products on home page, navigate to home
+      navigate('/collections');
+    } else {
+      // Otherwise go back to previous page (likely collections)
+      navigate(-1);
+    }
   };
 
   // Loading state
@@ -69,7 +84,7 @@ const ProductDetail = () => {
               className="mb-6 flex items-center text-gray-600 hover:text-saree-teal"
             >
               <ArrowLeft size={18} className="mr-2" />
-              Back to Collections
+              {isFeaturedProduct ? 'Veiw All Collections' : 'Back to Collections'}
             </Button>
 
             <div className="animate-pulse">
@@ -90,7 +105,7 @@ const ProductDetail = () => {
   return (
     <>
       <NavBar />
-      <div className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="pt-24 min-h-screen bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 py-12">
           {/* Back Button */}
           <Button
@@ -99,7 +114,7 @@ const ProductDetail = () => {
             className="mb-6 flex items-center text-gray-600 hover:text-saree-teal"
           >
             <ArrowLeft size={18} className="mr-2" />
-            Back to Collections
+            {isFeaturedProduct ? 'View All Collections' : 'Back to Collections'}
           </Button>
 
           {/* Main product grid - image and basic info */}
@@ -114,7 +129,8 @@ const ProductDetail = () => {
                 <img
                   src={productData.images[activeImage]}
                   alt={productData.name}
-                  className="w-full h-full object-cover object-center"
+                  className={`w-full h-full object-cover ${isFeaturedProduct ? 'md:object-[center_-100px] object-center' : 'object-center'
+                    }`}
                 />
               </motion.div>
 
@@ -128,7 +144,11 @@ const ProductDetail = () => {
                       activeImage === index ? "ring-2 ring-saree-teal" : "ring-1 ring-gray-200"
                     )}
                   >
-                    <img src={image} alt={`Product view ${index + 1}`} className="w-full h-full object-cover" />
+                    <img
+                      src={image}
+                      alt={`Product view ${index + 1}`}
+                      className={`w-full h-full object-cover`}
+                    />
                   </button>
                 ))}
               </div>
@@ -160,7 +180,7 @@ const ProductDetail = () => {
                   Call Now to Purchase
                 </a>
                 <a
-                  href="https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name}*"
+                  href={`https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name}*`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
@@ -235,31 +255,6 @@ const ProductDetail = () => {
               </ul>
             </div>
           </div>
-
-          {/* Contact Buttons - Prominent at the bottom */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"
-          >
-            <a
-              href="tel:+919130653501"
-              className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
-            >
-              <Phone size={20} className="mr-2" />
-              Call Now to Purchase
-            </a>
-            <a
-              href="https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name}*"
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
-            >
-              <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5 mr-2" />
-              Message on WhatsApp
-            </a>
-          </motion.div>
         </div>
       </div>
       <Footer />

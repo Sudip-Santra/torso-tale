@@ -5,44 +5,52 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import featuredProducts from '@/data/featuredProducts';
 
 const Categories = () => {
+  // Categories linked to featured products
   const categories = [
     {
-      title: "Mulmul Sarees",
+      title: "Mul Melody",
       category: "Mulmul",
       image: "/assets/homepage-collection/Mulmul1700_navyblue2.webp",
-      description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart."
+      description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart.",
+      productId: "mulmul-featured-001"
     },
     {
-      title: "Linen Sarees",
+      title: "The Prism",
       category: "Linen",
       image: "/assets/homepage-collection/Barfi_linen_purple2.webp",
-      description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old."
+      description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old.",
+      productId: "linen-featured-001"
     },
     {
-      title: " Raaga Tissue Sarees",
+      title: " Raaga Tissue",
       category: "Tissue",
       image: "/assets/homepage-collection/raaga_tissue_skyblue2.webp",
-      description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you."
+      description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you.",
+      productId: "tissue-featured-001"
     },
     {
-      title: "Resham Kota Sarees",
+      title: "Rang-e-Resham",
       category: "Khadi",
       image: "/assets/homepage-collection/Resham_Kota1.webp",
-      description: "Khadi's texture, nature's own, Handcrafted elegance, regally shown."
+      description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and beed.",
+      productId: "resham-featured-001"
     },
     {
-      title: "Karat Linen Sarees",
+      title: "Karat Linen",
       category: "Linen",
       image: "/assets/homepage-collection/karat_linen_blue1.webp",
-      description: "Kantha's stories in every thread, Heritage reimagined, elegantly spread."
+      description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old.",
+      productId: "linen-featured-002"
     },
     {
-      title: "Jamdani Sarees",
-      category: "Linen",
+      title: "Phooldaan",
+      category: "Jamdani", // Updated category to match the product
       image: "/assets/homepage-collection/Jamdani_2.webp",
-      description: "Artistry blooms on a canvas of thread, Each stroke telling stories, waiting to be read."
+      description: "Weaving magic in every thread, JAMDANI's splendor,in every fold ahead.",
+      productId: "jamdani-featured-001"
     }
   ];
 
@@ -136,7 +144,7 @@ const Categories = () => {
               key={index}
               variants={itemVariants}
               className="flex"
-              // Removed whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            // Removed whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
               <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group">
                 <div className="relative w-full h-full overflow-hidden">
@@ -155,8 +163,8 @@ const Categories = () => {
                       className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white border border-white/30 w-full group transition-all duration-300"
                       asChild
                     >
-                      <Link to={`/collections?category=${category.category || category.title.split(' ')[0]}`}>
-                        <span className="font-medium">Explore Collection</span>
+                      <Link to={`/product/${category.productId}`}>
+                        <span className="font-medium">View Details</span>
                         <motion.span
                           className="ml-2 inline-block"
                           initial={{ x: 0 }}
@@ -174,7 +182,7 @@ const Categories = () => {
           ))}
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
