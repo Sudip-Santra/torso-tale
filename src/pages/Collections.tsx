@@ -506,48 +506,50 @@ const Collections = () => {
                             layout
                             className="group"
                           >
-                            <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                              <div className="relative h-80 overflow-hidden">
-                                {/* Product Image */}
-                                <img
-                                  src={saree.images[0]} 
-                                  alt={saree.name}
-                                  className="w-full h-full object-cover object-center transition-transform duration-500"
-                                />
+                            <Link 
+                              to={`/product/${saree.id}`}
+                              className="block h-full"
+                            >
+                              <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow h-full cursor-pointer">
+                                <div className="relative h-80 overflow-hidden">
+                                  {/* Product Image */}
+                                  <img
+                                    src={saree.images[0]} 
+                                    alt={saree.name}
+                                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                                  />
 
-                                {/* Badges */}
-                                {/* <div className="absolute top-3 left-3 flex flex-col gap-2">
-                                  {saree.isNew && (
-                                    <Badge className="bg-saree-teal text-white border-0 px-2.5 py-1 text-xs font-medium">
-                                      New
-                                    </Badge>
-                                  )}
-                                  {saree.isBestseller && (
-                                    <Badge className="bg-saree-orange text-white border-0 px-2.5 py-1 text-xs font-medium">
-                                      Bestseller
-                                    </Badge>
-                                  )}
-                                </div> */}
-                              </div>
-
-                              <div className="p-4">
-                                <div className="flex items-center justify-between mb-1">
-                                  <h3 className="font-medium text-gray-900 truncate flex-1">{saree.name}</h3>
-                                  <Badge className="bg-white text-saree-deep-teal border-saree-teal/30 px-2.5 py-1 text-xs font-medium pointer-events-none">
-                                    {saree.category}
-                                  </Badge>
+                                  {/* Badges */}
+                                  {/* <div className="absolute top-3 left-3 flex flex-col gap-2">
+                                    {saree.isNew && (
+                                      <Badge className="bg-saree-teal text-white border-0 px-2.5 py-1 text-xs font-medium">
+                                        New
+                                      </Badge>
+                                    )}
+                                    {saree.isBestseller && (
+                                      <Badge className="bg-saree-orange text-white border-0 px-2.5 py-1 text-xs font-medium">
+                                        Bestseller
+                                      </Badge>
+                                    )}
+                                  </div> */}
                                 </div>
-                                <p className="text-saree-deep-teal font-semibold mb-3">₹{saree.price.toLocaleString()}</p>
-                                <Link to={`/product/${saree.id}`}>
-                                  <Button
-                                    className="w-full bg-saree-teal hover:bg-saree-deep-teal text-white"
-                                    size="sm"
+
+                                <div className="p-4">
+                                  <div className="flex items-center justify-between mb-1">
+                                    <h3 className="font-medium text-gray-900 truncate flex-1">{saree.name}</h3>
+                                    <Badge className="bg-white text-saree-deep-teal border-saree-teal/30 px-2.5 py-1 text-xs font-medium pointer-events-none">
+                                      {saree.category}
+                                    </Badge>
+                                  </div>
+                                  <p className="text-saree-deep-teal font-semibold mb-3">₹{saree.price.toLocaleString()}</p>
+                                  <div
+                                    className="w-full bg-saree-teal hover:bg-saree-deep-teal text-white py-2 px-3 rounded-md text-center text-sm font-medium flex items-center justify-center h-10"
                                   >
-                                    View
-                                  </Button>
-                                </Link>
+                                    View Details
+                                  </div>
+                                </div>
                               </div>
-                            </div>
+                            </Link>
                           </motion.div>
                         ))}
                       </AnimatePresence>
@@ -564,4 +566,4 @@ const Collections = () => {
   );
 };
 
-export default Collections; 
+export default Collections;
