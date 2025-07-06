@@ -59,25 +59,25 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">All Categories</Link>
+                <Link to="/collections?category=All" className="text-gray-400 hover:text-white transition-colors">All Categories</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen</Link>
+                <Link to="/collections?category=Linen" className="text-gray-400 hover:text-white transition-colors">Linen</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Mulmul</Link>
+                <Link to="/collections?category=Mulmul" className="text-gray-400 hover:text-white transition-colors">Mulmul</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Tissue</Link>
+                <Link to="/collections?category=Tissue" className="text-gray-400 hover:text-white transition-colors">Tissue</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Khadi</Link>
+                <Link to="/collections?category=Khadi" className="text-gray-400 hover:text-white transition-colors">Khadi</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Kantha Stitch</Link>
+                <Link to="/collections?category=Kantha%20Stitch" className="text-gray-400 hover:text-white transition-colors">Kantha Stitch</Link>
               </li>
               <li>
-                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Handpainted</Link>
+                <Link to="/collections?category=Handpainted" className="text-gray-400 hover:text-white transition-colors">Handpainted</Link>
               </li>
             </ul>
           </div>

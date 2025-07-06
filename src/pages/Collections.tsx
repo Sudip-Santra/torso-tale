@@ -7,13 +7,19 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import products from "@/data/products";
 import { ProductCategory, PriceRange, SortOption } from "@/types/product";
 
 const Collections = () => {
+  // Get URL search parameters
+  const [searchParams] = useSearchParams();
+  
+  // Get category from URL if available, otherwise default to "All"
+  const categoryFromUrl = searchParams.get('category') as ProductCategory | null;
+  
   // State
-  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>("All");
+  const [selectedCategory, setSelectedCategory] = useState<ProductCategory>(categoryFromUrl || "All");
   const [selectedPriceRange, setSelectedPriceRange] = useState<PriceRange | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
@@ -35,10 +41,20 @@ const Collections = () => {
   useEffect(() => {
     // Simulate loading delay
     setIsLoading(true);
+    
+    // Update selected category when URL parameter changes
+    const categoryParam = searchParams.get('category') as ProductCategory | null;
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+    
+    // Scroll to top when category changes or page loads
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    
     setTimeout(() => {
       setIsLoading(false);
     }, 800);
-  }, []);
+  }, [searchParams]);
 
   // Filter sarees based on selected category, price range, and search query
   const filteredSarees = products.filter((saree) => {
