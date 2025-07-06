@@ -223,41 +223,6 @@ const specificMulmulSarees: Product[] = [
     isNew: true
   },
   {
-    id: "105",
-    name: "Mul Melody",
-    price: 1699,
-    category: "Mulmul",
-    images: [
-      "/assets/saree16.jpg",
-      "/assets/saree17.jpg",
-      "/assets/saree18.jpg"
-    ],
-    description: "These sarees are perfect for hot and humid climates.",
-    highlights: [
-      "Soft and light weight: The mulmul fabric is renowned for its softness and lightweight feel.",
-      "Comfort: Crafted from handwoven Mul cotton, ensuring breathability and comfortable texture making it perfect for everyday wear or special occasions.",
-      "Traditional Craftsmanship: Features handloom design all over and pallu, showcasing Bengal's weaving artistry."
-    ],
-    details: {
-      "Product Type": "Saree",
-      "Saree Length": "6.5 meters | Width: 47 inches",
-      "Fabric": "Pure Mul Cotton",
-      "Color": "Navy Blue",
-      "Blouse Piece": "No",
-      
-      "Craft Technique": "Handloom"
-    },
-    washCare: [
-      "Soak in salt water before washing to help lock in colours.",
-      "Dry clean /Light hand wash only",
-      "Avoid steam ironing",
-      "Can use starch after 3-4 washes", 
-      "Use extremely low heat for ironing"
-    ],
-    keywords: ["mulmul", "cotton", "soft", "navy blue", "handloom", "bengal", "melody", "daily wear"],
-    isBestseller: true
-  },
-  {
     id: "106",
     name: "Mul Melody",
     price: 1699,
@@ -405,41 +370,6 @@ const specificMulmulSarees: Product[] = [
 
 // Specific Linen saree products
 const specificLinenSarees: Product[] = [
-  {
-    id: "201",
-    name: "Asymmetry",
-    price: 2250,
-    category: "Linen",
-    images: [
-      "/assets/saree1.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree3.jpg"
-    ],
-    description: "This saree showcases Jamdani weaves in the pattern of Ganga-Yamuna border on linen fabric.",
-    highlights: [
-      "Fabric Strength: Linen is the strongest natural fibre. Breathable, soft, and natural.",
-      "Jamdani weaving: Crafted with precision and care. The intricate Jamdani weaving adds a touch of traditional charm, making this saree a piece enhancing beauty.",
-      "Elegant drape: This saree gives a perfect drape and fall which makes it perfect for formal, business-casual events or special occasions."
-    ],
-    details: {
-      "Product Type": "Saree",
-      "Saree Length": "6.5 meters | Width: 47 inches",
-      "Fabric": "Linen",
-      "Color": "Ocean Blue with Pink & Orange Jamdani border",
-      "Blouse Piece": "Yes, unstitched",
-      
-      "Craft Technique": "Handloom"
-    },
-    washCare: [
-      "Soak in salt water before washing to help lock in colours.",
-      "Dry clean /Light hand wash only",
-      "Avoid steam ironing",
-      "Use low heat for ironing"
-    ],
-    keywords: ["linen", "jamdani", "blue", "ocean blue", "handloom", "formal", "business casual", "special occasions"],
-    isNew: true
-  },
-
   {
     id: "203",
     name: "The Prism",
@@ -886,10 +816,10 @@ const specificKhadiSarees: Product[] = [
     price: 1299,
     category: "Khadi",
     images: [
-      "/assets/Plain_Khadi_pink4.webp",
-      "/assets/Plain_Khadi_pink3.webp",
-      "/assets/Plain_Khadi_pink1.webp",
-      "/assets/Plain_Khadi_pink2.webp",
+      "/assets/collections/Plain_khadi_pink4.webp",
+      "/assets/collections/Plain_khadi_pink3.webp",
+      "/assets/collections/Plain_Khadi_pink1.webp",
+      "/assets/collections/Plain_khadi_pink2.webp",
     ],
     description: "Khadi is not just a piece of fabric, it's a statement - of sustainability, heritage and style all woven together.",
     highlights: [
@@ -1281,10 +1211,10 @@ const specificKanthaStitchSarees: Product[] = [
     price: 2199,
     category: "Kantha Stitch",
     images: [
-      "/assets/Khadi_kantha_maroon2.webp",
-      "/assets/Khadi_kantha_maroon1.webp",
-      "/assets/Khadi_kantha_maroon4.webp",
-      "/assets/Khadi_kantha_maroon3.webp",
+      "/assets/collections/Khadi_kantha_maroon2.webp",
+      "/assets/collections/Khadi_kantha_maroon1.webp",
+      "/assets/collections/Khadi_kantha_maroon4.webp",
+      "/assets/collections/Khadi_kantha_maroon3.webp",
     ],
     description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
     highlights: [
@@ -1588,39 +1518,6 @@ const specificHandpaintedSarees: Product[] = [
 
 // Specific Tissue saree products
 const specificTissueSarees: Product[] = [
-  {
-    id: "501",
-    name: "Moonlight",
-    price: 1799,
-    category: "Tissue",
-    images: [
-      "/assets/saree1.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree3.jpg"
-    ],
-    description: "These sarees have the perfect sheen for modest occasions in hot and humid climates.",
-    highlights: [
-      "Soft and light weight: Cotton Tissue fabric is worn for its softness and lightweight feel.",
-      "Look and Comfort: Crafted from handwoven cotton tissue, ensuring comfortable texture with its subtle shine making it perfect for modest occasions."
-    ],
-    details: {
-      "Product Type": "Saree",
-      "Saree Length": "6.5 meters | Width: 47 inches",
-      "Fabric": "Cotton Tissue",
-      "Color": "Sky Blue",
-      "Blouse Piece": "No",
-      
-      "Craft Technique": "Handloom"
-    },
-    washCare: [
-      "Soak in salt water before washing to help lock in colours.",
-      "Dry clean /Light hand wash only",
-      "Avoid steam ironing",
-      "Use extremely low heat for ironing"
-    ],
-    keywords: ["tissue", "cotton tissue", "sky blue", "sheen", "handloom", "modest occasions", "lightweight"],
-    isNew: true
-  },
   {
     id: "502",
     name: "Moonlight",
