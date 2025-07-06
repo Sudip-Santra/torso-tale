@@ -65,13 +65,23 @@ const ProductDetail = () => {
     // Check if we came from collections page - if so, we want to preserve scroll position
     const fromCollections = document.referrer.includes('/collections');
     
-    if (isFeaturedProduct && !fromCollections) {
-      // If coming from featured products on home page, navigate to collections
-      navigate('/collections');
-    } else {
-      // Go back using browser history which will preserve our scroll position in sessionStorage
-      navigate(-1);
-    }
+    // First set the UI to a loading state to make transitions smoother
+    setLoading(true);
+    
+    // Store a flag in sessionStorage to indicate we are returning from product detail
+    // This will be used in Collections.tsx to know we're coming back
+    sessionStorage.setItem('returningFromProductDetail', 'true');
+    
+    // Add a short delay for a smoother transition
+    setTimeout(() => {
+      if (isFeaturedProduct && !fromCollections) {
+        // If coming from featured products on home page, navigate to collections
+        navigate('/collections');
+      } else {
+        // Go back using browser history which will preserve our scroll position in sessionStorage
+        navigate(-1);
+      }
+    }, 200);
   };
 
   // Loading state
@@ -79,7 +89,13 @@ const ProductDetail = () => {
     return (
       <>
         <NavBar />
-        <div className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
+        <motion.div 
+          initial={{ opacity: 0.7 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0.7 }}
+          transition={{ duration: 0.3 }}
+          className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50"
+        >
           <div className="container mx-auto px-4 py-12">
             <Button
               variant="ghost"
@@ -87,20 +103,79 @@ const ProductDetail = () => {
               className="mb-6 flex items-center text-gray-600 hover:text-saree-teal"
             >
               <ArrowLeft size={18} className="mr-2" />
-              {isFeaturedProduct ? 'Veiw All Collections' : 'Back to Collections'}
+              {isFeaturedProduct ? 'View All Collections' : 'Back to Collections'}
             </Button>
 
-            <div className="animate-pulse">
-              <div className="h-[500px] bg-gray-200 rounded-xl mb-4"></div>
-              <div className="w-1/3 h-8 bg-gray-200 rounded mb-2"></div>
-              <div className="w-2/3 h-10 bg-gray-200 rounded mb-4"></div>
-              <div className="w-1/4 h-6 bg-gray-200 rounded mb-8"></div>
-              <div className="h-12 bg-gray-200 rounded mb-8"></div>
-              <div className="h-40 bg-gray-200 rounded mb-8"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
+              {/* Product Images skeleton */}
+              <div className="space-y-4">
+                <div className="bg-white rounded-xl overflow-hidden shadow-xl h-[500px]">
+                  <div className="w-full h-full bg-gray-200 animate-pulse"></div>
+                </div>
+                <div className="flex space-x-3 overflow-x-auto pb-2">
+                  {[...Array(4)].map((_, index) => (
+                    <div 
+                      key={index} 
+                      className="w-24 h-24 rounded-md overflow-hidden flex-shrink-0 bg-gray-200 animate-pulse"
+                    ></div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Product Info skeleton */}
+              <div className="space-y-6">
+                <div className="animate-pulse">
+                  <div className="w-1/4 h-6 bg-gray-200 rounded mb-2"></div>
+                  <div className="w-2/3 h-8 bg-gray-200 rounded mb-2"></div>
+                  <div className="w-1/3 h-6 bg-gray-200 rounded mb-8"></div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="h-14 bg-gray-200 rounded animate-pulse"></div>
+                  <div className="h-14 bg-gray-200 rounded animate-pulse"></div>
+                </div>
+                
+                <div className="h-px bg-gray-200 my-6"></div>
+                
+                <div className="bg-white p-6 rounded-xl shadow-sm">
+                  <div className="h-6 w-1/3 bg-gray-200 animate-pulse mb-4"></div>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-gray-200 animate-pulse"></div>
+                    <div className="h-4 bg-gray-200 animate-pulse"></div>
+                    <div className="h-4 bg-gray-200 animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Additional skeleton content for the product details section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 mt-12">
+              <div className="bg-white p-6 rounded-xl shadow-sm animate-pulse">
+                <div className="h-6 w-1/3 bg-gray-200 mb-4"></div>
+                <div className="grid grid-cols-1 gap-3">
+                  {[...Array(4)].map((_, index) => (
+                    <div key={index} className="bg-gray-50 p-3 rounded-md">
+                      <div className="h-4 w-1/3 bg-gray-200 mb-2"></div>
+                      <div className="h-4 w-2/3 bg-gray-200"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-saree-teal/5 p-6 rounded-xl shadow-sm animate-pulse">
+                <div className="h-6 w-1/3 bg-gray-200 mb-4"></div>
+                <div className="space-y-3">
+                  {[...Array(4)].map((_, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className="h-4 w-4 rounded-full bg-gray-200 mr-2"></div>
+                      <div className="h-4 w-full bg-gray-200"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <Footer />
+        </motion.div>
+        {/* Footer removed from loading state */}
       </>
     );
   }
@@ -108,7 +183,13 @@ const ProductDetail = () => {
   return (
     <>
       <NavBar />
-      <div className="pt-24 min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="pt-24 min-h-screen bg-gradient-to-b from-white to-gray-50"
+      >
         <div className="container mx-auto px-4 py-12">
           {/* Back Button */}
           <Button
@@ -265,8 +346,18 @@ const ProductDetail = () => {
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
+      </motion.div>
+      
+      {/* Only render footer when content is fully loaded */}
+      {!loading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Footer />
+        </motion.div>
+      )}
     </>
   );
 };

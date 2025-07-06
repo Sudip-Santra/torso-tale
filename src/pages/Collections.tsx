@@ -24,6 +24,7 @@ const Collections = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [loadingPhase, setLoadingPhase] = useState<"initial" | "content" | "complete">("initial");
   const [expandedSection, setExpandedSection] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>("featured");
   const [showSortOptions, setShowSortOptions] = useState(false);
@@ -31,8 +32,11 @@ const Collections = () => {
   // Function to save scroll position before navigating to product detail
   const saveScrollPosition = () => {
     const scrollPosition = window.scrollY;
-    console.log("Saving scroll position:", scrollPosition);
+    // Store scroll position without debug logging in production
     sessionStorage.setItem('collectionsScrollPosition', scrollPosition.toString());
+    
+    // Also store timestamp for potential cleanup later
+    sessionStorage.setItem('scrollPositionTimestamp', Date.now().toString());
   };
 
   // Price ranges - Updated to match actual product prices
@@ -45,40 +49,18 @@ const Collections = () => {
     { min: 3500, max: null, label: "₹3500 & above" }
   ];
 
-  // This effect runs once on mount to handle scroll restoration
+  // Main effect for loading and scroll restoration
   useEffect(() => {
-    const savedPosition = sessionStorage.getItem('collectionsScrollPosition');
-    
-    if (savedPosition) {
-      console.log("Found saved scroll position:", savedPosition);
-      
-      // Need to wait for the content to render before scrolling
-      const restoreScroll = () => {
-        console.log("Attempting to restore scroll to:", savedPosition);
-        window.scrollTo({
-          top: parseInt(savedPosition),
-          behavior: "auto"
-        });
-        // Clear the saved position after using it
-        sessionStorage.removeItem('collectionsScrollPosition');
-      };
-      
-      // First attempt - after a short delay
-      const timeoutId = setTimeout(restoreScroll, 200);
-      
-      // Second attempt - after products have likely loaded
-      const backupTimeoutId = setTimeout(restoreScroll, 1000);
-      
-      return () => {
-        clearTimeout(timeoutId);
-        clearTimeout(backupTimeoutId);
-      };
-    }
-  }, []); // Empty dependency array means this runs once on mount
-  
-  useEffect(() => {
-    // Simulate loading delay
+    // Initial loading state
     setIsLoading(true);
+    setLoadingPhase("initial");
+    
+    // Check if we need to restore scroll position
+    const savedPosition = sessionStorage.getItem('collectionsScrollPosition');
+    const isRestoringPosition = !!savedPosition;
+    
+    // Check if we're returning from product detail page
+    const returningFromProduct = sessionStorage.getItem('returningFromProductDetail') === 'true';
     
     // Update selected category when URL parameter changes
     const categoryParam = searchParams.get('category') as ProductCategory | null;
@@ -86,25 +68,43 @@ const Collections = () => {
       setSelectedCategory(categoryParam);
       // When changing categories, always scroll to top
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else if (!sessionStorage.getItem('collectionsScrollPosition')) {
+    } else if (!isRestoringPosition) {
       // If no saved scroll position and no category change, default to top
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
     
+    // Progressive loading sequence - adjust timing based on whether we're returning from product detail
+    const initialDelay = returningFromProduct ? 50 : 100; 
+    const contentDelay = returningFromProduct ? 500 : 400;
+    
+    // Phase 1: Show skeleton for layout
     setTimeout(() => {
-      setIsLoading(false);
+      setLoadingPhase("content");
       
-      // One final attempt to restore scroll position after content is loaded
-      const savedPosition = sessionStorage.getItem('collectionsScrollPosition');
-      if (savedPosition) {
-        console.log("Final attempt to restore scroll position:", savedPosition);
-        window.scrollTo({
-          top: parseInt(savedPosition),
-          behavior: "auto"
-        });
-        sessionStorage.removeItem('collectionsScrollPosition');
-      }
-    }, 800);
+      // Phase 2: Load products content
+      setTimeout(() => {
+        setIsLoading(false);
+        setLoadingPhase("complete");
+        
+        // If we need to restore scroll position, do it now that content is loaded
+        if (isRestoringPosition && savedPosition) {
+          // Small delay to ensure rendering is complete
+          setTimeout(() => {
+            window.scrollTo({
+              top: parseInt(savedPosition),
+              behavior: "auto"
+            });
+            // Clear the saved position after using it
+            sessionStorage.removeItem('collectionsScrollPosition');
+          }, 50);
+        }
+        
+        // Clean up the returning flag if it exists
+        if (returningFromProduct) {
+          sessionStorage.removeItem('returningFromProductDetail');
+        }
+      }, contentDelay);
+    }, initialDelay);
   }, [searchParams]);
 
   // Filter sarees based on selected category, price range, and search query
@@ -168,7 +168,12 @@ const Collections = () => {
   return (
     <>
       <NavBar />
-      <div className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <motion.div 
+        initial={{ opacity: 0.8 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="pt-24 pb-16 min-h-screen bg-gradient-to-b from-white to-gray-50"
+      >
         <div className="container mx-auto px-4 py-12">
           {/* Header */}
           <motion.div
@@ -428,15 +433,33 @@ const Collections = () => {
             {/* Products Grid */}
             <div className="flex-1">
               {isLoading ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <motion.div 
+                  initial={{ opacity: 0.6 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0.6 }}
+                  transition={{ duration: 0.5 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-20" // Added extra bottom margin to account for no footer
+                >
                   {[...Array(9)].map((_, index) => (
                     <div
                       key={index}
-                      className="bg-gray-100 animate-pulse rounded-xl overflow-hidden"
-                      style={{ height: '400px' }}
-                    />
+                      className="bg-white rounded-xl overflow-hidden shadow-md"
+                      style={{ height: loadingPhase === "initial" ? '250px' : '400px', transition: 'height 0.3s ease-in-out' }}
+                    >
+                      <div className="bg-gray-200 animate-pulse h-80"></div>
+                      {loadingPhase === "content" && (
+                        <div className="p-4">
+                          <div className="flex justify-between mb-2">
+                            <div className="h-5 bg-gray-200 animate-pulse rounded w-2/3"></div>
+                            <div className="h-5 bg-gray-200 animate-pulse rounded w-1/4"></div>
+                          </div>
+                          <div className="h-5 bg-gray-200 animate-pulse rounded w-1/3 mb-4"></div>
+                          <div className="h-10 bg-gray-200 animate-pulse rounded"></div>
+                        </div>
+                      )}
+                    </div>
                   ))}
-                </div>
+                </motion.div>
               ) : (
                 <>
                   {/* Results count */}
@@ -554,10 +577,15 @@ const Collections = () => {
 
                   {/* Products grid */}
                   {filteredSarees.length === 0 ? (
-                    <div className="text-center py-16">
+                    <motion.div 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.5 }}
+                      className="text-center py-16"
+                    >
                       <h3 className="text-xl font-medium text-gray-800 mb-2">No sarees found</h3>
                       <p className="text-gray-600">Try adjusting your search or filters to find what you're looking for.</p>
-                    </div>
+                    </motion.div>
                   ) : (
                     <motion.div
                       variants={containerVariants}
@@ -628,8 +656,18 @@ const Collections = () => {
             </div>
           </div>
         </div>
-      </div>
-      <Footer />
+      </motion.div>
+      
+      {/* Only render footer when content is fully loaded */}
+      {!isLoading && loadingPhase === "complete" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Footer />
+        </motion.div>
+      )}
     </>
   );
 };
