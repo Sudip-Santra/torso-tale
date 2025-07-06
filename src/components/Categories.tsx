@@ -144,26 +144,23 @@ const Categories = () => {
               key={index}
               variants={itemVariants}
               className="flex"
-            // Removed whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group">
-                <div className="relative w-full h-full overflow-hidden">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
-                    <h3 className="text-xl md:text-2xl font-calligraphy font-bold mb-2">{category.title}</h3>
-                    <p className="text-sm md:text-base opacity-90 mb-4">{category.description}</p>
+              <Link 
+                to={`/product/${category.productId}`}
+                className="block w-full cursor-pointer" 
+              >
+                <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group h-full">
+                  <div className="relative w-full h-full overflow-hidden">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
+                      <h3 className="text-xl md:text-2xl font-calligraphy font-bold mb-2">{category.title}</h3>
+                      <p className="text-sm md:text-base opacity-90 mb-4">{category.description}</p>
 
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white border border-white/30 w-full group transition-all duration-300"
-                      asChild
-                    >
-                      <Link to={`/product/${category.productId}`}>
+                      <div className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white border border-white/30 px-3 py-2 rounded-md w-full flex items-center justify-center group transition-all duration-300">
                         <span className="font-medium">View Details</span>
                         <motion.span
                           className="ml-2 inline-block"
@@ -173,11 +170,11 @@ const Categories = () => {
                         >
                           <ArrowRight size={16} />
                         </motion.span>
-                      </Link>
-                    </Button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
