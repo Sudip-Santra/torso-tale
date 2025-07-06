@@ -46,10 +46,11 @@ const About = () => {
             <div className="order-1">
               <div className="w-full h-full flex items-center justify-center">
                 <img
-                  src="assets/about/Parijat_mul_home_page_result.webp" // Replace with actual image path
+                  src="assets/about/Parijat_mul_home_page_result.webp"
                   alt="Women in sarees"
-                  className="w-full h-auto object-cover rounded-lg shadow-lg max-h-96 mt-8" // Ensure width matches container, height adjusts
+                  className=" w-full object-cover rounded-lg shadow-lg mt-8 h-auto max-h-none sm:max-h-96"
                 />
+
               </div>
             </div>
             {/* Content on Right */}
@@ -89,7 +90,7 @@ const About = () => {
                 <img
                   src="assets/about/landscape_3_models_result.webp" // Replace with actual image path
                   alt="Women in sarees"
-                  className="w-full h-auto object-cover rounded-lg shadow-lg max-h-96 mt-8" // Ensure width matches container, height adjusts
+                  className="w-full object-cover rounded-lg shadow-lg h-auto max-h-none sm:max-h-96 mt-8" // Ensure width matches container, height adjusts
                 />
               </div>
             </div>
