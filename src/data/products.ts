@@ -448,7 +448,7 @@ const specificLinenSarees: Product[] = [
     images: [
       "/assets/collections/Plain_Linen_Beetroot2.webp",
       "/assets/collections/Plain_Linen_Beetroot1.webp",
-      "/assets/collections/Plain_Linen_Beetroot4.webp",
+      "/assets/collections/Plain_linen_Beetroot4.webp",
     ],
     description: "This single colour saree proves that \"Less is more\" in the finest linen fabric.",
     highlights: [
