@@ -58,20 +58,6 @@ const highlightSets = [
   ]
 ];
 
-// Weaving clusters
-const weavingClusters = [
-  "West Bengal",
-  "Tamil Nadu",
-  "Odisha",
-  "Gujarat",
-  "Rajasthan",
-  "Assam",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Telangana",
-  "Karnataka"
-];
-
 // Colors
 const colors = [
   "Navy Blue",
@@ -729,6 +715,41 @@ const specificLinenSarees: Product[] = [
     keywords: ["linen", "tulip", "black", "handloom", "zari", "formal", "bloom", "floral"],
     isBestseller: true
   },
+  {
+    id: "211",
+    name: "Linen Lust",
+    price: 3599,
+    category: "Linen",
+    images: [
+      "/assets/collections/Linen_Jamdani_Purple4.webp",
+      "/assets/collections/Linen_Jamdani_Purple2.webp",
+      "/assets/collections/Linen_Jamdani_Purple1.webp",
+      "/assets/collections/Linen_Jamdani_Purple3.webp",
+    ],
+    description: "This saree showcases the finest linen fabric, and tends to have a clean fall.",
+    highlights: [
+      "Fabric Strength: Linen is the strongest natural fibre. Breathable, soft, and natural.",
+      "Handloom weaving: Crafted with precision and care. The intricate handloom weaving adds a touch of artisanal charm, making this saree a masterpiece of traditional craftsmanship.",
+      "Elegant drape: This saree gives a perfect drape and fall which makes it perfect for formal, business-casual events or special occasions."
+    ],
+    details: {
+      "Product Type": "Saree",
+      "Saree Length": "6.5 meters | Width: 47 inches",
+      "Fabric": "Pure Linen with Zari border",
+      "Color": "Eminence Purple",
+      "Blouse Piece": "Yes, unstitched",
+      
+      "Craft Technique": "Handloom"
+    },
+    washCare: [
+      "Soak in salt water before washing to help lock in colours.",
+      "Dry clean /Light hand wash only",
+      "Avoid steam ironing",
+      "Use low heat for ironing"
+    ],
+    keywords: ["linen", "jamdani", "purple", "eminence purple", "handloom", "zari", "formal", "business casual"],
+    isBestseller: true
+  }
 ];
 
 // Specific Khadi saree products
@@ -1741,82 +1762,6 @@ const specificTissueSarees: Product[] = [
   }
 ];
 
-// Specific Jamdani saree products
-const specificJamdaniSarees: Product[] = [
-  {
-    id: "601",
-    name: "Phooldaan",
-    price: 1999,
-    category: "Jamdani",
-    images: [
-      "/assets/saree1.jpg",
-      "/assets/saree2.jpg",
-      "/assets/saree3.jpg"
-    ],
-    description: "Crafted from the finest cotton fabric, this saree seamlessly blends comfort, grace, and timeless beauty.",
-    highlights: [
-      "Softness and comfort: Cotton Jamdani is a soft, breathable and very comfortable fabric ideal for all-day wear, especially for warmer climates.",
-      "Jamdani weaving: Jamdani sarees are mainly known for its intricate motifs and patterns, often featuring floral and geometric designs.",
-      "Ease movement: It's gentle texture, gives the saree a soft touch and ensures comfort and ease of movement.",
-      "Festive look: Its striking colour symbolizes energy and celebration. It instantly grabs attention and radiates positivity making it perfect for homely occasions."
-    ],
-    details: {
-      "Product Type": "Saree (Half pink -Half blue)",
-      "Saree Length": "6.5 meters | Width: 47 inches",
-      "Fabric": "Cotton Jamdani",
-      "Color": "Hot Pink and Indigo Blue",
-      "Blouse Piece": "Yes, unstitched",
-      
-      "Craft Technique": "Handloom"
-    },
-    washCare: [
-      "Soak in salt water before washing to help lock in colours.",
-      "Light hand wash only",
-      "Avoid steam ironing",
-      "Can use starch after 3-4 washes",
-      "Use low heat for ironing"
-    ],
-    keywords: ["jamdani", "cotton", "handloom", "pink", "blue", "dual color", "floral", "geometric", "festive", "comfortable"],
-    isNew: true,
-    isBestseller: true
-  },
-  {
-    id: "602",
-    name: "Linen Lust",
-    price: 3599,
-    category: "Jamdani",
-    images: [
-      "/assets/collections/Linen_Jamdani_Purple4.webp",
-      "/assets/collections/Linen_Jamdani_Purple2.webp",
-      "/assets/collections/Linen_Jamdani_Purple1.webp",
-      "/assets/collections/Linen_Jamdani_Purple3.webp",
-    ],
-    description: "This saree showcases the finest linen fabric, and tends to have a clean fall.",
-    highlights: [
-      "Fabric Strength: Linen is the strongest natural fibre. Breathable, soft, and natural.",
-      "Handloom weaving: Crafted with precision and care. The intricate handloom weaving adds a touch of artisanal charm, making this saree a masterpiece of traditional craftsmanship.",
-      "Elegant drape: This saree gives a perfect drape and fall which makes it perfect for formal, business-casual events or special occasions."
-    ],
-    details: {
-      "Product Type": "Saree",
-      "Saree Length": "6.5 meters | Width: 47 inches",
-      "Fabric": "Pure Linen with Zari border",
-      "Color": "Eminence Purple",
-      "Blouse Piece": "Yes, unstitched",
-      
-      "Craft Technique": "Handloom"
-    },
-    washCare: [
-      "Soak in salt water before washing to help lock in colours.",
-      "Dry clean /Light hand wash only",
-      "Avoid steam ironing",
-      "Use low heat for ironing"
-    ],
-    keywords: ["linen", "jamdani", "purple", "eminence purple", "handloom", "zari", "formal", "business casual"],
-    isBestseller: true
-  }
-];
-
 // Generate 50 products with unique descriptions, images, and details
 export const products: Product[] = [
   ...specificMulmulSarees,
@@ -1825,7 +1770,6 @@ export const products: Product[] = [
   ...specificKanthaStitchSarees,
   ...specificHandpaintedSarees,
   ...specificTissueSarees,
-  ...specificJamdaniSarees
   // Removed the randomly generated products to only keep specific sarees
 ];
 

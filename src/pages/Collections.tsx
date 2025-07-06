@@ -171,7 +171,7 @@ const Collections = () => {
               <div className="hidden md:block">
                 <h3 className="text-lg font-medium mb-3 text-gray-800">Categories</h3>
                 <ul className="space-y-2">
-                  {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted", "Jamdani"].map((category) => (
+                  {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted"].map((category) => (
                     <li key={category}>
                       <button
                         onClick={() => setSelectedCategory(category as ProductCategory)}
@@ -216,7 +216,7 @@ const Collections = () => {
 
                 {expandedSection === 'categories' && (
                   <ul className="mt-1 space-y-1 bg-white p-3 rounded-md border border-gray-200 shadow-sm">
-                    {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted", "Jamdani"].map((category) => (
+                    {["All", "Linen", "Mulmul", "Tissue", "Khadi", "Kantha Stitch", "Handpainted"].map((category) => (
                       <li key={category}>
                         <button
                           onClick={() => setSelectedCategory(category as ProductCategory)}

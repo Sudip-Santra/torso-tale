@@ -59,6 +59,9 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Categories</h3>
             <ul className="space-y-2">
               <li>
+                <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">All Categories</Link>
+              </li>
+              <li>
                 <Link to="/collections" className="text-gray-400 hover:text-white transition-colors">Linen</Link>
               </li>
               <li>
