@@ -376,9 +376,10 @@ const specificLinenSarees: Product[] = [
     price: 3399,
     category: "Linen",
     images: [
-      "/assets/saree9.jpg",
-      "/assets/saree10.jpg",
-      "/assets/saree11.jpg"
+      "/assets/collections/DSC04805_result.webp",
+      "/assets/collections/DSC04808_result.webp",
+      "/assets/collections/DSC04803_result.webp",
+      "/assets/collections/DSC04807_result.webp",
     ],
     description: "This saree showcases the finest linen fabric, and tends to have a clean fall.",
     highlights: [
