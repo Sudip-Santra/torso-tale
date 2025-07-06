@@ -4,6 +4,8 @@ import { ArrowLeft, Phone } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -143,19 +145,28 @@ const ProductDetail = () => {
                 <p className="text-2xl font-semibold text-saree-deep-teal mt-2">₹{productData.price.toLocaleString()}</p>
               </div>
 
-              {/* Call Now Button - Prominent at the top */}
+              {/* Contact Buttons - Prominent at the top */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="my-6"
+                className="my-6 grid grid-cols-1 md:grid-cols-2 gap-4"
               >
                 <a
                   href="tel:+919130653501"
-                  className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
+                  className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
                 >
                   <Phone size={20} className="mr-2" />
                   Call Now to Purchase
+                </a>
+                <a
+                  href="https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name}*"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
+                >
+                  <FontAwesomeIcon icon={faWhatsapp} className="h-6 w-6 mr-2" />
+                  Message on WhatsApp
                 </a>
               </motion.div>
 
@@ -225,19 +236,28 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          {/* Call Now Again - Prominent at the bottom */}
+          {/* Contact Buttons - Prominent at the bottom */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-6"
+            className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4"
           >
             <a
               href="tel:+919130653501"
-              className="inline-flex items-center justify-center w-full bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
+              className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
             >
               <Phone size={20} className="mr-2" />
               Call Now to Purchase
+            </a>
+            <a
+              href="https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name}*"
+              target="_blank"
+              rel="noopener noreferrer" 
+              className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
+            >
+              <FontAwesomeIcon icon={faWhatsapp} className="h-5 w-5 mr-2" />
+              Message on WhatsApp
             </a>
           </motion.div>
         </div>
