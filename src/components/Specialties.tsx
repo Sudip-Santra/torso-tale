@@ -28,7 +28,7 @@ const Specialties = () => {
   ];
 
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -42,7 +42,8 @@ const Specialties = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.2,
+        when: "beforeChildren"
       }
     }
   };
@@ -69,13 +70,13 @@ const Specialties = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           <motion.span
             className="inline-block px-4 py-1 bg-saree-light-teal text-white rounded-full text-sm font-medium mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Our Values
@@ -83,7 +84,7 @@ const Specialties = () => {
           <motion.h2
             className="text-4xl font-serif font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Why Choose Torso Tale?
@@ -91,13 +92,13 @@ const Specialties = () => {
           <motion.div
             className="w-24 h-1 bg-saree-deep-teal mx-auto mb-6 rounded-full"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 96 } : {}}
+            animate={{ width: 96 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           />
           <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto mt-6"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             Most importantly, we want to celebrate YOU.
@@ -134,7 +135,7 @@ const Specialties = () => {
         <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
         >
           <Link to="/about" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-saree-teal text-saree-teal hover:text-white border border-saree-teal rounded-md transition-colors duration-300 overflow-hidden">

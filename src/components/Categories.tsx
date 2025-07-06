@@ -10,28 +10,44 @@ const Categories = () => {
   const categories = [
     {
       title: "Mulmul Sarees",
+      category: "Mulmul",
       image: "/assets/homepage-collection/Mulmul1700_navyblue2.webp",
       description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart."
     },
     {
       title: "Linen Sarees",
+      category: "Linen",
       image: "/assets/homepage-collection/Barfi_linen_purple2.webp",
       description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old."
     },
     {
-      title: "Resham Kota Sarees",
-      image: "/assets/homepage-collection/Resham_Kota1.webp",
-      description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and beed."
-    },
-    {
-      title: "Raaga Tissue Sarees",
+      title: " Raaga Tissue Sarees",
+      category: "Tissue",
       image: "/assets/homepage-collection/raaga_tissue_skyblue2.webp",
       description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you."
+    },
+    {
+      title: "Resham Kota Sarees",
+      category: "Khadi",
+      image: "/assets/homepage-collection/Resham_Kota1.webp",
+      description: "Khadi's texture, nature's own, Handcrafted elegance, regally shown."
+    },
+    {
+      title: "Karat Linen Sarees",
+      category: "Linen",
+      image: "/assets/homepage-collection/karat_linen_blue1.webp",
+      description: "Kantha's stories in every thread, Heritage reimagined, elegantly spread."
+    },
+    {
+      title: "Jamdani Sarees",
+      category: "Linen",
+      image: "/assets/homepage-collection/Jamdani_2.webp",
+      description: "Artistry blooms on a canvas of thread, Each stroke telling stories, waiting to be read."
     }
   ];
 
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -45,7 +61,8 @@ const Categories = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15,
+        when: "beforeChildren"
       }
     }
   };
@@ -73,13 +90,13 @@ const Categories = () => {
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
         >
           <motion.span
             className="inline-block px-4 py-1 bg-saree-light-teal text-white rounded-full text-sm font-medium mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             Discover Our Range
@@ -87,7 +104,7 @@ const Categories = () => {
           <motion.h2
             className="text-4xl font-serif font-bold mb-4"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             Our Collections
@@ -95,13 +112,13 @@ const Categories = () => {
           <motion.div
             className="w-24 h-1 bg-saree-teal mx-auto mb-6 rounded-full"
             initial={{ width: 0 }}
-            animate={isInView ? { width: 96 } : {}}
+            animate={{ width: 96 }}
             transition={{ duration: 0.7, delay: 0.3 }}
           />
           <motion.p
             className="text-lg text-gray-600 max-w-2xl mx-auto mt-6"
             initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
             Explore our especially designed bunch of premium handwoven sarees crafted for women in all kind of Torsos.
@@ -109,7 +126,7 @@ const Categories = () => {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gap-y-8"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -121,14 +138,12 @@ const Categories = () => {
               className="flex"
               // Removed whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col w-full">
-                <div className="relative w-full h-[500px] overflow-hidden">
-                  <motion.img
+              <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group">
+                <div className="relative w-full h-full overflow-hidden">
+                  <img
                     src={category.image}
                     alt={category.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.6 }}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex flex-col justify-end p-6 text-white">
                     <h3 className="text-xl md:text-2xl font-calligraphy font-bold mb-2">{category.title}</h3>
@@ -137,10 +152,10 @@ const Categories = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/30 w-full group"
+                      className="bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white border border-white/30 w-full group transition-all duration-300"
                       asChild
                     >
-                      <Link to="/collections">
+                      <Link to={`/collections?category=${category.category || category.title.split(' ')[0]}`}>
                         <span className="font-medium">Explore Collection</span>
                         <motion.span
                           className="ml-2 inline-block"
@@ -159,12 +174,17 @@ const Categories = () => {
           ))}
         </motion.div>
 
-        <div className="mt-16 text-center">
-          <Link to="/collections" className="group relative inline-flex items-center px-8 py-3 bg-transparent hover:bg-[#096c6c] text-[#096c6c] hover:text-white border border-[#096c6c] rounded-md transition-colors duration-300 overflow-hidden">
+        <motion.div 
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
+          <Link to="/collections" className="group relative inline-flex items-center px-10 py-3.5 bg-transparent hover:bg-[#096c6c] text-[#096c6c] hover:text-white border-2 border-[#096c6c] rounded-md transition-colors duration-300 overflow-hidden">
             <span className="absolute inset-0 w-0 bg-[#096c6c] transition-all duration-300 group-hover:w-full"></span>
-            <span className="relative z-10 flex items-center font-montserrat">View All Collections <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" /></span>
+            <span className="relative z-10 flex items-center font-montserrat text-lg font-medium">View All Collections <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" /></span>
           </Link>
-        </div>
+        </motion.div>
 
         {/* Decorative elements */}
         <motion.div
