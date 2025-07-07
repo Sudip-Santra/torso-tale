@@ -1,9 +1,10 @@
-import { useState, useEffect, useRef } from "react";
-import { ChevronRight, ShoppingBag } from "lucide-react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -13,10 +14,13 @@ const Hero = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<Record<number, boolean>>({});
+  const [initialLoadComplete, setInitialLoadComplete] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
 
-  const slides = [
+  // Use useMemo to prevent slides array recreation on every render
+  const slides = useMemo(() => [
     {
       image: "/assets/slider/linen_slider_pic.webp",
       title: "Classy Gatherings",
@@ -41,25 +45,47 @@ const Hero = () => {
       subtitle: "Mulmul Sarees",
       description: "Gentle as moonlight, Light as air,<br/>MULMULs drape you beyond compare. ",
     }
-  ];
+  ], []);
+
+  // Preload the first slide image as priority
+  useEffect(() => {
+    const img = new Image();
+    img.src = slides[0].image;
+    img.onload = () => {
+      setImagesLoaded(prev => ({ ...prev, 0: true }));
+      setInitialLoadComplete(true);
+    };
+    
+    // Preload other images in the background
+    slides.slice(1).forEach((slide, idx) => {
+      const bgImg = new Image();
+      bgImg.src = slide.image;
+      bgImg.onload = () => {
+        setImagesLoaded(prev => ({ ...prev, [idx + 1]: true }));
+      };
+    });
+  }, [slides]);
 
   // Minimum swipe distance to trigger slide change (in pixels)
   const minSwipeDistance = 50;
 
-  const startSlideshow = () => {
+  // Memoize the startSlideshow function to prevent recreation on each render
+  const startSlideshow = useCallback(() => {
     if (intervalRef.current) clearInterval(intervalRef.current);
 
     intervalRef.current = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 5000);
-  };
+  }, [slides.length]);
 
   useEffect(() => {
-    startSlideshow();
+    if (initialLoadComplete) {
+      startSlideshow();
+    }
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, []);// Empty dependency array to only run once on mount
+  }, [initialLoadComplete, startSlideshow]);
 
   const changeSlide = (index: number) => {
     if (animating) return;
@@ -72,7 +98,9 @@ const Hero = () => {
     }, 800);
 
     // Restart the slideshow timer whenever slide is changed manually
-    startSlideshow();
+    if (initialLoadComplete) {
+      startSlideshow();
+    }
   };
 
   const goToNextSlide = () => {
@@ -114,7 +142,9 @@ const Hero = () => {
     setTouchEnd(0);
 
     // Restart slideshow
-    startSlideshow();
+    if (initialLoadComplete) {
+      startSlideshow();
+    }
   };
 
   // Mouse drag event handlers
@@ -143,13 +173,17 @@ const Hero = () => {
     setIsDragging(false);
 
     // Restart slideshow
-    startSlideshow();
+    if (initialLoadComplete) {
+      startSlideshow();
+    }
   };
 
   const handleMouseLeave = () => {
     if (isDragging) {
       setIsDragging(false);
-      startSlideshow();
+      if (initialLoadComplete) {
+        startSlideshow();
+      }
     }
   };
 
@@ -171,6 +205,39 @@ const Hero = () => {
     const offset = calculateParallaxOffset(clientX, clientY);
     setParallaxOffset(offset);
   };
+
+  // If images haven't loaded yet, show a skeleton
+  if (!initialLoadComplete) {
+    return (
+      <div className="h-screen relative overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
+        <Skeleton className="absolute inset-0" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="container mx-auto px-4 text-center">
+            <Skeleton className="h-8 w-40 mx-auto mb-4" />
+            <Skeleton className="h-16 w-72 mx-auto mb-6" />
+            <Skeleton className="h-6 w-96 mx-auto mb-8" />
+            <div className="flex justify-center space-x-4">
+              <Skeleton className="h-12 w-36" />
+              <Skeleton className="h-12 w-36" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Slide Indicators with enhanced styling */}
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-10">
+          {slides.map((_, index) => (
+            <Skeleton 
+              key={index} 
+              className={cn(
+                "h-1 rounded-full",
+                index === 0 ? "w-20" : "w-12"
+              )}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.section
@@ -201,12 +268,18 @@ const Hero = () => {
                 backgroundColor: { duration: 1.2, ease: [0.4, 0, 0.2, 1] }
               }}
             >
+              {/* Show a skeleton while this specific slide image is loading */}
+              {!imagesLoaded[index] && (
+                <Skeleton className="absolute inset-0 z-20" />
+              )}
+              
               <motion.div
                 className="absolute inset-0 w-full h-full"
                 style={{
                   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${slide.image})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
+                  opacity: imagesLoaded[index] ? 1 : 0,
                 }}
                 initial={{ scale: 1.05 }}
                 animate={{
@@ -252,17 +325,7 @@ const Hero = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
                     >
-                      {slide.title.split('').map((char, i) => (
-                        <motion.span
-                          key={i}
-                          initial={{ opacity: 0.5, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.5 + i * 0.02 }}
-                          className="inline-block"
-                        >
-                          {char === ' ' ? '\u00A0' : char}
-                        </motion.span>
-                      ))}
+                      {slide.title}
                     </motion.h1>
 
                     <motion.p
@@ -272,7 +335,6 @@ const Hero = () => {
                       transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
                       dangerouslySetInnerHTML={{ __html: slide.description }}
                     />
-
 
                     <motion.div
                       className="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -286,22 +348,10 @@ const Hero = () => {
                         size="lg"
                         className="bg-saree-teal hover:bg-saree-deep-teal text-saree-off-white font-medium rounded-md shadow-lg hover:shadow-xl group"
                       >
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Link to="/collections" className="flex items-center">
-                            <span className="font-sans font-semibold tracking-wide">Explore Collection</span>
-                            <motion.span
-                              className="ml-2"
-                              initial={{ x: 0 }}
-                              whileHover={{ x: 5 }}
-                              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                            >
-                              <ChevronRight className="w-5 h-5" />
-                            </motion.span>
-                          </Link>
-                        </motion.div>
+                        <Link to="/collections">
+                          Explore Collection
+                          <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </Link>
                       </Button>
 
                       <Button
@@ -310,15 +360,10 @@ const Hero = () => {
                         size="lg"
                         className="bg-transparent hover:bg-saree-off-white/20 text-saree-off-white border border-saree-off-white font-medium rounded-md group"
                       >
-                        <motion.div
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Link to="/collections" className="flex items-center">
-                            <ShoppingBag className="mr-2 w-5 h-5" />
-                            <span className="font-sans font-semibold tracking-wide">Shop Now</span>
-                          </Link>
-                        </motion.div>
+                        <Link to="/about">
+                          About Us
+                          <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                        </Link>
                       </Button>
                     </motion.div>
                   </motion.div>
@@ -328,6 +373,26 @@ const Hero = () => {
           )
         ))}
       </AnimatePresence>
+
+      {/* Navigation arrows */}
+      <div className="absolute inset-y-0 left-0 right-0 flex justify-between items-center px-4 md:px-8 z-20 pointer-events-none">
+        <Button
+          onClick={goToPrevSlide}
+          className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 pointer-events-auto"
+          size="icon"
+          variant="ghost"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+        <Button
+          onClick={goToNextSlide}
+          className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 pointer-events-auto"
+          size="icon"
+          variant="ghost"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
+      </div>
 
       {/* Slide Indicators with enhanced styling */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-10">
