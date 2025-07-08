@@ -147,12 +147,6 @@ const Contact = () => {
                         name: "Facebook"
                       },
                       { 
-                        icon: <FontAwesomeIcon icon={faWhatsapp} style={{ height: 28, width: 28 }} />, 
-                        color: "bg-saree-teal", 
-                        link: "https://wa.me/919130653501",
-                        name: "WhatsApp"
-                      },
-                      { 
                         icon: <Youtube size={28} />, 
                         color: "bg-red-600", 
                         link: "https://youtube.com/@torsotale?si=Mrum7EgRXL9Gqtvc",
