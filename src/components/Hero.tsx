@@ -31,7 +31,7 @@ const Hero = () => {
       image: "/assets/slider/Kantha_Maroon_model2_result.webp",
       title: "Woven Narratives",
       subtitle: "Kantha Sarees",
-      description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha thatnever fail.",
+      description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha that never fail.",
     },
     {
       image: "/assets/slider/Jamdani_slider_result.webp",
