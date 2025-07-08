@@ -374,26 +374,6 @@ const Hero = () => {
         ))}
       </AnimatePresence>
 
-      {/* Navigation arrows */}
-      <div className="absolute inset-y-0 left-0 right-0 flex justify-between items-center px-4 md:px-8 z-20 pointer-events-none">
-        <Button
-          onClick={goToPrevSlide}
-          className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 pointer-events-auto"
-          size="icon"
-          variant="ghost"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </Button>
-        <Button
-          onClick={goToNextSlide}
-          className="rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-2 pointer-events-auto"
-          size="icon"
-          variant="ghost"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </Button>
-      </div>
-
       {/* Slide Indicators with enhanced styling */}
       <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-10">
         {slides.map((_, index) => (
