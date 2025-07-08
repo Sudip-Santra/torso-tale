@@ -187,7 +187,7 @@ const Collections = () => {
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-saree-teal"></span>
             </div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-              Explore our especially designed bunch of premium handwoven sarees crafted for women in all kind of Torsos (Shapes).
+              Explore our especially designed bunch of premium handwoven sarees crafted for women in all kind of Torsos meaning Shapes.
             </p>
           </motion.div>
 

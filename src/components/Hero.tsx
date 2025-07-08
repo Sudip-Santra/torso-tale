@@ -31,13 +31,13 @@ const Hero = () => {
       image: "/assets/slider/Kantha_Maroon_model2_result.webp",
       title: "Woven Narratives",
       subtitle: "Kantha Sarees",
-      description: "Work of nostalgia,every stitch a tale,<br/>Threads of kantha that never fail.",
+      description: "Work of nostalgia, every stitch a tale,<br/>Threads of kantha that never fail.",
     },
     {
       image: "/assets/slider/Jamdani_slider_result.webp",
       title: "Jamdani Blooming",
       subtitle: "Jamdani Sarees",
-      description: "Weaving magic in every thread,<br/>JAMDANI's splendor,in every fold ahead.",
+      description: "Weaving magic in every thread,<br/>JAMDANI's splendor, in every fold ahead.",
     },
     {
       image: "/assets/slider/Mulmul.webp",
