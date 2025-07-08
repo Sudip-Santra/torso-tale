@@ -299,11 +299,13 @@ const ProductDetail = () => {
                 </h2>
                 <ul className="list-none space-y-3 text-gray-600">
                   {productData.highlights.map((highlight: string, index: number) => (
-                    <li key={index} className="flex items-start">
-                      <span className="inline-flex items-center justify-center w-6 h-6 bg-saree-teal text-white rounded-full text-xs mr-3 flex-shrink-0">
-                        {index + 1}
-                      </span>
-                      <span>{highlight}</span>
+                    <li
+                      key={index}
+                      className="flex items-start"
+                      style={{ alignItems: 'flex-start' }}
+                    >
+                      <span className="text-saree-teal mr-1 text-xl leading-6 select-none">•</span>
+                      <span className="block text-base leading-relaxed">{highlight}</span>
                     </li>
                   ))}
                 </ul>
