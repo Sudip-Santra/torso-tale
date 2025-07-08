@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Phone, Mail, Instagram, Facebook, Youtube, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import NavBar from "@/components/NavBar";
@@ -18,6 +19,14 @@ const Contact = () => {
       },
     }),
   };
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
+  }, []);
 
   return (
     <>

@@ -72,6 +72,14 @@ const Index = () => {
     setMounted(true);
   }, []);
 
+  // Scroll to top on component mount
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen">
       <NavBar />
