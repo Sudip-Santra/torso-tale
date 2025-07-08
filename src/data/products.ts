@@ -1080,7 +1080,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_Aboli1.webp",
       "/assets/collections/Khadi_kantha_Aboli3.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1115,7 +1115,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_darkblue4.webp",
       "/assets/collections/Khadi_kantha_darkblue5.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1149,7 +1149,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_Deep_maroon2.webp",
       "/assets/collections/Khadi_kantha_Deep_maroon4.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1183,7 +1183,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_light_saffron1.webp",
       "/assets/collections/Khadi_kantha_light_saffron3.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1217,7 +1217,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_maroon4.webp",
       "/assets/collections/Khadi_kantha_maroon3.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1252,7 +1252,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_peach3.webp",
       "/assets/collections/Khadi_kantha_peach4.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1287,7 +1287,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_red2.webp",
       "/assets/collections/Khadi_kantha_red5.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1322,7 +1322,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_white4.webp",
       "/assets/collections/Khadi_kantha_white5.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",
@@ -1357,7 +1357,7 @@ const specificKanthaStitchSarees: Product[] = [
       "/assets/collections/Khadi_kantha_skyblue5.webp",
       "/assets/collections/Khadi_kantha_skyblue2.webp",
     ],
-    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree.",
+    description: "A traditional craft of Bengal, Kantha embroidery adorns this exquisite saree with Vertical Khesh and Kantha embroidered lines and a running blouse piece with hand embroidery on the sleeves.",
     highlights: [
       "Cotton Comfort: The Kantha work has been embroidered on pure handloom khadi cotton fabric which suits best on all.",
       "Hand Embroidery: The human touch in each Kantha embroidered saree makes it a one-of-a-kind work of masterpiece, reflecting artisan's skill and your choice of Art.",

@@ -21,7 +21,7 @@ const Categories = () => {
       title: "The Prism",
       category: "Linen",
       image: "/assets/homepage-collection/Barfi_linen_purple2.webp",
-      description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old.",
+      description: "LINEN threads weave tales of old, Handloom's tender touch, stories unfold.",
       productId: "linen-featured-001"
     },
     {
