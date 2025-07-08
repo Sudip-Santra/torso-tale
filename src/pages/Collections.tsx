@@ -344,13 +344,13 @@ const Collections = () => {
                         onClick={() => setSelectedPriceRange(range)}
                         className={cn(
                           "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                          selectedPriceRange === range
+                          selectedPriceRange && selectedPriceRange.label === range.label
                             ? "bg-saree-teal/10 text-saree-deep-teal"
                             : "text-gray-600 hover:bg-gray-100"
                         )}
                       >
                         {range.label}
-                        {selectedPriceRange === range && (
+                        {selectedPriceRange && selectedPriceRange.label === range.label && (
                           <span className="float-right">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                               <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -405,24 +405,24 @@ const Collections = () => {
                     </li>
                     {priceRanges.map((range, index) => (
                       <li key={index}>
-                        <button
-                          onClick={() => setSelectedPriceRange(range)}
-                          className={cn(
-                            "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
-                            selectedPriceRange === range
-                              ? "bg-saree-teal/10 text-saree-deep-teal"
-                              : "text-gray-600 hover:bg-gray-100"
-                          )}
-                        >
-                          {range.label}
-                          {selectedPriceRange === range && (
-                            <span className="float-right">
-                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                            </span>
-                          )}
-                        </button>
+                      <button
+                        onClick={() => setSelectedPriceRange(range)}
+                        className={cn(
+                          "w-full text-left px-3 py-2 rounded-md transition-colors text-sm font-medium",
+                          selectedPriceRange && selectedPriceRange.label === range.label
+                            ? "bg-saree-teal/10 text-saree-deep-teal"
+                            : "text-gray-600 hover:bg-gray-100"
+                        )}
+                      >
+                        {range.label}
+                        {selectedPriceRange && selectedPriceRange.label === range.label && (
+                          <span className="float-right">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                              <path d="M13.3334 4.5L6.00002 11.8333L2.66669 8.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                          </span>
+                        )}
+                      </button>
                       </li>
                     ))}
                   </ul>
