@@ -1,9 +1,18 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
 
 const About = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
+  }, []);
+
   return (
     <>
       <NavBar />

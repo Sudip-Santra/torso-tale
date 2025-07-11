@@ -25,7 +25,7 @@ const Categories = () => {
       productId: "linen-featured-001"
     },
     {
-      title: " Raaga Tissue",
+      title: "Moonlight",
       category: "Tissue",
       image: "/assets/homepage-collection/raaga_tissue_skyblue2.webp",
       description: "Tissue soft, RAAGA's calm hue, A saree's elegance, for me and you.",
@@ -39,7 +39,7 @@ const Categories = () => {
       productId: "resham-featured-001"
     },
     {
-      title: "Karat Linen",
+      title: "Asymmetry",
       category: "Linen",
       image: "/assets/homepage-collection/karat_linen_blue1.webp",
       description: "Linen's weave and karat design is so bold, Enhances the charm, that never grows old.",
