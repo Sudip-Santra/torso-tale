@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { cn } from "@/lib/utils";
@@ -118,14 +119,17 @@ const About = () => {
               <p className="max-w-2xl mx-auto mb-6">
                 Our commitment is to make sarees comfortable and accessible to embrace every torso (shape), while honoring the rich tradition and artistry behind each handcrafted piece.
               </p>
-              <motion.a
-                href="/contact"
+              <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block px-8 py-3 bg-white text-saree-deep-teal font-medium rounded-full hover:bg-gray-100 transition-colors"
               >
-                Connect With Us
-              </motion.a>
+                <Link 
+                  to="/contact"
+                  className="inline-block px-8 py-3 bg-white text-saree-deep-teal font-medium rounded-full hover:bg-gray-100 transition-colors"
+                >
+                  Connect With Us
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>
