@@ -41,7 +41,7 @@ const About = () => {
               </span>
             </motion.div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto mt-4">
-              At Torso Tale, we weave handloom, one cotton thread at a time. We create a relation of a craftsman, thread, weaving and us, together.
+              At Torso Tale, we weave handloom, one cotton thread at a time. We create a relation of a craftsman, thread, weaving and us together.
             </p>
           </motion.div>
 
@@ -70,7 +70,7 @@ const About = () => {
                   <h2 className="text-3xl font-bold text-gray-900">Our Origin</h2>
                 </div>
                 <p className="text-gray-600 text-lg text-justify">
-                  Let us try time travel! Let’s move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to “Torso Tale.”
+                  Let us try time travel! Let’s move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to "Torso Tale".
                 </p>
               </div>
             </div>
@@ -90,7 +90,7 @@ const About = () => {
                   <h2 className="text-3xl font-bold text-gray-900">Our Mission and Vision</h2>
                 </div>
                 <p className="text-gray-600 text-lg text-justify">
-                  The name “Torso Tale” is the story of every woman, inclusive of all shapes, intellects, emotions, and interests. We are here to encourage you—women. The “Torso,” meaning “the main part of the body,” is described in the “Tale,” the story of the sari portraying every curve of the female anatomy. Our mission is to create comfort in style. Our vision is to create a world where women in saris are the norm. The poise any woman can carry in a sari is irreplaceable. So, join us on this journey to tell the tale of the sari on the female torso.
+                  The name "Torso Tale" is the story of every woman, inclusive of all shapes, intellects, emotions, and interests. We are here to encourage you—women. The "Torso", meaning "the main part of the body", is described in the "Tale", the story of the sari portraying every curve of the female anatomy. Our mission is to create comfort in style. Our vision is to create a world where women in saris are the norm. The poise any woman can carry in a sari is irreplaceable. So, join us on this journey to tell the tale of the sari on the female torso.
                 </p>
               </div>
             </div>
