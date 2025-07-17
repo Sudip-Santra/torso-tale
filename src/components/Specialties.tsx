@@ -13,7 +13,7 @@ const Specialties = () => {
     {
       icon: <Gem className="w-12 h-12 text-saree-teal" />,
       title: "High-Quality Fabrics",
-      description: "Torso Tales uses premium fabrics that are comfortable, durable, and visually appealing."
+      description: "Torso Tale uses premium fabrics that are comfortable, durable, and visually appealing."
     },
     {
       icon: <BookOpen className="w-12 h-12 text-saree-teal" />,
@@ -23,7 +23,7 @@ const Specialties = () => {
     {
       icon: <HeartHandshake className="w-12 h-12 text-saree-teal" />,
       title: "Empowerment",
-      description: "Torso Tales aims to empower women through its sarees, celebrating their strength, beauty, and individuality."
+      description: "Torso Tale aims to empower women through its sarees, celebrating their strength, beauty, and individuality."
     }
   ];
 
