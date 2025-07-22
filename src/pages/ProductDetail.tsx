@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Phone } from "lucide-react";
+import { ArrowLeft, Phone, ZoomIn } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -9,6 +9,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import products, { Product, ProductDetails } from "@/data/products";
 import { featuredProducts } from "@/data/featuredProducts";
@@ -205,24 +206,33 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
             {/* Product Images */}
             <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="bg-white rounded-xl overflow-hidden shadow-xl h-[500px]"
-              >
-                <img
-                  src={productData.images[activeImage]}
-                  alt={productData.name}
-                  className={`w-full h-full object-cover ${id === 'linen-featured-002'
-                      ? 'object-center md:object-[center_-280px]' // Mobile: centered | Desktop: shift up
-                      : isFeaturedProduct
-                        ? 'object-center md:object-[center_-100px]' // Mobile: centered | Desktop: shift up
-                        : 'object-center'
-                    }`}
-
-
-                />
-              </motion.div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="bg-white rounded-xl overflow-hidden shadow-xl h-[500px] group cursor-pointer relative"
+                  >
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center z-10">
+                      <div className="bg-white/80 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all">
+                        <ZoomIn className="h-6 w-6 text-saree-deep-teal" />
+                      </div>
+                    </div>
+                    <img
+                      src={productData.images[activeImage]}
+                      alt={productData.name}
+                      className="w-full h-full object-cover object-center"
+                    />
+                  </motion.div>
+                </DialogTrigger>
+                <DialogContent className="max-w-5xl p-0 border-none bg-transparent overflow-hidden">
+                  <img 
+                    src={productData.images[activeImage]} 
+                    alt={productData.name} 
+                    className="w-full h-auto max-h-[80vh] object-contain" 
+                  />
+                </DialogContent>
+              </Dialog>
 
               <div className="flex space-x-3 overflow-x-auto pb-2">
                 {productData.images.map((image: string, index: number) => (
@@ -237,7 +247,7 @@ const ProductDetail = () => {
                     <img
                       src={image}
                       alt={`Product view ${index + 1}`}
-                      className={`w-full h-full object-cover`}
+                      className="w-full h-full object-cover object-center"
                     />
                   </button>
                 ))}
