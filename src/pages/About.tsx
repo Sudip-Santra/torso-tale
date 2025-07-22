@@ -56,9 +56,9 @@ const About = () => {
             <div className="order-1">
               <div className="w-full h-full flex items-center justify-center">
                 <img
-                  src="assets/about/Parijat_mul_home_page_result.webp"
+                  src="assets/about/about1.webp"
                   alt="Women in sarees"
-                  className=" w-full object-cover rounded-lg shadow-lg mt-8 h-auto max-h-none sm:max-h-96"
+                  className=" w-full object-cover object-[center_20%] rounded-lg shadow-lg mt-8 h-auto max-h-none sm:max-h-96"
                 />
 
               </div>
