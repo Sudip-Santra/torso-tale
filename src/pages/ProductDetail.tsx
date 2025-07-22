@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Phone, ZoomIn } from "lucide-react";
+import { ArrowLeft, Phone, ZoomIn, X } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -20,6 +20,7 @@ const ProductDetail = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState<Product | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false); // Added state for dialog control
 
   // Scroll to top on component mount or when ID changes
   useEffect(() => {
@@ -206,7 +207,7 @@ const ProductDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-8">
             {/* Product Images */}
             <div className="space-y-4">
-              <Dialog>
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -225,11 +226,17 @@ const ProductDetail = () => {
                     />
                   </motion.div>
                 </DialogTrigger>
-                <DialogContent className="max-w-5xl p-0 border-none bg-transparent overflow-hidden">
-                  <img 
-                    src={productData.images[activeImage]} 
-                    alt={productData.name} 
-                    className="w-full h-auto max-h-[80vh] object-contain" 
+                <DialogContent className="max-w-5xl p-0 border-none bg-transparent overflow-hidden flex items-center justify-center">
+                  <button
+                    onClick={() => setIsDialogOpen(false)} // Explicitly close the dialog
+                    className="absolute top-4 right-4 z-50 bg-white rounded-full p-1 text-gray-900 hover:bg-gray-200 transition-all shadow-md"
+                  >
+                    <X className="h-6 w-6" /> {/* Smaller black and white icon */}
+                  </button>
+                  <img
+                    src={productData.images[activeImage]}
+                    alt={productData.name}
+                    className="w-full h-auto max-h-[80vh] object-contain"
                   />
                 </DialogContent>
               </Dialog>
@@ -374,4 +381,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail; 
+export default ProductDetail;
