@@ -70,7 +70,7 @@ const About = () => {
                   <h2 className="text-3xl font-bold text-gray-900">Our Origin</h2>
                 </div>
                 <p className="text-gray-600 text-lg text-justify">
-                  Let us try time travel! Let’s move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to "Torso Tale".
+                  Let us try time travel! Let's move to the streets of older India with women wearing only saris. During that period, a sari held significant cultural, social, and symbolic meaning. The way a woman draped a sari, showcased the flawless beauty of the six yards of fabric. The seamless wrap of a sari represents the infinite loop of life, and the wholeness within it. A sari is a wrap of shield as well as, of comfort and reassurance. It is so graceful and yet so powerful. The pallu of a sari can wipe off all pain with its pure kindness and its strong identity. These tales of saris and women wearing them have given birth to "Torso Tale".
                 </p>
               </div>
             </div>
