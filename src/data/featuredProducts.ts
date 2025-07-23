@@ -63,7 +63,7 @@ export const featuredProducts: Product[] = [
       "Product Type": "Saree",
       "Saree Length": "6.5 meters | Width: 47 inches",
       "Fabric": "Pure Linen with Zari border",
-      "Color": "Magenta Pink",
+      "Color": "Tacao Purple",
       "Blouse Piece": "Yes, unstitched",
       "Craft Technique": "Handloom"
     },
