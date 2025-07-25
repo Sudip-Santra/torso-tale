@@ -14,7 +14,7 @@ const Categories = () => {
       title: "Mul Melody",
       category: "Mulmul",
       image: "/assets/homepage-collection/Mulmul1700_navyblue2.webp",
-      description: "Mul's soft whisper, PARIJAT's gentle art, just the saree but touches the heart.",
+      description: "Mul's soft whisper, weaver's gentle art, just the saree but touches the heart.",
       productId: "mulmul-featured-001"
     },
     {
@@ -35,7 +35,7 @@ const Categories = () => {
       title: "Rang-e-Resham",
       category: "Khadi",
       image: "/assets/homepage-collection/Resham_Kota1.webp",
-      description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and beed.",
+      description: "Royal glow on RESHAM KOTA's grid, Elegance woven, in every thread and bead.",
       productId: "resham-featured-001"
     },
     {

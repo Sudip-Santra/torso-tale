@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, TouchEvent } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft, Phone, ZoomIn, X } from "lucide-react";
+import { ArrowLeft, Phone, ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -21,6 +21,8 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState<Product | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false); // Added state for dialog control
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   // Scroll to top on component mount or when ID changes
   useEffect(() => {
@@ -62,6 +64,45 @@ const ProductDetail = () => {
 
   // Check if this is a featured product from home page
   const isFeaturedProduct = featuredProducts.some(product => product.id === id);
+
+  // Handle image navigation
+  const goToNextImage = () => {
+    if (productData && productData.images) {
+      setActiveImage((prev) => 
+        prev === productData.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const goToPrevImage = () => {
+    if (productData && productData.images) {
+      setActiveImage((prev) => 
+        prev === 0 ? productData.images.length - 1 : prev - 1
+      );
+    }
+  };
+
+  // Handle touch events for swipe
+  const handleTouchStart = (e: TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!productData) return;
+    
+    const minSwipeDistance = 50;
+    if (touchStart - touchEnd > minSwipeDistance) {
+      // Swiped left, go to next image
+      goToNextImage();
+    } else if (touchEnd - touchStart > minSwipeDistance) {
+      // Swiped right, go to previous image
+      goToPrevImage();
+    }
+  };
 
   const handleGoBack = () => {
     // Check if we came from collections page - if so, we want to preserve scroll position
@@ -213,13 +254,42 @@ const ProductDetail = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="bg-white rounded-xl overflow-hidden shadow-xl h-[500px] group cursor-pointer relative"
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
                   >
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center z-10">
                       <div className="bg-white/80 p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all">
                         <ZoomIn className="h-6 w-6 text-saree-deep-teal" />
                       </div>
                     </div>
-                    <img
+                    
+                    {/* Navigation arrows */}
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goToPrevImage();
+                      }} 
+                      className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <ChevronLeft className="h-6 w-6 text-gray-800" />
+                    </button>
+                    
+                    <button 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        goToNextImage();
+                      }} 
+                      className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full z-20 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <ChevronRight className="h-6 w-6 text-gray-800" />
+                    </button>
+                    
+                    <motion.img
+                      key={activeImage}
+                      initial={{ opacity: 0.8 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
                       src={productData.images[activeImage]}
                       alt={productData.name}
                       className="w-full h-full object-cover object-center"
@@ -233,7 +303,26 @@ const ProductDetail = () => {
                   >
                     <X className="h-6 w-6" /> {/* Smaller black and white icon */}
                   </button>
-                  <img
+                  
+                  <button 
+                    onClick={goToPrevImage} 
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full z-20"
+                  >
+                    <ChevronLeft className="h-6 w-6 text-gray-800" />
+                  </button>
+                  
+                  <button 
+                    onClick={goToNextImage} 
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white p-2 rounded-full z-20"
+                  >
+                    <ChevronRight className="h-6 w-6 text-gray-800" />
+                  </button>
+                  
+                  <motion.img
+                    key={`fullscreen-${activeImage}`}
+                    initial={{ opacity: 0.7 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
                     src={productData.images[activeImage]}
                     alt={productData.name}
                     className="w-full h-auto max-h-[80vh] object-contain"
