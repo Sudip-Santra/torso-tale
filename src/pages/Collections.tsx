@@ -602,7 +602,7 @@ const Collections = () => {
                             className="group"
                           >
                             <Link 
-                              to={`/product/${saree.id}`}
+                              to={`/collections/${saree.id}`}
                               className="block h-full"
                               onClick={saveScrollPosition}
                             >
