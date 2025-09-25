@@ -1,0 +1,26 @@
+[build]
+  # Directory to change to before starting a build
+  base = "."
+  # Directory that contains the built site
+  publish = "dist"
+  # Default build command
+  command = "npm run build"
+
+[build.environment]
+  # Set the Node.js version
+  NODE_VERSION = "18"
+
+[[redirects]]
+  # Redirect all routes to index.html for SPA routing
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production]
+  command = "npm run build"
+
+[context.deploy-preview]
+  command = "npm run build"
+
+[context.branch-deploy]
+  command = "npm run build"
