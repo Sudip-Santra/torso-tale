@@ -145,9 +145,9 @@ const Categories = () => {
               variants={itemVariants}
               className="flex"
             >
-              <Link 
-                to={`/product/${category.productId}`}
-                className="block w-full cursor-pointer" 
+              <Link
+                to={`/collections/${category.productId}`}
+                className="block w-full cursor-pointer"
               >
                 <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group h-full">
                   <div className="relative w-full h-full overflow-hidden">

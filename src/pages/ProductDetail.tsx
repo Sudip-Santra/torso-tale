@@ -405,7 +405,7 @@ const ProductDetail = () => {
                   Call Now to Purchase
                 </a>
                 <a
-                  href={`https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name} (${productData.details["Color"]})*`}
+                  href={`https://wa.me/919130653501?text=Hi, I'm interested in purchasing the saree: *${productData.name} (${productData.details["Color"]})*%0A%0AProduct Link: ${window.location.href}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center bg-saree-teal hover:bg-saree-deep-teal text-white font-medium py-4 px-6 rounded-md transition-colors shadow-lg"
