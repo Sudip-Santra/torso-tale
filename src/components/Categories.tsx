@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import featuredProducts from '@/data/featuredProducts';
+import { getProductSlug } from "@/utils/productSlug";
 
 const Categories = () => {
-  // Categories linked to featured products
+  // Categories linked to featured products (by product id)
   const categories = [
     {
       title: "Mul Melody",
@@ -139,14 +140,22 @@ const Categories = () => {
           initial="hidden"
           animate={controls}
         >
-          {categories.map((category, index) => (
+          {categories.map((category, index) => {
+            const featuredProduct = featuredProducts.find(
+              (product) => product.id === category.productId
+            );
+            const targetSlug = featuredProduct
+              ? getProductSlug(featuredProduct)
+              : category.productId;
+
+            return (
             <motion.div
               key={index}
               variants={itemVariants}
               className="flex"
             >
               <Link
-                to={`/collections/${category.productId}`}
+                to={`/collections/${targetSlug}`}
                 className="block w-full cursor-pointer"
               >
                 <Card className="overflow-hidden border-none shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col w-full group h-full">
@@ -176,7 +185,8 @@ const Categories = () => {
                 </Card>
               </Link>
             </motion.div>
-          ))}
+            );
+          })}
         </motion.div>
 
         <motion.div

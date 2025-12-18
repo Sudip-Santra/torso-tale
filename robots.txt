@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+# Crawl-delay (optional, uncomment if server load is an issue)
+# Crawl-delay: 5
+
+Sitemap: https://torsotale.in/sitemap.xml

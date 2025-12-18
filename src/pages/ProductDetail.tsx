@@ -13,10 +13,11 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 import products, { Product, ProductDetails } from "@/data/products";
 import { featuredProducts } from "@/data/featuredProducts";
+import { getProductSlug } from "@/utils/productSlug";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  const { slug } = useParams();
   const [activeImage, setActiveImage] = useState(0);
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState<Product | null>(null);
@@ -25,30 +26,33 @@ const ProductDetail = () => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [swipeDirection, setSwipeDirection] = useState<'left' | 'right' | null>(null);
 
-  // Scroll to top on component mount or when ID changes
+  // Scroll to top on component mount or when slug changes
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: 'instant'
     });
-  }, [id]);
+  }, [slug]);
 
-  // Fetch product data based on ID
+  // Fetch product data based on slug (URL‑friendly product name)
   useEffect(() => {
     setLoading(true);
 
     const fetchData = () => {
-      let foundProduct = featuredProducts.find(product => product.id === id);
+      let foundProduct: Product | null = null;
+
+      if (slug) {
+        const allProducts: Product[] = [...featuredProducts, ...products];
+        foundProduct =
+          allProducts.find((product) => getProductSlug(product) === slug) ??
+          null;
+      }
 
       if (!foundProduct) {
-        foundProduct = products.find(product => product.id === id);
+        foundProduct = products[0];
       }
 
-      if (foundProduct) {
-        setProductData(foundProduct);
-      } else {
-        setProductData(products[0]);
-      }
+      setProductData(foundProduct);
 
       setTimeout(() => {
         setLoading(false);
@@ -56,9 +60,11 @@ const ProductDetail = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [slug]);
 
-  const isFeaturedProduct = featuredProducts.some(product => product.id === id);
+  const isFeaturedProduct = productData
+    ? featuredProducts.some((product) => product.id === productData.id)
+    : false;
 
   // Handle image navigation
   const goToNextImage = () => {

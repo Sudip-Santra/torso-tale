@@ -25,7 +25,8 @@ const AnimatedRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/collections" element={<Collections />} />
-        <Route path="/collections/:id" element={<ProductDetail />} />
+        {/* Product detail now uses a readable slug instead of raw ID */}
+        <Route path="/collections/:slug" element={<ProductDetail />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

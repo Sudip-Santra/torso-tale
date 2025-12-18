@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Link, useSearchParams } from "react-router-dom";
 import products from "@/data/products";
+import { getProductSlug } from "@/utils/productSlug";
 import { ProductCategory, PriceRange, SortOption } from "@/types/product";
 
 const Collections = () => {
@@ -602,7 +603,7 @@ const Collections = () => {
                             className="group"
                           >
                             <Link 
-                              to={`/collections/${saree.id}`}
+                              to={`/collections/${getProductSlug(saree)}`}
                               className="block h-full"
                               onClick={saveScrollPosition}
                             >
