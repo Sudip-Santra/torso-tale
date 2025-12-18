@@ -1,0 +1,16 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# If your site is in a subfolder under the domain, set that here.
+# For example, if your URL is https://example.com/Torso_Tale/
+# then uncomment the next line and adjust as needed:
+# RewriteBase /Torso_Tale/
+
+# Do not rewrite existing files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite all other requests to index.html (SPA routing)
+# If using a subfolder, change /index.html to /Torso_Tale/index.html
+RewriteRule . /index.html [L]
