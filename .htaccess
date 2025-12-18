@@ -1,6 +1,11 @@
 # Enable URL rewriting
 RewriteEngine On
 
+# Redirect torsotale.com (with or without www) to torsotale.in
+RewriteCond %{HTTP_HOST} ^torsotale\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.torsotale\.com$
+RewriteRule ^(.*)$ https://torsotale.in/$1 [L,R=301]
+
 # If your site is in a subfolder under the domain, set that here.
 # For example, if your URL is https://example.com/Torso_Tale/
 # then uncomment the next line and adjust as needed:
